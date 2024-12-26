@@ -1,6 +1,6 @@
-import { RegisterInputs as workday } from "./app/services/formFields/workday";
-import { RegisterInputs as greenhouse } from "./app/services/formFields/greenhouse";
-import { RegisterInputs as greenhouseReact } from "./app/services/formFields/greenhouseReact";
+import { RegisterInputs as workday } from "./../services/formFields/workday";
+import { RegisterInputs as greenhouse } from "./../services/formFields/greenhouse";
+import { RegisterInputs as greenhouseReact } from "./../services/formFields/greenhouseReact";
 
 type InputSetup = (node: Node) => Promise<void>;
 const inputRegistrars: [string, InputSetup][] = [
