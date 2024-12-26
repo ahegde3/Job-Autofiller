@@ -57525,7 +57525,7 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 
 
 // Regiser server and methods accessible to injected script.
-const server = new _utils_crossContextCommunication_server__WEBPACK_IMPORTED_MODULE_0__.Server("a52302e6-a6e4-4b8a-98a2-7224ed54a6b7");
+const server = new _utils_crossContextCommunication_server__WEBPACK_IMPORTED_MODULE_0__.Server("c69c8596-c8a2-4881-9141-30e3ab5b34df");
 server.register("addAnswer", (newAnswer) => __awaiter(void 0, void 0, void 0, function* () {
     const answer1010 = _utils_storage_Answers1010__WEBPACK_IMPORTED_MODULE_2__.answers1010.add((0,_utils_storage_DataStore__WEBPACK_IMPORTED_MODULE_3__.convert106To1010)(newAnswer));
     return (0,_utils_storage_DataStore__WEBPACK_IMPORTED_MODULE_3__.convert1010To106)(answer1010);

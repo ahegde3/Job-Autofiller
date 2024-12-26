@@ -93191,7 +93191,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _utils_crossContextCommunication_client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../utils/crossContextCommunication/client */ "./src/utils/crossContextCommunication/client.ts");
 
-const contentScriptAPI = new _utils_crossContextCommunication_client__WEBPACK_IMPORTED_MODULE_0__.Client("a52302e6-a6e4-4b8a-98a2-7224ed54a6b7");
+const contentScriptAPI = new _utils_crossContextCommunication_client__WEBPACK_IMPORTED_MODULE_0__.Client("c69c8596-c8a2-4881-9141-30e3ab5b34df");
 
 
 /***/ }),
