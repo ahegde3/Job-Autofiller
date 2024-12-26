@@ -91310,1160 +91310,10 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
-/***/ "./src/inject/app/App.tsx":
-/*!********************************!*\
-  !*** ./src/inject/app/App.tsx ***!
-  \********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   App: () => (/* binding */ App),
-/* harmony export */   attachReactApp: () => (/* binding */ attachReactApp)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/styles/ThemeProvider.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Box/Box.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Grid/Grid.js");
-/* harmony import */ var _src_shared_utils_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @src/shared/utils/react */ "./src/shared/utils/react.tsx");
-/* harmony import */ var _AppContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AppContext */ "./src/inject/app/AppContext.tsx");
-/* harmony import */ var _FieldWidget_FieldWidgetButtons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./FieldWidget/FieldWidgetButtons */ "./src/inject/app/FieldWidget/FieldWidgetButtons.tsx");
-/* harmony import */ var _src_shared_components_Logo__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @src/shared/components/Logo */ "./src/shared/components/Logo.tsx");
-
-
-
-
-
-
-
-const Main = () => {
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], { theme: _src_shared_utils_react__WEBPACK_IMPORTED_MODULE_2__.theme },
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], { my: '4px' },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], { container: true, spacing: 1, alignItems: "center" },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], { item: true },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src_shared_components_Logo__WEBPACK_IMPORTED_MODULE_5__["default"], null)),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], { item: true },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_FieldWidget_FieldWidgetButtons__WEBPACK_IMPORTED_MODULE_4__.FieldWidgetButtons, null))))));
-};
-const App = ({ backend }) => {
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_AppContext__WEBPACK_IMPORTED_MODULE_3__.ContextProvider, { backend: backend },
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Main, null)));
-};
-const attachReactApp = (app, inputContainer) => {
-    // cant just append the react app to the root element...
-    // it makes the element disappear
-    const rootElement = document.createElement('div');
-    inputContainer.insertBefore(rootElement, inputContainer.lastChild);
-    (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(rootElement).render(app);
-};
-
-
-/***/ }),
-
-/***/ "./src/inject/app/AppContext.tsx":
-/*!***************************************!*\
-  !*** ./src/inject/app/AppContext.tsx ***!
-  \***************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ContextProvider: () => (/* binding */ ContextProvider),
-/* harmony export */   useAppContext: () => (/* binding */ useAppContext)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _hooks_usePopperState__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./hooks/usePopperState */ "./src/inject/app/hooks/usePopperState.ts");
-var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-
-
-const AppContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)(null);
-const useAppContext = () => (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(AppContext);
-const ContextProvider = ({ children, backend }) => {
-    const [currentValue, setCurrentValue] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
-    const [fillButtonDisabled, setFillButtonDisabled] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
-    const [editableAnswer, setEditableAnswer] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
-    const editableAnswerState = backend.editableAnswerHook(backend);
-    const fieldNotice = backend.fieldNotice;
-    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-        ;
-        (() => __awaiter(void 0, void 0, void 0, function* () {
-            yield editableAnswerState.init();
-            yield refresh();
-            yield handleFill();
-        }))();
-        backend.element.addEventListener(backend.reactMessageEventId, refresh);
-        return () => {
-            backend.element.removeEventListener(backend.reactMessageEventId, refresh);
-        };
-    }, []);
-    const init = () => __awaiter(void 0, void 0, void 0, function* () {
-        yield editableAnswerState.init();
-        yield refresh();
-    });
-    const refresh = () => __awaiter(void 0, void 0, void 0, function* () {
-        setCurrentValue(backend.currentValue());
-    });
-    const isFilled = editableAnswerState.answers.length > 0 &&
-        backend.isFilled(backend.currentValue(), backend.answerValue.prepForFill(editableAnswerState.answers));
-    const deleteAnswer = (id) => __awaiter(void 0, void 0, void 0, function* () {
-        yield backend.deleteAnswer(id);
-        yield refresh();
-    });
-    const handleFill = () => __awaiter(void 0, void 0, void 0, function* () {
-        setFillButtonDisabled(true);
-        try {
-            yield backend.fill();
-            yield refresh();
-        }
-        finally {
-            setFillButtonDisabled(false);
-        }
-    });
-    const { saveButtonClickHandler } = backend;
-    const moreInfoPopper = (0,_hooks_usePopperState__WEBPACK_IMPORTED_MODULE_1__.usePopperState)({ init, backend });
-    const value = {
-        backend,
-        refresh,
-        init,
-        deleteAnswer,
-        editableAnswer,
-        setEditableAnswer,
-        currentValue,
-        setCurrentValue,
-        isFilled,
-        moreInfoPopper,
-        editableAnswerState,
-        fieldNotice,
-        fillButton: {
-            isDisabled: fillButtonDisabled,
-            onClick: handleFill,
-            isFilled: editableAnswerState.answers.length > 0 && isFilled,
-        },
-        saveButton: {
-            showSuccessBadge: editableAnswerState.answers.length > 0,
-            clickHandler: () => {
-                saveButtonClickHandler(backend.fieldSnapshot, {
-                    moreInfoPopper,
-                    init,
-                    editableAnswerState,
-                    backend,
-                });
-            },
-        },
-    };
-    return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(AppContext.Provider, { value: value }, children);
-};
-
-
-/***/ }),
-
-/***/ "./src/inject/app/FieldWidget/FieldWidgetButtons.tsx":
-/*!***********************************************************!*\
-  !*** ./src/inject/app/FieldWidget/FieldWidgetButtons.tsx ***!
-  \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   FieldWidgetButtons: () => (/* binding */ FieldWidgetButtons)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Paper/Paper.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/ButtonGroup/ButtonGroup.js");
-/* harmony import */ var _AppContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../AppContext */ "./src/inject/app/AppContext.tsx");
-/* harmony import */ var _FillButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./FillButton */ "./src/inject/app/FieldWidget/FillButton.tsx");
-/* harmony import */ var _SaveButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SaveButton */ "./src/inject/app/FieldWidget/SaveButton.tsx");
-/* harmony import */ var _MoreInfoButton__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./MoreInfoButton */ "./src/inject/app/FieldWidget/MoreInfoButton.tsx");
-
-
-
-
-
-
-const FieldWidgetButtons = () => {
-    const { moreInfoPopper } = (0,_AppContext__WEBPACK_IMPORTED_MODULE_1__.useAppContext)();
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { elevation: 4 },
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], { ref: moreInfoPopper.anchorRef, size: "small" },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_FillButton__WEBPACK_IMPORTED_MODULE_2__.FillButton, null),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_SaveButton__WEBPACK_IMPORTED_MODULE_3__.SaveButton, null),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_MoreInfoButton__WEBPACK_IMPORTED_MODULE_4__.MoreInfoButton, null))));
-};
-
-
-/***/ }),
-
-/***/ "./src/inject/app/FieldWidget/FillButton.tsx":
+/***/ "./src/components/AbsoluteRelativeSwitch.tsx":
 /*!***************************************************!*\
-  !*** ./src/inject/app/FieldWidget/FillButton.tsx ***!
+  !*** ./src/components/AbsoluteRelativeSwitch.tsx ***!
   \***************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   FillButton: () => (/* binding */ FillButton)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Tooltip/Tooltip.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Button/Button.js");
-/* harmony import */ var _src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @src/shared/utils/icons */ "./src/shared/utils/icons.tsx");
-/* harmony import */ var _AppContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../AppContext */ "./src/inject/app/AppContext.tsx");
-/* harmony import */ var _components_ButtonSuccessBadge__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/ButtonSuccessBadge */ "./src/inject/app/components/ButtonSuccessBadge.tsx");
-
-
-
-
-
-const FillButton = () => {
-    const { fillButton: { isFilled, onClick, isDisabled }, } = (0,_AppContext__WEBPACK_IMPORTED_MODULE_2__.useAppContext)();
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], { title: "Autofill", placement: "top", arrow: true },
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null,
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_ButtonSuccessBadge__WEBPACK_IMPORTED_MODULE_3__.ButtonSuccessBadge, { show: isFilled },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { onClick: onClick, disabled: isDisabled },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_1__.AutoFixHighIcon, null))))));
-};
-
-
-/***/ }),
-
-/***/ "./src/inject/app/FieldWidget/MoreInfoButton.tsx":
-/*!*******************************************************!*\
-  !*** ./src/inject/app/FieldWidget/MoreInfoButton.tsx ***!
-  \*******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   MoreInfoButton: () => (/* binding */ MoreInfoButton)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _MoreInfoPopup_MoreInfoPopper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../MoreInfoPopup/MoreInfoPopper */ "./src/inject/app/MoreInfoPopup/MoreInfoPopper.tsx");
-/* harmony import */ var _src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @src/shared/utils/icons */ "./src/shared/utils/icons.tsx");
-/* harmony import */ var _AppContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../AppContext */ "./src/inject/app/AppContext.tsx");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Button/Button.js");
-
-
-
-
-
-const MoreInfoButton = () => {
-    const { moreInfoPopper: { isOpen, handleToggleButtonClick }, } = (0,_AppContext__WEBPACK_IMPORTED_MODULE_3__.useAppContext)();
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], { type: "button", variant: isOpen ? 'contained' : 'outlined', onClick: handleToggleButtonClick },
-        isOpen ? react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_2__.CloseIcon, null) : react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_2__.MoreVertIcon, null),
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_MoreInfoPopup_MoreInfoPopper__WEBPACK_IMPORTED_MODULE_1__.MoreInfoPopper, null)));
-};
-
-
-/***/ }),
-
-/***/ "./src/inject/app/FieldWidget/SaveButton.tsx":
-/*!***************************************************!*\
-  !*** ./src/inject/app/FieldWidget/SaveButton.tsx ***!
-  \***************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   SaveButton: () => (/* binding */ SaveButton)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Tooltip/Tooltip.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Button/Button.js");
-/* harmony import */ var _src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @src/shared/utils/icons */ "./src/shared/utils/icons.tsx");
-/* harmony import */ var _AppContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../AppContext */ "./src/inject/app/AppContext.tsx");
-/* harmony import */ var _components_ButtonSuccessBadge__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/ButtonSuccessBadge */ "./src/inject/app/components/ButtonSuccessBadge.tsx");
-
-
-
-
-
-const SaveButton = () => {
-    const { saveButton: { clickHandler, showSuccessBadge }, } = (0,_AppContext__WEBPACK_IMPORTED_MODULE_2__.useAppContext)();
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_ButtonSuccessBadge__WEBPACK_IMPORTED_MODULE_3__.ButtonSuccessBadge, { show: showSuccessBadge },
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], { title: "Save current value as answer.", placement: "top", arrow: true },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { onClick: () => clickHandler() },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_1__.SaveIcon, null)))));
-};
-
-
-/***/ }),
-
-/***/ "./src/inject/app/MoreInfoPopup/AnswerDisplay/AnswerDisplayComponent.tsx":
-/*!*******************************************************************************!*\
-  !*** ./src/inject/app/MoreInfoPopup/AnswerDisplay/AnswerDisplayComponent.tsx ***!
-  \*******************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   AnswerDisplayComponent: () => (/* binding */ AnswerDisplayComponent)
-/* harmony export */ });
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Paper/Paper.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Grid/Grid.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Box/Box.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Typography/Typography.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Button/Button.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Breadcrumbs/Breadcrumbs.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Chip/Chip.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Tooltip/Tooltip.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Avatar/Avatar.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/TextField/TextField.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/IconButton/IconButton.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_ConfirmButton__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/ConfirmButton */ "./src/inject/app/components/ConfirmButton.tsx");
-/* harmony import */ var _AppContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../AppContext */ "./src/inject/app/AppContext.tsx");
-/* harmony import */ var _components_SimplePopper__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/SimplePopper */ "./src/inject/app/components/SimplePopper.tsx");
-/* harmony import */ var _src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @src/shared/utils/icons */ "./src/shared/utils/icons.tsx");
-/* harmony import */ var _src_shared_utils_strings__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @src/shared/utils/strings */ "./src/shared/utils/strings.ts");
-
-
-
-
-
-
-
-const AnswerDisplayComponent = ({ id }) => {
-    const { editableAnswerState: { setEditable, setEditedPath, cancelEdit, saveAnswer, deleteAnswer, answers, }, backend, } = (0,_AppContext__WEBPACK_IMPORTED_MODULE_2__.useAppContext)();
-    const { editedAnswer, originalAnswer, editable, error, isNew } = answers.find((a) => a.id === id);
-    const errorPopperRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], { elevation: 4, sx: { p: 1, width: '100%' } },
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_SimplePopper__WEBPACK_IMPORTED_MODULE_3__.SimplePopper, { anchorRef: errorPopperRef, message: error, placement: 'top' }),
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], { spacing: 2, ref: errorPopperRef, container: true, direction: "column" },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], { item: true },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], { container: true, justifyContent: "space-between", direction: 'row' },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], null,
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_9__["default"], null, "Path:"),
-                        originalAnswer.matchType && (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_9__["default"], { variant: "caption" },
-                            "Match: ",
-                            (0,_src_shared_utils_strings__WEBPACK_IMPORTED_MODULE_5__.sentenceCase)(originalAnswer.matchType)))),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], null, editable && (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
-                        ' ',
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_10__["default"], { onClick: () => saveAnswer(id) }, "Save"),
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_10__["default"], { onClick: () => cancelEdit(id) }, "Cancel")))),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], null, !isNew && (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_ConfirmButton__WEBPACK_IMPORTED_MODULE_1__.ConfirmButton, { component: "IconButton", action: () => deleteAnswer(id), dialogTitle: "Are You Sure?", buttonContent: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_4__.DeleteIcon, null) }, "Are you Sure you want to delete this answer? This action is not reversible.")))),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_11__["default"], { separator: ">" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_12__["default"], { variant: "outlined", label: editedAnswer.path.section, avatar: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_13__["default"], { title: "Section" },
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_14__["default"], null, "S")) }),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_12__["default"], Object.assign({ sx: {
-                            height: 'auto',
-                            minHeight: '32px',
-                            textWrap: 'inherit',
-                            '& .MuiChip-label': {
-                                display: 'block',
-                                whiteSpace: 'normal',
-                            },
-                        }, variant: "outlined", label: editable ? (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_15__["default"], { variant: "standard", fullWidth: true, multiline: true, value: editedAnswer.path.fieldName, onChange: (e) => setEditedPath(id, 'fieldName', e.target.value), InputProps: {
-                                sx: { font: 'inherit', height: 'fit-content' },
-                                endAdornment: (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_16__["default"], { onClick: () => cancelEdit(id) },
-                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_4__.CloseIcon, null))),
-                            } })) : (editedAnswer.path.fieldName), avatar: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_13__["default"], { title: "Question" },
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_14__["default"], null, "Q")) }, (!editable && {
-                        deleteIcon: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_4__.EditIcon, null),
-                        onDelete: () => setEditable(id, true),
-                    }))))),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], { item: true },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(backend.answerValue.displayComponent, { id: id })))));
-};
-
-
-/***/ }),
-
-/***/ "./src/inject/app/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings.tsx":
-/*!****************************************************************************************************!*\
-  !*** ./src/inject/app/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings.tsx ***!
-  \****************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   AnswerValueBackupStrings: () => (/* binding */ AnswerValueBackupStrings)
-/* harmony export */ });
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Divider/Divider.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Typography/Typography.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Grid/Grid.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/IconButton/IconButton.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/TextField/TextField.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Tooltip/Tooltip.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _AppContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../AppContext */ "./src/inject/app/AppContext.tsx");
-/* harmony import */ var _src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @src/shared/utils/icons */ "./src/shared/utils/icons.tsx");
-
-
-
-
-const AnswerValueBackupStrings = ({ id }) => {
-    const { editableAnswerState, backend } = (0,_AppContext__WEBPACK_IMPORTED_MODULE_1__.useAppContext)();
-    const { setEditable, setEditedValue, cancelEdit } = editableAnswerState;
-    const { editedAnswer, isNew } = editableAnswerState.answers.find((a) => a.id === id);
-    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-        if (isNew) {
-            setValueEditable(0, true);
-        }
-    }, []);
-    const addNewAnswerValue = () => {
-        const { value } = editedAnswer;
-        setEditedValue(id, [...value, ['', true]]);
-        setEditable(id, true);
-    };
-    const setValueEditable = (answerValueId, editable) => {
-        const { value } = editedAnswer;
-        value[answerValueId][1] = editable;
-        setEditedValue(id, structuredClone(value));
-        if (editable) {
-            setEditable(id, true);
-        }
-        else if (!value.some(([_, editable]) => editable)) {
-            cancelEdit(id);
-        }
-    };
-    const setSingleEditedValue = (answerValueId, newValue) => {
-        const { value } = editedAnswer;
-        value[answerValueId][0] = newValue;
-        setEditedValue(id, structuredClone(value));
-    };
-    const deleteAnswerValue = (answerValueId) => {
-        const { value } = editedAnswer;
-        delete value[answerValueId];
-        setEditedValue(id, structuredClone(value.filter(Boolean)));
-        setEditable(id, true);
-    };
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], { sx: { mb: 1 } }),
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], null, "Values:"),
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { container: true, direction: 'column', spacing: 1 },
-            editedAnswer.value.map(([answer, valueEditable], answerValueId) => {
-                return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { item: true, key: `${id}-${answerValueId}` },
-                    !valueEditable ? (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], { display: "inline-flex" }, answer),
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], { onClick: () => setValueEditable(answerValueId, true) },
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_2__.EditIcon, null)))) : (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], { variant: "standard", inputProps: {
-                                size: Math.max((answer === null || answer === void 0 ? void 0 : answer.length) || 0 + 1, 15),
-                            }, InputProps: {
-                                endAdornment: (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
-                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], { onClick: () => {
-                                            setSingleEditedValue(answerValueId, backend.currentValue());
-                                        } },
-                                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], { title: `Fill with the current value.` },
-                                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_2__.InputIcon, null))),
-                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], { onClick: () => setValueEditable(answerValueId, false) },
-                                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_2__.CloseIcon, null)))),
-                            }, value: answer, onChange: (e) => setSingleEditedValue(answerValueId, e.target.value) }))),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], { onClick: () => deleteAnswerValue(answerValueId) },
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_2__.DeleteIcon, null))));
-            }),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { item: true },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], { onClick: addNewAnswerValue },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_2__.AddIcon, null)),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], { title: "Add a backup answer to this answer path." },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_2__.InfoIcon, { fontSize: "inherit" }))))));
-};
-
-
-/***/ }),
-
-/***/ "./src/inject/app/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueMultiFileUpload.tsx":
-/*!******************************************************************************************************!*\
-  !*** ./src/inject/app/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueMultiFileUpload.tsx ***!
-  \******************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   AnswerValueMultiFileUpload: () => (/* binding */ AnswerValueMultiFileUpload)
-/* harmony export */ });
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Divider/Divider.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Typography/Typography.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Grid/Grid.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Tooltip/Tooltip.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Button/Button.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/IconButton/IconButton.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _AppContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../AppContext */ "./src/inject/app/AppContext.tsx");
-/* harmony import */ var _src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @src/shared/utils/icons */ "./src/shared/utils/icons.tsx");
-/* harmony import */ var _components_VisuallyHiddenInput__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/VisuallyHiddenInput */ "./src/inject/app/components/VisuallyHiddenInput.tsx");
-/* harmony import */ var _src_shared_utils_file__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @src/shared/utils/file */ "./src/shared/utils/file.ts");
-/* harmony import */ var _mui_icons_material_InsertDriveFile__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @mui/icons-material/InsertDriveFile */ "./node_modules/@mui/icons-material/InsertDriveFile.js");
-var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-
-
-
-
-
-
-
-const AnswerValueMultiFileUpload = ({ id }) => {
-    const { editableAnswerState, backend } = (0,_AppContext__WEBPACK_IMPORTED_MODULE_1__.useAppContext)();
-    const { setEditable, setEditedValue, } = editableAnswerState;
-    const { editedAnswer } = editableAnswerState.answers.find((a) => a.id === id);
-    const deleteAnswerValue = (answerValueId) => {
-        const { value } = editedAnswer;
-        delete value[answerValueId];
-        setEditedValue(id, structuredClone(value.filter(Boolean)));
-        setEditable(id, true);
-    };
-    const handleUpload = (fileList) => __awaiter(void 0, void 0, void 0, function* () {
-        setEditable(id, true);
-        for (const file of fileList) {
-            editedAnswer.value.push(yield (0,_src_shared_utils_file__WEBPACK_IMPORTED_MODULE_4__.fileToLocalStorage)(file));
-        }
-        setEditedValue(id, structuredClone(editedAnswer.value));
-    });
-    const handleDownload = (file) => {
-        (0,_src_shared_utils_file__WEBPACK_IMPORTED_MODULE_4__.downloadFile)((0,_src_shared_utils_file__WEBPACK_IMPORTED_MODULE_4__.localStorageToFile)(file));
-    };
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { sx: { mb: 1 } }),
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], null, "Files:"),
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], { container: true, direction: 'column', spacing: 1 },
-            editedAnswer.value.map((file, answerValueId) => {
-                return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], { item: true, key: `${id}-${answerValueId}` },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], { title: "download" },
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_9__["default"], { sx: { textTransform: 'none' }, startIcon: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_icons_material_InsertDriveFile__WEBPACK_IMPORTED_MODULE_10__["default"], null), onClick: () => handleDownload(file) }, file.name)),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_11__["default"], { onClick: () => deleteAnswerValue(answerValueId) },
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_2__.DeleteIcon, null))));
-            }),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], { item: true },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_9__["default"], { component: "label", role: undefined, 
-                    // variant="contained"
-                    tabIndex: -1, startIcon: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_2__.UploadFileIcon, null) },
-                    "Upload files",
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_VisuallyHiddenInput__WEBPACK_IMPORTED_MODULE_3__.VisuallyHiddenInput, { type: "file", onChange: (event) => handleUpload(event.target.files), multiple: true }))))));
-};
-
-
-/***/ }),
-
-/***/ "./src/inject/app/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleBool.tsx":
-/*!*************************************************************************************************!*\
-  !*** ./src/inject/app/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleBool.tsx ***!
-  \*************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   AnswerValueSingleBool: () => (/* binding */ AnswerValueSingleBool)
-/* harmony export */ });
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Divider/Divider.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Typography/Typography.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Collapse/Collapse.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Checkbox/Checkbox.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/IconButton/IconButton.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Tooltip/Tooltip.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _AppContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../AppContext */ "./src/inject/app/AppContext.tsx");
-/* harmony import */ var _src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @src/shared/utils/icons */ "./src/shared/utils/icons.tsx");
-
-
-
-
-const AnswerValueSingleBool = ({ id }) => {
-    const { editableAnswerState, backend } = (0,_AppContext__WEBPACK_IMPORTED_MODULE_1__.useAppContext)();
-    const { setEditable, setEditedValue, cancelEdit } = editableAnswerState;
-    const { editedAnswer, editable } = editableAnswerState.answers.find((a) => a.id === id);
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], { sx: { mb: 1 } }),
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], null, "Value:"),
-        editable ? (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { in: editable },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], { checked: editedAnswer.value, onChange: (e) => setEditedValue(id, e.target.checked) }),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], { onClick: () => {
-                    setEditedValue(id, backend.currentValue());
-                } },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], { title: `Fill with the current value.` },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_2__.InputIcon, null))),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], { onClick: () => cancelEdit(id) },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_2__.CloseIcon, null)))) : (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], { component: "span" }, String(editedAnswer.value)),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], { onClick: () => setEditable(id, true) },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_2__.EditIcon, null))))));
-};
-
-
-/***/ }),
-
-/***/ "./src/inject/app/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleDate.tsx":
-/*!*************************************************************************************************!*\
-  !*** ./src/inject/app/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleDate.tsx ***!
-  \*************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   AnswerValueSingleDate: () => (/* binding */ AnswerValueSingleDate)
-/* harmony export */ });
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/TextField/TextField.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Divider/Divider.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Typography/Typography.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Collapse/Collapse.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/IconButton/IconButton.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Tooltip/Tooltip.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _AppContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../AppContext */ "./src/inject/app/AppContext.tsx");
-/* harmony import */ var _src_shared_utils_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @src/shared/utils/react */ "./src/shared/utils/react.tsx");
-/* harmony import */ var _src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @src/shared/utils/icons */ "./src/shared/utils/icons.tsx");
-
-
-
-
-
-/**
- * The Value is stored as an array of strings.
- */
-const AnswerValueSingleDate = ({ id }) => {
-    const { editableAnswerState: { setEditable, setEditedValue, cancelEdit, answers }, backend, } = (0,_AppContext__WEBPACK_IMPORTED_MODULE_1__.useAppContext)();
-    const { editedAnswer: { value }, editable, } = answers.find((a) => a.id === id);
-    const editFields = editable &&
-        value.map((part, index) => {
-            return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], { key: index, variant: "standard", inputProps: { size: part.length }, value: part, onChange: (e) => {
-                    value[index] = e.target.value;
-                    setEditedValue(id, structuredClone(value));
-                } }));
-        });
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { sx: { mb: 1 } }),
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], null, "Value:"),
-        editable ? (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], { in: editable },
-            (0,_src_shared_utils_react__WEBPACK_IMPORTED_MODULE_2__.joinComponents)(editFields, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], { mx: 1, variant: "h6", display: 'inline-flex' }, "/")),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], { onClick: () => {
-                    setEditedValue(id, backend.currentValue());
-                } },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_9__["default"], { title: `Fill with the current value.` },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_3__.InputIcon, null))),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], { onClick: () => cancelEdit(id) },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_3__.CloseIcon, null)))) : (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], { component: "span" }, value.join('/')),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], { onClick: () => setEditable(id, true) },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_3__.EditIcon, null))))));
-};
-
-
-/***/ }),
-
-/***/ "./src/inject/app/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleFileUpload.tsx":
-/*!*******************************************************************************************************!*\
-  !*** ./src/inject/app/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleFileUpload.tsx ***!
-  \*******************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   AnswerValueSingleFileUpload: () => (/* binding */ AnswerValueSingleFileUpload)
-/* harmony export */ });
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Divider/Divider.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Typography/Typography.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Box/Box.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Tooltip/Tooltip.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Button/Button.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/IconButton/IconButton.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _AppContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../AppContext */ "./src/inject/app/AppContext.tsx");
-/* harmony import */ var _src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @src/shared/utils/icons */ "./src/shared/utils/icons.tsx");
-/* harmony import */ var _components_VisuallyHiddenInput__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/VisuallyHiddenInput */ "./src/inject/app/components/VisuallyHiddenInput.tsx");
-/* harmony import */ var _src_shared_utils_file__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @src/shared/utils/file */ "./src/shared/utils/file.ts");
-/* harmony import */ var _mui_icons_material_InsertDriveFile__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @mui/icons-material/InsertDriveFile */ "./node_modules/@mui/icons-material/InsertDriveFile.js");
-var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-
-
-
-
-
-
-
-const AnswerValueSingleFileUpload = ({ id }) => {
-    const { editableAnswerState: { setEditable, setEditedValue, answers }, } = (0,_AppContext__WEBPACK_IMPORTED_MODULE_1__.useAppContext)();
-    const { editedAnswer } = answers.find((a) => a.id === id);
-    const deleteAnswerValue = () => {
-        setEditedValue(id, '');
-        setEditable(id, true);
-    };
-    const handleUpload = (fileList) => __awaiter(void 0, void 0, void 0, function* () {
-        const localStorageFile = yield (0,_src_shared_utils_file__WEBPACK_IMPORTED_MODULE_4__.fileToLocalStorage)(fileList[0]);
-        setEditable(id, true);
-        setEditedValue(id, localStorageFile);
-    });
-    const handleDownload = (file) => {
-        (0,_src_shared_utils_file__WEBPACK_IMPORTED_MODULE_4__.downloadFile)((0,_src_shared_utils_file__WEBPACK_IMPORTED_MODULE_4__.localStorageToFile)(file));
-    };
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { sx: { mb: 1 } }),
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], null, "Files:"),
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], null, editedAnswer.value ? (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], { title: "download" },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_9__["default"], { sx: { textTransform: 'none' }, startIcon: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_icons_material_InsertDriveFile__WEBPACK_IMPORTED_MODULE_10__["default"], null), onClick: () => handleDownload(editedAnswer.value) }, editedAnswer.value.name)),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_11__["default"], { onClick: () => deleteAnswerValue() },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_2__.DeleteIcon, null)))) : (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_9__["default"], { component: "label", role: undefined, 
-            // variant="contained"
-            tabIndex: -1, startIcon: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_2__.UploadFileIcon, null) },
-            "Upload files",
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_VisuallyHiddenInput__WEBPACK_IMPORTED_MODULE_3__.VisuallyHiddenInput, { type: "file", onChange: (event) => handleUpload(event.target.files) }))))));
-};
-
-
-/***/ }),
-
-/***/ "./src/inject/app/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleRelativeDate.tsx":
-/*!*********************************************************************************************************!*\
-  !*** ./src/inject/app/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleRelativeDate.tsx ***!
-  \*********************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   AnswerValueSingleRelativeDate: () => (/* binding */ AnswerValueSingleRelativeDate)
-/* harmony export */ });
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/TextField/TextField.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Typography/Typography.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Divider/Divider.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Collapse/Collapse.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/IconButton/IconButton.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Tooltip/Tooltip.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _src_shared_utils_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @src/shared/utils/react */ "./src/shared/utils/react.tsx");
-/* harmony import */ var _src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @src/shared/utils/icons */ "./src/shared/utils/icons.tsx");
-/* harmony import */ var _components_AbsoluteRelativeSwitch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/AbsoluteRelativeSwitch */ "./src/inject/app/components/AbsoluteRelativeSwitch.tsx");
-/* harmony import */ var _AppContext__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../AppContext */ "./src/inject/app/AppContext.tsx");
-
-
-
-
-
-
-/**
- * The Value is stored as an array of strings.
- */
-const AnswerValueSingleRelativeDate = ({ id }) => {
-    const { editableAnswerState: { setEditable, setEditedValue, cancelEdit, answers }, backend, } = (0,_AppContext__WEBPACK_IMPORTED_MODULE_4__.useAppContext)();
-    const { editedAnswer: { value }, editable, } = answers.find((a) => a.id === id);
-    const toggleRelative = ({ target }) => {
-        value.relative = target.checked;
-        if (value.relative) {
-            value.relativeValue = 'today';
-        }
-        setEditedValue(id, structuredClone(value));
-    };
-    const fieldLengths = [2, 2, 4];
-    const AbsoluteDateEditFields = editable &&
-        !value.relative &&
-        value.absoluteValue &&
-        value.absoluteValue.map((part, index) => {
-            return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { key: index, variant: "standard", inputProps: { size: fieldLengths[index] }, value: part, onChange: (e) => {
-                    value.absoluteValue[index] = e.target.value;
-                    setEditedValue(id, structuredClone(value));
-                } }));
-        });
-    const AbsoluteDateEditComponent = AbsoluteDateEditFields &&
-        (0,_src_shared_utils_react__WEBPACK_IMPORTED_MODULE_1__.joinComponents)(AbsoluteDateEditFields, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], { mx: 1, variant: "h6", display: 'inline-flex' }, "/"));
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], { sx: { mb: 1 } }),
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], null, "Value:"),
-        editable ? (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], { in: editable },
-            !value.relative ? (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
-                AbsoluteDateEditComponent,
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_9__["default"], { onClick: () => {
-                        value.absoluteValue = backend.currentValue();
-                        setEditedValue(id, structuredClone(value));
-                    } },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_10__["default"], { title: `Fill with the current value.` },
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_2__.InputIcon, null))))) : (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], { display: 'inline' }, "Current Date")),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_AbsoluteRelativeSwitch__WEBPACK_IMPORTED_MODULE_3__.AbsoluteRelativeSwitch, { checked: value.relative, onChange: toggleRelative }),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_9__["default"], { onClick: () => cancelEdit(id) },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_2__.CloseIcon, null)))) : (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], { component: "span" }, value.relative
-                ? value.relativeValue
-                : value.absoluteValue.join('/')),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_9__["default"], { onClick: () => setEditable(id, true) },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_2__.EditIcon, null))))));
-};
-
-
-/***/ }),
-
-/***/ "./src/inject/app/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleString.tsx":
-/*!***************************************************************************************************!*\
-  !*** ./src/inject/app/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleString.tsx ***!
-  \***************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   AnswerValueSingleString: () => (/* binding */ AnswerValueSingleString)
-/* harmony export */ });
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Divider/Divider.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Typography/Typography.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Collapse/Collapse.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/TextField/TextField.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/IconButton/IconButton.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Tooltip/Tooltip.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @src/shared/utils/icons */ "./src/shared/utils/icons.tsx");
-/* harmony import */ var _AppContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../AppContext */ "./src/inject/app/AppContext.tsx");
-
-
-
-
-const AnswerValueSingleString = ({ id }) => {
-    const { editableAnswerState: { setEditable, setEditedValue, cancelEdit, answers }, backend, } = (0,_AppContext__WEBPACK_IMPORTED_MODULE_2__.useAppContext)();
-    const { editedAnswer, editable } = answers.find((a) => a.id === id);
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], { sx: { mb: 1 } }),
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], null, "Value:"),
-        editable ? (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { in: editable },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], { variant: "standard", fullWidth: true, multiline: true, value: editedAnswer.value, onChange: (e) => setEditedValue(id, e.target.value), InputProps: {
-                    endAdornment: (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], { onClick: () => {
-                                setEditedValue(id, backend.currentValue());
-                            } },
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], { title: `Fill with the current value.` },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_1__.InputIcon, null))),
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], { onClick: () => cancelEdit(id) },
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_1__.CloseIcon, null)))),
-                } }))) : (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], { component: "span" }, String(editedAnswer.value)),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], { onClick: () => setEditable(id, true) },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_1__.EditIcon, null))))));
-};
-
-
-/***/ }),
-
-/***/ "./src/inject/app/MoreInfoPopup/AnswerSection.tsx":
-/*!********************************************************!*\
-  !*** ./src/inject/app/MoreInfoPopup/AnswerSection.tsx ***!
-  \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   AnswersContainer: () => (/* binding */ AnswersContainer),
-/* harmony export */   AnswersSection: () => (/* binding */ AnswersSection),
-/* harmony export */   ListFadeContainer: () => (/* binding */ ListFadeContainer),
-/* harmony export */   NoAnswerNotice: () => (/* binding */ NoAnswerNotice)
-/* harmony export */ });
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Fade/Fade.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Typography/Typography.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Tooltip/Tooltip.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/IconButton/IconButton.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Stack/Stack.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Box/Box.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _AppContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../AppContext */ "./src/inject/app/AppContext.tsx");
-/* harmony import */ var _src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @src/shared/utils/icons */ "./src/shared/utils/icons.tsx");
-/* harmony import */ var _AnswerDisplay_AnswerDisplayComponent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AnswerDisplay/AnswerDisplayComponent */ "./src/inject/app/MoreInfoPopup/AnswerDisplay/AnswerDisplayComponent.tsx");
-/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components */ "./src/inject/app/MoreInfoPopup/components.tsx");
-
-
-
-
-
-
-const NoAnswerNotice = () => {
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { in: true, timeout: { enter: 350 }, unmountOnExit: true },
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_4__.Item, null,
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], { component: 'div', sx: {
-                    fontStyle: 'italic',
-                    display: 'flex',
-                    alignItems: 'center',
-                } },
-                "No answer",
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], { title: "Fill in the field and click save to save an answer" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_2__.InfoIcon, { sx: { marginLeft: '4px' }, fontSize: "inherit" }))))));
-};
-function ListFadeContainer({ items, renderItem, }) {
-    return react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, items.map((item) => renderItem(item)));
-}
-const AnswersContainer = ({ answers, }) => {
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ListFadeContainer, { items: answers, renderItem: (answer) => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { key: answer.id, in: true, timeout: { exit: 450 }, unmountOnExit: true },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null,
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_AnswerDisplay_AnswerDisplayComponent__WEBPACK_IMPORTED_MODULE_3__.AnswerDisplayComponent, { id: answer.id })))) }));
-};
-const AnswersSection = () => {
-    const { backend, editableAnswerState: { answers, addNewAnswer }, } = (0,_AppContext__WEBPACK_IMPORTED_MODULE_1__.useAppContext)();
-    const hasAnswers = answers.length > 0;
-    const addNewAnswerButton = (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], { onClick: () => {
-            const { path, answer } = backend.fieldSnapshot;
-            addNewAnswer(path, answer);
-        } },
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_2__.AddIcon, null)));
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], { variant: "h6", mb: 2 }, "Answers"),
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_9__["default"], { spacing: 1 },
-            hasAnswers ? (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(AnswersContainer, { answers: answers })) : (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(NoAnswerNotice, null)),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_10__["default"], null, addNewAnswerButton))));
-};
-
-
-/***/ }),
-
-/***/ "./src/inject/app/MoreInfoPopup/FieldInfo.tsx":
-/*!****************************************************!*\
-  !*** ./src/inject/app/MoreInfoPopup/FieldInfo.tsx ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   FieldInfo: () => (/* binding */ FieldInfo)
-/* harmony export */ });
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Typography/Typography.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Breadcrumbs/Breadcrumbs.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Chip/Chip.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Tooltip/Tooltip.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Avatar/Avatar.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _AppContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../AppContext */ "./src/inject/app/AppContext.tsx");
-
-
-
-const FieldInfo = () => {
-    const { backend } = (0,_AppContext__WEBPACK_IMPORTED_MODULE_1__.useAppContext)();
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
-        ' ',
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_2__["default"], { variant: "h6" }, "Question Path:"),
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], { separator: ">" },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], { variant: "outlined", avatar: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { title: "Page" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], null, "P")), label: backend.path.page }),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], { variant: "outlined", avatar: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { title: "Section" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], null, "S")), label: backend.path.section }),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], { variant: "outlined", avatar: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { title: "Field Type" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], null, "T")), label: backend.path.fieldType }),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], { sx: {
-                    height: 'auto',
-                    minHeight: '32px',
-                    textWrap: 'inherit',
-                    '& .MuiChip-label': {
-                        display: 'block',
-                        whiteSpace: 'normal',
-                    },
-                }, variant: "outlined", avatar: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { title: "Question" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], null, "Q")), label: backend.path.fieldName }))));
-};
-
-
-/***/ }),
-
-/***/ "./src/inject/app/MoreInfoPopup/MoreInfoCardContainer.tsx":
-/*!****************************************************************!*\
-  !*** ./src/inject/app/MoreInfoPopup/MoreInfoCardContainer.tsx ***!
-  \****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Card/Card.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/CardContent/CardContent.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Box/Box.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Stack/Stack.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Typography/Typography.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _AppContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../AppContext */ "./src/inject/app/AppContext.tsx");
-/* harmony import */ var _MoreInfoHeader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MoreInfoHeader */ "./src/inject/app/MoreInfoPopup/MoreInfoHeader.tsx");
-/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components */ "./src/inject/app/MoreInfoPopup/components.tsx");
-/* harmony import */ var _AnswerSection__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AnswerSection */ "./src/inject/app/MoreInfoPopup/AnswerSection.tsx");
-/* harmony import */ var _FieldInfo__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./FieldInfo */ "./src/inject/app/MoreInfoPopup/FieldInfo.tsx");
-
-
-
-
-
-
-
-const MoreInfoCardContainer = () => {
-    const { currentValue, fieldNotice } = (0,_AppContext__WEBPACK_IMPORTED_MODULE_1__.useAppContext)();
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], null,
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_MoreInfoHeader__WEBPACK_IMPORTED_MODULE_2__.MoreInfoHeader, null),
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], { sx: { padding: 0, paddingBottom: '0px!important' } },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], { padding: 1, sx: {
-                    maxWidth: 'calc(45vw)',
-                    maxHeight: 380,
-                    overflow: 'scroll',
-                } },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_9__["default"], { spacing: 2 },
-                    fieldNotice && (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_3__.Item, null,
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_3__.FieldNotice, null, fieldNotice))),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_3__.Item, null,
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_AnswerSection__WEBPACK_IMPORTED_MODULE_4__.AnswersSection, null)),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_3__.Item, null,
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_10__["default"], { variant: "h6" }, "Current Value"),
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_10__["default"], null, String(currentValue))),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_3__.Item, null,
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_FieldInfo__WEBPACK_IMPORTED_MODULE_5__.FieldInfo, null)))))));
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MoreInfoCardContainer);
-
-
-/***/ }),
-
-/***/ "./src/inject/app/MoreInfoPopup/MoreInfoHeader.tsx":
-/*!*********************************************************!*\
-  !*** ./src/inject/app/MoreInfoPopup/MoreInfoHeader.tsx ***!
-  \*********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   MoreInfoHeader: () => (/* binding */ MoreInfoHeader)
-/* harmony export */ });
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/IconButton/IconButton.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/CircularProgress/CircularProgress.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Box/Box.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/CardHeader/CardHeader.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @src/shared/utils/icons */ "./src/shared/utils/icons.tsx");
-/* harmony import */ var _AppContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../AppContext */ "./src/inject/app/AppContext.tsx");
-
-
-
-
-
-const MoreInfoHeader = () => {
-    const { moreInfoPopper: { close, isRefreshing, handleRefreshButtonClick, fieldType, }, } = (0,_AppContext__WEBPACK_IMPORTED_MODULE_3__.useAppContext)();
-    const RefreshButton = (react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], { onClick: handleRefreshButtonClick }, isRefreshing ? react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { size: '1em' }) : react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_2__.RefreshIcon, null)));
-    const CloseButton = (react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], { "aria-label": "close", onClick: close, sx: { marginLeft: 'auto' } },
-        react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_2__.CloseIcon, null)));
-    return (react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], { borderBottom: "1px solid #e0e0e0" },
-        react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], { sx: { padding: 1 }, title: (0,lodash__WEBPACK_IMPORTED_MODULE_0__.startCase)(fieldType), action: react__WEBPACK_IMPORTED_MODULE_1___default().createElement((react__WEBPACK_IMPORTED_MODULE_1___default().Fragment), null,
-                RefreshButton,
-                CloseButton) })));
-};
-
-
-/***/ }),
-
-/***/ "./src/inject/app/MoreInfoPopup/MoreInfoPopper.tsx":
-/*!*********************************************************!*\
-  !*** ./src/inject/app/MoreInfoPopup/MoreInfoPopper.tsx ***!
-  \*********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   MoreInfoPopper: () => (/* binding */ MoreInfoPopper)
-/* harmony export */ });
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Popper/Popper.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Fade/Fade.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Box/Box.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Paper/Paper.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _AppContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../AppContext */ "./src/inject/app/AppContext.tsx");
-/* harmony import */ var _MoreInfoCardContainer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MoreInfoCardContainer */ "./src/inject/app/MoreInfoPopup/MoreInfoCardContainer.tsx");
-
-
-
-
-const MoreInfoPopper = () => {
-    const { moreInfoPopper: { isOpen, popperRef, anchorEl }, } = (0,_AppContext__WEBPACK_IMPORTED_MODULE_1__.useAppContext)();
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], { id: isOpen ? `more-info-popper` : undefined, ref: popperRef, open: isOpen, anchorEl: anchorEl, placement: "right-end", transition: true, sx: { zIndex: 100 } }, ({ TransitionProps }) => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], Object.assign({}, TransitionProps, { timeout: 350 }),
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { mx: 1 },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], { elevation: 8 },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { mt: 2 },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_MoreInfoCardContainer__WEBPACK_IMPORTED_MODULE_2__["default"], null))))))));
-};
-
-
-/***/ }),
-
-/***/ "./src/inject/app/MoreInfoPopup/components.tsx":
-/*!*****************************************************!*\
-  !*** ./src/inject/app/MoreInfoPopup/components.tsx ***!
-  \*****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   FieldNotice: () => (/* binding */ FieldNotice),
-/* harmony export */   Item: () => (/* binding */ Item)
-/* harmony export */ });
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/styles/styled.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Paper/Paper.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Alert/Alert.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/AlertTitle/AlertTitle.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_Markdown__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Markdown */ "./src/inject/app/components/Markdown.tsx");
-
-
-
-const Item = (0,_mui_material__WEBPACK_IMPORTED_MODULE_2__["default"])(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"])(({ theme }) => (Object.assign(Object.assign({ backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff' }, theme.typography.body2), { margin: theme.spacing(1), padding: theme.spacing(1), color: theme.palette.text.secondary, elevation: 6 })));
-const FieldNotice = ({ children }) => {
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], { variant: "filled", severity: "info" },
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], null, "NOTE"),
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Markdown__WEBPACK_IMPORTED_MODULE_1__.Markdown, null, children)));
-};
-
-
-/***/ }),
-
-/***/ "./src/inject/app/components/AbsoluteRelativeSwitch.tsx":
-/*!**************************************************************!*\
-  !*** ./src/inject/app/components/AbsoluteRelativeSwitch.tsx ***!
-  \**************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -92474,11 +91324,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mui_material_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @mui/material/styles */ "./node_modules/@mui/material/styles/styled.js");
 /* harmony import */ var _mui_material_Switch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material/Switch */ "./node_modules/@mui/material/Switch/Switch.js");
 /* harmony import */ var _mui_material_Switch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material/Switch */ "./node_modules/@mui/material/Switch/switchClasses.js");
-/* harmony import */ var _src_shared_utils_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @src/shared/utils/react */ "./src/shared/utils/react.tsx");
+/* harmony import */ var _utils_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/react */ "./src/utils/react.tsx");
 
 
 
-_src_shared_utils_react__WEBPACK_IMPORTED_MODULE_0__.theme;
+_utils_react__WEBPACK_IMPORTED_MODULE_0__.theme;
 const AbsoluteRelativeSwitch = (0,_mui_material_styles__WEBPACK_IMPORTED_MODULE_1__["default"])(_mui_material_Switch__WEBPACK_IMPORTED_MODULE_2__["default"])({
     width: 110,
     height: 48,
@@ -92490,51 +91340,51 @@ const AbsoluteRelativeSwitch = (0,_mui_material_styles__WEBPACK_IMPORTED_MODULE_
     [`& .${_mui_material_Switch__WEBPACK_IMPORTED_MODULE_3__["default"].thumb}`]: {
         width: 26,
         height: 26,
-        backgroundColor: '#fff',
+        backgroundColor: "#fff",
     },
     [`& .${_mui_material_Switch__WEBPACK_IMPORTED_MODULE_3__["default"].track}`]: {
-        background: _src_shared_utils_react__WEBPACK_IMPORTED_MODULE_0__.theme.palette.primary.main,
-        opacity: '1 !important',
+        background: _utils_react__WEBPACK_IMPORTED_MODULE_0__.theme.palette.primary.main,
+        opacity: "1 !important",
         borderRadius: 20,
-        position: 'relative',
-        '&:before, &:after': {
-            display: 'inline-block',
-            position: 'absolute',
-            top: '50%',
-            width: '50%',
-            transform: 'translateY(-50%)',
-            color: '#fff',
-            textAlign: 'center',
-            fontSize: '0.75rem',
+        position: "relative",
+        "&:before, &:after": {
+            display: "inline-block",
+            position: "absolute",
+            top: "50%",
+            width: "50%",
+            transform: "translateY(-50%)",
+            color: "#fff",
+            textAlign: "center",
+            fontSize: "0.75rem",
             fontWeight: 500,
         },
-        '&:before': {
+        "&:before": {
             content: '"Relative"',
             left: 11,
             opacity: 0,
         },
-        '&:after': {
+        "&:after": {
             content: '"Absolute"',
             right: 13,
         },
     },
     [`& .${_mui_material_Switch__WEBPACK_IMPORTED_MODULE_3__["default"].checked}`]: {
         [`&.${_mui_material_Switch__WEBPACK_IMPORTED_MODULE_3__["default"].switchBase}`]: {
-            color: '#185a9d',
-            transform: 'translateX(62px)',
-            '&:hover': {
-                backgroundColor: 'rgba(24,90,257,0.08)',
+            color: "#185a9d",
+            transform: "translateX(62px)",
+            "&:hover": {
+                backgroundColor: "rgba(24,90,257,0.08)",
             },
         },
         [`& .${_mui_material_Switch__WEBPACK_IMPORTED_MODULE_3__["default"].thumb}`]: {
-            backgroundColor: '#fff',
+            backgroundColor: "#fff",
         },
         [`& + .${_mui_material_Switch__WEBPACK_IMPORTED_MODULE_3__["default"].track}`]: {
-            background: 'primary',
-            '&:before': {
+            background: "primary",
+            "&:before": {
                 opacity: 1,
             },
-            '&:after': {
+            "&:after": {
                 opacity: 0,
             },
         },
@@ -92544,10 +91394,10 @@ const AbsoluteRelativeSwitch = (0,_mui_material_styles__WEBPACK_IMPORTED_MODULE_
 
 /***/ }),
 
-/***/ "./src/inject/app/components/ButtonSuccessBadge.tsx":
-/*!**********************************************************!*\
-  !*** ./src/inject/app/components/ButtonSuccessBadge.tsx ***!
-  \**********************************************************/
+/***/ "./src/components/ButtonSuccessBadge.tsx":
+/*!***********************************************!*\
+  !*** ./src/components/ButtonSuccessBadge.tsx ***!
+  \***********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -92560,7 +91410,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mui_material_Badge__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material/Badge */ "./node_modules/@mui/material/Badge/Badge.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @src/shared/utils/icons */ "./src/shared/utils/icons.tsx");
+/* harmony import */ var _utils_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/icons */ "./src/utils/icons.tsx");
 var __rest = (undefined && undefined.__rest) || function (s, e) {
     var t = {};
     for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
@@ -92586,16 +91436,16 @@ const StyledBadge = (0,_emotion_styled__WEBPACK_IMPORTED_MODULE_0__["default"])(
 const ButtonSuccessBadge = (_a) => {
     var { show } = _a, props = __rest(_a, ["show"]);
     return (react__WEBPACK_IMPORTED_MODULE_1___default().createElement(StyledBadge, { badgeContent: react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], { in: show },
-            react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_2__.CheckCircleIcon, { color: "success", sx: { fontSize: '.6rem' } })) }, props.children));
+            react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_2__.CheckCircleIcon, { color: "success", sx: { fontSize: '.6rem' } })) }, props.children));
 };
 
 
 /***/ }),
 
-/***/ "./src/inject/app/components/ConfirmButton.tsx":
-/*!*****************************************************!*\
-  !*** ./src/inject/app/components/ConfirmButton.tsx ***!
-  \*****************************************************/
+/***/ "./src/components/ConfirmButton.tsx":
+/*!******************************************!*\
+  !*** ./src/components/ConfirmButton.tsx ***!
+  \******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -92654,10 +91504,193 @@ const ConfirmButton = ({ action, children, dialogTitle, component = "Button", bu
 
 /***/ }),
 
-/***/ "./src/inject/app/components/Markdown.tsx":
-/*!************************************************!*\
-  !*** ./src/inject/app/components/Markdown.tsx ***!
-  \************************************************/
+/***/ "./src/components/FieldWidget/FieldWidgetButtons.tsx":
+/*!***********************************************************!*\
+  !*** ./src/components/FieldWidget/FieldWidgetButtons.tsx ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   FieldWidgetButtons: () => (/* binding */ FieldWidgetButtons)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Paper/Paper.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/ButtonGroup/ButtonGroup.js");
+/* harmony import */ var _inject_app_AppContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../inject/app/AppContext */ "./src/inject/app/AppContext.tsx");
+/* harmony import */ var _FillButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./FillButton */ "./src/components/FieldWidget/FillButton.tsx");
+/* harmony import */ var _SaveButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SaveButton */ "./src/components/FieldWidget/SaveButton.tsx");
+/* harmony import */ var _MoreInfoButton__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./MoreInfoButton */ "./src/components/FieldWidget/MoreInfoButton.tsx");
+
+
+
+
+
+
+const FieldWidgetButtons = () => {
+    const { moreInfoPopper } = (0,_inject_app_AppContext__WEBPACK_IMPORTED_MODULE_1__.useAppContext)();
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { elevation: 4 },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], { ref: moreInfoPopper.anchorRef, size: "small" },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_FillButton__WEBPACK_IMPORTED_MODULE_2__.FillButton, null),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_SaveButton__WEBPACK_IMPORTED_MODULE_3__.SaveButton, null),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_MoreInfoButton__WEBPACK_IMPORTED_MODULE_4__.MoreInfoButton, null))));
+};
+
+
+/***/ }),
+
+/***/ "./src/components/FieldWidget/FillButton.tsx":
+/*!***************************************************!*\
+  !*** ./src/components/FieldWidget/FillButton.tsx ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   FillButton: () => (/* binding */ FillButton)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Tooltip/Tooltip.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Button/Button.js");
+/* harmony import */ var _utils_icons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../utils/icons */ "./src/utils/icons.tsx");
+/* harmony import */ var _inject_app_AppContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../inject/app/AppContext */ "./src/inject/app/AppContext.tsx");
+/* harmony import */ var _ButtonSuccessBadge__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../ButtonSuccessBadge */ "./src/components/ButtonSuccessBadge.tsx");
+
+
+
+
+
+const FillButton = () => {
+    const { fillButton: { isFilled, onClick, isDisabled }, } = (0,_inject_app_AppContext__WEBPACK_IMPORTED_MODULE_2__.useAppContext)();
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], { title: "Autofill", placement: "top", arrow: true },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null,
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_ButtonSuccessBadge__WEBPACK_IMPORTED_MODULE_3__.ButtonSuccessBadge, { show: isFilled },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { onClick: onClick, disabled: isDisabled },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_1__.AutoFixHighIcon, null))))));
+};
+
+
+/***/ }),
+
+/***/ "./src/components/FieldWidget/MoreInfoButton.tsx":
+/*!*******************************************************!*\
+  !*** ./src/components/FieldWidget/MoreInfoButton.tsx ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   MoreInfoButton: () => (/* binding */ MoreInfoButton)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _MoreInfoPopup_MoreInfoPopper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../MoreInfoPopup/MoreInfoPopper */ "./src/components/MoreInfoPopup/MoreInfoPopper.tsx");
+/* harmony import */ var _utils_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../utils/icons */ "./src/utils/icons.tsx");
+/* harmony import */ var _inject_app_AppContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../inject/app/AppContext */ "./src/inject/app/AppContext.tsx");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Button/Button.js");
+
+
+
+
+
+const MoreInfoButton = () => {
+    const { moreInfoPopper: { isOpen, handleToggleButtonClick }, } = (0,_inject_app_AppContext__WEBPACK_IMPORTED_MODULE_3__.useAppContext)();
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], { type: "button", variant: isOpen ? "contained" : "outlined", onClick: handleToggleButtonClick },
+        isOpen ? react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_2__.CloseIcon, null) : react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_2__.MoreVertIcon, null),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_MoreInfoPopup_MoreInfoPopper__WEBPACK_IMPORTED_MODULE_1__.MoreInfoPopper, null)));
+};
+
+
+/***/ }),
+
+/***/ "./src/components/FieldWidget/SaveButton.tsx":
+/*!***************************************************!*\
+  !*** ./src/components/FieldWidget/SaveButton.tsx ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   SaveButton: () => (/* binding */ SaveButton)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Tooltip/Tooltip.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Button/Button.js");
+/* harmony import */ var _utils_icons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../utils/icons */ "./src/utils/icons.tsx");
+/* harmony import */ var _inject_app_AppContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../inject/app/AppContext */ "./src/inject/app/AppContext.tsx");
+/* harmony import */ var _ButtonSuccessBadge__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../ButtonSuccessBadge */ "./src/components/ButtonSuccessBadge.tsx");
+
+
+
+
+
+const SaveButton = () => {
+    const { saveButton: { clickHandler, showSuccessBadge }, } = (0,_inject_app_AppContext__WEBPACK_IMPORTED_MODULE_2__.useAppContext)();
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_ButtonSuccessBadge__WEBPACK_IMPORTED_MODULE_3__.ButtonSuccessBadge, { show: showSuccessBadge },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], { title: "Save current value as answer.", placement: "top", arrow: true },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { onClick: () => clickHandler() },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_1__.SaveIcon, null)))));
+};
+
+
+/***/ }),
+
+/***/ "./src/components/Logo.tsx":
+/*!*********************************!*\
+  !*** ./src/components/Logo.tsx ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Box/Box.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Paper/Paper.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Avatar/Avatar.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Typography/Typography.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _utils_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/react */ "./src/utils/react.tsx");
+
+
+
+const variant = "body2";
+const sizes = {
+    small: "1.25rem",
+    medium: "1.5rem",
+    large: "2.25rem",
+};
+const Logo = ({ size = "small" }) => {
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_2__["default"], null,
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], { elevation: 6, sx: { borderRadius: "50%" } },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], { sx: {
+                    fontSize: sizes[size],
+                    bgcolor: _utils_react__WEBPACK_IMPORTED_MODULE_1__.theme.palette.primary.main,
+                    width: "1.7em",
+                    height: "1.7em",
+                } },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { color: "white", variant: variant, sx: { fontWeight: "100", fontSize: ".65em" } }, "j"),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { color: "white", variant: variant, sx: { fontWeight: "500", fontSize: ".75em" } }, "a"),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { color: "white", variant: variant, sx: { fontWeight: "900", fontSize: ".8em" } }, "f")))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Logo);
+
+
+/***/ }),
+
+/***/ "./src/components/Markdown.tsx":
+/*!*************************************!*\
+  !*** ./src/components/Markdown.tsx ***!
+  \*************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -92668,14 +91701,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Button/Button.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @src/shared/utils/icons */ "./src/shared/utils/icons.tsx");
+/* harmony import */ var _utils_icons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/icons */ "./src/utils/icons.tsx");
 /* harmony import */ var mui_markdown__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! mui-markdown */ "./node_modules/mui-markdown/dist/index.esm.js");
 
 
 
 
 const MarkdownLink = ({ children, href, }) => {
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], { variant: "text", sx: { color: 'inherit' }, target: "_blank", href: href, endIcon: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src_shared_utils_icons__WEBPACK_IMPORTED_MODULE_1__.OpenInNewIcon, null) }, children));
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], { variant: "text", sx: { color: 'inherit' }, target: "_blank", href: href, endIcon: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_1__.OpenInNewIcon, null) }, children));
 };
 const Markdown = ({ children }) => {
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(mui_markdown__WEBPACK_IMPORTED_MODULE_2__["default"], { overrides: Object.assign(Object.assign({}, (0,mui_markdown__WEBPACK_IMPORTED_MODULE_2__.getOverrides)()), { a: MarkdownLink }) }, children));
@@ -92684,10 +91717,862 @@ const Markdown = ({ children }) => {
 
 /***/ }),
 
-/***/ "./src/inject/app/components/SimplePopper.tsx":
+/***/ "./src/components/MoreInfoPopup/AnswerDisplay/AnswerDisplayComponent.tsx":
+/*!*******************************************************************************!*\
+  !*** ./src/components/MoreInfoPopup/AnswerDisplay/AnswerDisplayComponent.tsx ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   AnswerDisplayComponent: () => (/* binding */ AnswerDisplayComponent)
+/* harmony export */ });
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Paper/Paper.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Grid/Grid.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Box/Box.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Typography/Typography.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Button/Button.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Breadcrumbs/Breadcrumbs.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Chip/Chip.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Tooltip/Tooltip.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Avatar/Avatar.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/TextField/TextField.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/IconButton/IconButton.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _ConfirmButton__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../ConfirmButton */ "./src/components/ConfirmButton.tsx");
+/* harmony import */ var _inject_app_AppContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../inject/app/AppContext */ "./src/inject/app/AppContext.tsx");
+/* harmony import */ var _SimplePopper__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../SimplePopper */ "./src/components/SimplePopper.tsx");
+/* harmony import */ var _utils_icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../../utils/icons */ "./src/utils/icons.tsx");
+/* harmony import */ var _utils_strings__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../../utils/strings */ "./src/utils/strings.ts");
+
+
+
+
+
+
+
+const AnswerDisplayComponent = ({ id }) => {
+    const { editableAnswerState: { setEditable, setEditedPath, cancelEdit, saveAnswer, deleteAnswer, answers, }, backend, } = (0,_inject_app_AppContext__WEBPACK_IMPORTED_MODULE_2__.useAppContext)();
+    const { editedAnswer, originalAnswer, editable, error, isNew } = answers.find((a) => a.id === id);
+    const errorPopperRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], { elevation: 4, sx: { p: 1, width: "100%" } },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_SimplePopper__WEBPACK_IMPORTED_MODULE_3__.SimplePopper, { anchorRef: errorPopperRef, message: error, placement: "top" }),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], { spacing: 2, ref: errorPopperRef, container: true, direction: "column" },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], { item: true },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], { container: true, justifyContent: "space-between", direction: "row" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], null,
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_9__["default"], null, "Path:"),
+                        originalAnswer.matchType && (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_9__["default"], { variant: "caption" },
+                            "Match: ",
+                            (0,_utils_strings__WEBPACK_IMPORTED_MODULE_5__.sentenceCase)(originalAnswer.matchType)))),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], null, editable && (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
+                        " ",
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_10__["default"], { onClick: () => saveAnswer(id) }, "Save"),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_10__["default"], { onClick: () => cancelEdit(id) }, "Cancel")))),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], null, !isNew && (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_ConfirmButton__WEBPACK_IMPORTED_MODULE_1__.ConfirmButton, { component: "IconButton", action: () => deleteAnswer(id), dialogTitle: "Are You Sure?", buttonContent: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_4__.DeleteIcon, null) }, "Are you Sure you want to delete this answer? This action is not reversible.")))),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_11__["default"], { separator: ">" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_12__["default"], { variant: "outlined", label: editedAnswer.path.section, avatar: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_13__["default"], { title: "Section" },
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_14__["default"], null, "S")) }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_12__["default"], Object.assign({ sx: {
+                            height: "auto",
+                            minHeight: "32px",
+                            textWrap: "inherit",
+                            "& .MuiChip-label": {
+                                display: "block",
+                                whiteSpace: "normal",
+                            },
+                        }, variant: "outlined", label: editable ? (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_15__["default"], { variant: "standard", fullWidth: true, multiline: true, value: editedAnswer.path.fieldName, onChange: (e) => setEditedPath(id, "fieldName", e.target.value), InputProps: {
+                                sx: { font: "inherit", height: "fit-content" },
+                                endAdornment: (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_16__["default"], { onClick: () => cancelEdit(id) },
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_4__.CloseIcon, null))),
+                            } })) : (editedAnswer.path.fieldName), avatar: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_13__["default"], { title: "Question" },
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_14__["default"], null, "Q")) }, (!editable && {
+                        deleteIcon: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_4__.EditIcon, null),
+                        onDelete: () => setEditable(id, true),
+                    }))))),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], { item: true },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(backend.answerValue.displayComponent, { id: id })))));
+};
+
+
+/***/ }),
+
+/***/ "./src/components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings.tsx":
+/*!****************************************************************************************************!*\
+  !*** ./src/components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings.tsx ***!
+  \****************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   AnswerValueBackupStrings: () => (/* binding */ AnswerValueBackupStrings)
+/* harmony export */ });
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Divider/Divider.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Typography/Typography.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Grid/Grid.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/IconButton/IconButton.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/TextField/TextField.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Tooltip/Tooltip.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _inject_app_AppContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../inject/app/AppContext */ "./src/inject/app/AppContext.tsx");
+/* harmony import */ var _utils_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../../utils/icons */ "./src/utils/icons.tsx");
+
+
+
+
+const AnswerValueBackupStrings = ({ id }) => {
+    const { editableAnswerState, backend } = (0,_inject_app_AppContext__WEBPACK_IMPORTED_MODULE_1__.useAppContext)();
+    const { setEditable, setEditedValue, cancelEdit } = editableAnswerState;
+    const { editedAnswer, isNew } = editableAnswerState.answers.find((a) => a.id === id);
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        if (isNew) {
+            setValueEditable(0, true);
+        }
+    }, []);
+    const addNewAnswerValue = () => {
+        const { value } = editedAnswer;
+        setEditedValue(id, [...value, ["", true]]);
+        setEditable(id, true);
+    };
+    const setValueEditable = (answerValueId, editable) => {
+        const { value } = editedAnswer;
+        value[answerValueId][1] = editable;
+        setEditedValue(id, structuredClone(value));
+        if (editable) {
+            setEditable(id, true);
+        }
+        else if (!value.some(([_, editable]) => editable)) {
+            cancelEdit(id);
+        }
+    };
+    const setSingleEditedValue = (answerValueId, newValue) => {
+        const { value } = editedAnswer;
+        value[answerValueId][0] = newValue;
+        setEditedValue(id, structuredClone(value));
+    };
+    const deleteAnswerValue = (answerValueId) => {
+        const { value } = editedAnswer;
+        delete value[answerValueId];
+        setEditedValue(id, structuredClone(value.filter(Boolean)));
+        setEditable(id, true);
+    };
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], { sx: { mb: 1 } }),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], null, "Values:"),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { container: true, direction: "column", spacing: 1 },
+            editedAnswer.value.map(([answer, valueEditable], answerValueId) => {
+                return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { item: true, key: `${id}-${answerValueId}` },
+                    !valueEditable ? (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], { display: "inline-flex" }, answer),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], { onClick: () => setValueEditable(answerValueId, true) },
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_2__.EditIcon, null)))) : (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], { variant: "standard", inputProps: {
+                                size: Math.max((answer === null || answer === void 0 ? void 0 : answer.length) || 0 + 1, 15),
+                            }, InputProps: {
+                                endAdornment: (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], { onClick: () => {
+                                            setSingleEditedValue(answerValueId, backend.currentValue());
+                                        } },
+                                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], { title: `Fill with the current value.` },
+                                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_2__.InputIcon, null))),
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], { onClick: () => setValueEditable(answerValueId, false) },
+                                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_2__.CloseIcon, null)))),
+                            }, value: answer, onChange: (e) => setSingleEditedValue(answerValueId, e.target.value) }))),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], { onClick: () => deleteAnswerValue(answerValueId) },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_2__.DeleteIcon, null))));
+            }),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { item: true },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], { onClick: addNewAnswerValue },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_2__.AddIcon, null)),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], { title: "Add a backup answer to this answer path." },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_2__.InfoIcon, { fontSize: "inherit" }))))));
+};
+
+
+/***/ }),
+
+/***/ "./src/components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueMultiFileUpload.tsx":
+/*!******************************************************************************************************!*\
+  !*** ./src/components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueMultiFileUpload.tsx ***!
+  \******************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   AnswerValueMultiFileUpload: () => (/* binding */ AnswerValueMultiFileUpload)
+/* harmony export */ });
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Divider/Divider.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Typography/Typography.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Grid/Grid.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Tooltip/Tooltip.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Button/Button.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/IconButton/IconButton.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _inject_app_AppContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../inject/app/AppContext */ "./src/inject/app/AppContext.tsx");
+/* harmony import */ var _utils_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../../utils/icons */ "./src/utils/icons.tsx");
+/* harmony import */ var _VisuallyHiddenInput__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../VisuallyHiddenInput */ "./src/components/VisuallyHiddenInput.tsx");
+/* harmony import */ var _utils_file__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../../../utils/file */ "./src/utils/file.ts");
+/* harmony import */ var _mui_icons_material_InsertDriveFile__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @mui/icons-material/InsertDriveFile */ "./node_modules/@mui/icons-material/InsertDriveFile.js");
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+
+
+
+
+
+
+
+const AnswerValueMultiFileUpload = ({ id }) => {
+    const { editableAnswerState, backend } = (0,_inject_app_AppContext__WEBPACK_IMPORTED_MODULE_1__.useAppContext)();
+    const { setEditable, setEditedValue } = editableAnswerState;
+    const { editedAnswer } = editableAnswerState.answers.find((a) => a.id === id);
+    const deleteAnswerValue = (answerValueId) => {
+        const { value } = editedAnswer;
+        delete value[answerValueId];
+        setEditedValue(id, structuredClone(value.filter(Boolean)));
+        setEditable(id, true);
+    };
+    const handleUpload = (fileList) => __awaiter(void 0, void 0, void 0, function* () {
+        setEditable(id, true);
+        for (const file of fileList) {
+            editedAnswer.value.push(yield (0,_utils_file__WEBPACK_IMPORTED_MODULE_4__.fileToLocalStorage)(file));
+        }
+        setEditedValue(id, structuredClone(editedAnswer.value));
+    });
+    const handleDownload = (file) => {
+        (0,_utils_file__WEBPACK_IMPORTED_MODULE_4__.downloadFile)((0,_utils_file__WEBPACK_IMPORTED_MODULE_4__.localStorageToFile)(file));
+    };
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { sx: { mb: 1 } }),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], null, "Files:"),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], { container: true, direction: "column", spacing: 1 },
+            editedAnswer.value.map((file, answerValueId) => {
+                return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], { item: true, key: `${id}-${answerValueId}` },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], { title: "download" },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_9__["default"], { sx: { textTransform: "none" }, startIcon: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_icons_material_InsertDriveFile__WEBPACK_IMPORTED_MODULE_10__["default"], null), onClick: () => handleDownload(file) }, file.name)),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_11__["default"], { onClick: () => deleteAnswerValue(answerValueId) },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_2__.DeleteIcon, null))));
+            }),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], { item: true },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_9__["default"], { component: "label", role: undefined, 
+                    // variant="contained"
+                    tabIndex: -1, startIcon: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_2__.UploadFileIcon, null) },
+                    "Upload files",
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_VisuallyHiddenInput__WEBPACK_IMPORTED_MODULE_3__.VisuallyHiddenInput, { type: "file", onChange: (event) => handleUpload(event.target.files), multiple: true }))))));
+};
+
+
+/***/ }),
+
+/***/ "./src/components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleBool.tsx":
+/*!*************************************************************************************************!*\
+  !*** ./src/components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleBool.tsx ***!
+  \*************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   AnswerValueSingleBool: () => (/* binding */ AnswerValueSingleBool)
+/* harmony export */ });
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Divider/Divider.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Typography/Typography.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Collapse/Collapse.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Checkbox/Checkbox.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/IconButton/IconButton.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Tooltip/Tooltip.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _inject_app_AppContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../inject/app/AppContext */ "./src/inject/app/AppContext.tsx");
+/* harmony import */ var _utils_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../../utils/icons */ "./src/utils/icons.tsx");
+
+
+
+
+const AnswerValueSingleBool = ({ id }) => {
+    const { editableAnswerState, backend } = (0,_inject_app_AppContext__WEBPACK_IMPORTED_MODULE_1__.useAppContext)();
+    const { setEditable, setEditedValue, cancelEdit } = editableAnswerState;
+    const { editedAnswer, editable } = editableAnswerState.answers.find((a) => a.id === id);
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], { sx: { mb: 1 } }),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], null, "Value:"),
+        editable ? (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { in: editable },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], { checked: editedAnswer.value, onChange: (e) => setEditedValue(id, e.target.checked) }),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], { onClick: () => {
+                    setEditedValue(id, backend.currentValue());
+                } },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], { title: `Fill with the current value.` },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_2__.InputIcon, null))),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], { onClick: () => cancelEdit(id) },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_2__.CloseIcon, null)))) : (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], { component: "span" }, String(editedAnswer.value)),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], { onClick: () => setEditable(id, true) },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_2__.EditIcon, null))))));
+};
+
+
+/***/ }),
+
+/***/ "./src/components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleDate.tsx":
+/*!*************************************************************************************************!*\
+  !*** ./src/components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleDate.tsx ***!
+  \*************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   AnswerValueSingleDate: () => (/* binding */ AnswerValueSingleDate)
+/* harmony export */ });
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/TextField/TextField.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Divider/Divider.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Typography/Typography.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Collapse/Collapse.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/IconButton/IconButton.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Tooltip/Tooltip.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _inject_app_AppContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../inject/app/AppContext */ "./src/inject/app/AppContext.tsx");
+/* harmony import */ var _utils_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../../utils/react */ "./src/utils/react.tsx");
+/* harmony import */ var _utils_icons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../../../utils/icons */ "./src/utils/icons.tsx");
+
+
+
+
+
+/**
+ * The Value is stored as an array of strings.
+ */
+const AnswerValueSingleDate = ({ id }) => {
+    const { editableAnswerState: { setEditable, setEditedValue, cancelEdit, answers }, backend, } = (0,_inject_app_AppContext__WEBPACK_IMPORTED_MODULE_1__.useAppContext)();
+    const { editedAnswer: { value }, editable, } = answers.find((a) => a.id === id);
+    const editFields = editable &&
+        value.map((part, index) => {
+            return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], { key: index, variant: "standard", inputProps: { size: part.length }, value: part, onChange: (e) => {
+                    value[index] = e.target.value;
+                    setEditedValue(id, structuredClone(value));
+                } }));
+        });
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { sx: { mb: 1 } }),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], null, "Value:"),
+        editable ? (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], { in: editable },
+            (0,_utils_react__WEBPACK_IMPORTED_MODULE_2__.joinComponents)(editFields, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], { mx: 1, variant: "h6", display: "inline-flex" }, "/")),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], { onClick: () => {
+                    setEditedValue(id, backend.currentValue());
+                } },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_9__["default"], { title: `Fill with the current value.` },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_3__.InputIcon, null))),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], { onClick: () => cancelEdit(id) },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_3__.CloseIcon, null)))) : (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], { component: "span" }, value.join("/")),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], { onClick: () => setEditable(id, true) },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_3__.EditIcon, null))))));
+};
+
+
+/***/ }),
+
+/***/ "./src/components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleFileUpload.tsx":
+/*!*******************************************************************************************************!*\
+  !*** ./src/components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleFileUpload.tsx ***!
+  \*******************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   AnswerValueSingleFileUpload: () => (/* binding */ AnswerValueSingleFileUpload)
+/* harmony export */ });
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Divider/Divider.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Typography/Typography.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Box/Box.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Tooltip/Tooltip.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Button/Button.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/IconButton/IconButton.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _inject_app_AppContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../inject/app/AppContext */ "./src/inject/app/AppContext.tsx");
+/* harmony import */ var _utils_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../../utils/icons */ "./src/utils/icons.tsx");
+/* harmony import */ var _VisuallyHiddenInput__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../VisuallyHiddenInput */ "./src/components/VisuallyHiddenInput.tsx");
+/* harmony import */ var _utils_file__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../../../utils/file */ "./src/utils/file.ts");
+/* harmony import */ var _mui_icons_material_InsertDriveFile__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @mui/icons-material/InsertDriveFile */ "./node_modules/@mui/icons-material/InsertDriveFile.js");
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+
+
+
+
+
+
+
+const AnswerValueSingleFileUpload = ({ id }) => {
+    const { editableAnswerState: { setEditable, setEditedValue, answers }, } = (0,_inject_app_AppContext__WEBPACK_IMPORTED_MODULE_1__.useAppContext)();
+    const { editedAnswer } = answers.find((a) => a.id === id);
+    const deleteAnswerValue = () => {
+        setEditedValue(id, "");
+        setEditable(id, true);
+    };
+    const handleUpload = (fileList) => __awaiter(void 0, void 0, void 0, function* () {
+        const localStorageFile = yield (0,_utils_file__WEBPACK_IMPORTED_MODULE_4__.fileToLocalStorage)(fileList[0]);
+        setEditable(id, true);
+        setEditedValue(id, localStorageFile);
+    });
+    const handleDownload = (file) => {
+        (0,_utils_file__WEBPACK_IMPORTED_MODULE_4__.downloadFile)((0,_utils_file__WEBPACK_IMPORTED_MODULE_4__.localStorageToFile)(file));
+    };
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { sx: { mb: 1 } }),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], null, "Files:"),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], null, editedAnswer.value ? (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], { title: "download" },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_9__["default"], { sx: { textTransform: "none" }, startIcon: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_icons_material_InsertDriveFile__WEBPACK_IMPORTED_MODULE_10__["default"], null), onClick: () => handleDownload(editedAnswer.value) }, editedAnswer.value.name)),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_11__["default"], { onClick: () => deleteAnswerValue() },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_2__.DeleteIcon, null)))) : (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_9__["default"], { component: "label", role: undefined, 
+            // variant="contained"
+            tabIndex: -1, startIcon: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_2__.UploadFileIcon, null) },
+            "Upload files",
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_VisuallyHiddenInput__WEBPACK_IMPORTED_MODULE_3__.VisuallyHiddenInput, { type: "file", onChange: (event) => handleUpload(event.target.files) }))))));
+};
+
+
+/***/ }),
+
+/***/ "./src/components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleRelativeDate.tsx":
+/*!*********************************************************************************************************!*\
+  !*** ./src/components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleRelativeDate.tsx ***!
+  \*********************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   AnswerValueSingleRelativeDate: () => (/* binding */ AnswerValueSingleRelativeDate)
+/* harmony export */ });
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/TextField/TextField.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Typography/Typography.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Divider/Divider.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Collapse/Collapse.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/IconButton/IconButton.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Tooltip/Tooltip.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _utils_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../../utils/react */ "./src/utils/react.tsx");
+/* harmony import */ var _utils_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../../utils/icons */ "./src/utils/icons.tsx");
+/* harmony import */ var _AbsoluteRelativeSwitch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../AbsoluteRelativeSwitch */ "./src/components/AbsoluteRelativeSwitch.tsx");
+/* harmony import */ var _inject_app_AppContext__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../inject/app/AppContext */ "./src/inject/app/AppContext.tsx");
+
+
+
+
+
+
+/**
+ * The Value is stored as an array of strings.
+ */
+const AnswerValueSingleRelativeDate = ({ id }) => {
+    const { editableAnswerState: { setEditable, setEditedValue, cancelEdit, answers }, backend, } = (0,_inject_app_AppContext__WEBPACK_IMPORTED_MODULE_4__.useAppContext)();
+    const { editedAnswer: { value }, editable, } = answers.find((a) => a.id === id);
+    const toggleRelative = ({ target }) => {
+        value.relative = target.checked;
+        if (value.relative) {
+            value.relativeValue = "today";
+        }
+        setEditedValue(id, structuredClone(value));
+    };
+    const fieldLengths = [2, 2, 4];
+    const AbsoluteDateEditFields = editable &&
+        !value.relative &&
+        value.absoluteValue &&
+        value.absoluteValue.map((part, index) => {
+            return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { key: index, variant: "standard", inputProps: { size: fieldLengths[index] }, value: part, onChange: (e) => {
+                    value.absoluteValue[index] = e.target.value;
+                    setEditedValue(id, structuredClone(value));
+                } }));
+        });
+    const AbsoluteDateEditComponent = AbsoluteDateEditFields &&
+        (0,_utils_react__WEBPACK_IMPORTED_MODULE_1__.joinComponents)(AbsoluteDateEditFields, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], { mx: 1, variant: "h6", display: "inline-flex" }, "/"));
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], { sx: { mb: 1 } }),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], null, "Value:"),
+        editable ? (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], { in: editable },
+            !value.relative ? (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
+                AbsoluteDateEditComponent,
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_9__["default"], { onClick: () => {
+                        value.absoluteValue = backend.currentValue();
+                        setEditedValue(id, structuredClone(value));
+                    } },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_10__["default"], { title: `Fill with the current value.` },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_2__.InputIcon, null))))) : (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], { display: "inline" }, "Current Date")),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_AbsoluteRelativeSwitch__WEBPACK_IMPORTED_MODULE_3__.AbsoluteRelativeSwitch, { checked: value.relative, onChange: toggleRelative }),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_9__["default"], { onClick: () => cancelEdit(id) },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_2__.CloseIcon, null)))) : (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], { component: "span" }, value.relative
+                ? value.relativeValue
+                : value.absoluteValue.join("/")),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_9__["default"], { onClick: () => setEditable(id, true) },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_2__.EditIcon, null))))));
+};
+
+
+/***/ }),
+
+/***/ "./src/components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleString.tsx":
+/*!***************************************************************************************************!*\
+  !*** ./src/components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleString.tsx ***!
+  \***************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   AnswerValueSingleString: () => (/* binding */ AnswerValueSingleString)
+/* harmony export */ });
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Divider/Divider.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Typography/Typography.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Collapse/Collapse.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/TextField/TextField.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/IconButton/IconButton.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Tooltip/Tooltip.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _utils_icons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../../utils/icons */ "./src/utils/icons.tsx");
+/* harmony import */ var _inject_app_AppContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../inject/app/AppContext */ "./src/inject/app/AppContext.tsx");
+
+
+
+
+const AnswerValueSingleString = ({ id }) => {
+    const { editableAnswerState: { setEditable, setEditedValue, cancelEdit, answers }, backend, } = (0,_inject_app_AppContext__WEBPACK_IMPORTED_MODULE_2__.useAppContext)();
+    const { editedAnswer, editable } = answers.find((a) => a.id === id);
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], { sx: { mb: 1 } }),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], null, "Value:"),
+        editable ? (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { in: editable },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], { variant: "standard", fullWidth: true, multiline: true, value: editedAnswer.value, onChange: (e) => setEditedValue(id, e.target.value), InputProps: {
+                    endAdornment: (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], { onClick: () => {
+                                setEditedValue(id, backend.currentValue());
+                            } },
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], { title: `Fill with the current value.` },
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_1__.InputIcon, null))),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], { onClick: () => cancelEdit(id) },
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_1__.CloseIcon, null)))),
+                } }))) : (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], { component: "span" }, String(editedAnswer.value)),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], { onClick: () => setEditable(id, true) },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_1__.EditIcon, null))))));
+};
+
+
+/***/ }),
+
+/***/ "./src/components/MoreInfoPopup/AnswerSection.tsx":
+/*!********************************************************!*\
+  !*** ./src/components/MoreInfoPopup/AnswerSection.tsx ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   AnswersContainer: () => (/* binding */ AnswersContainer),
+/* harmony export */   AnswersSection: () => (/* binding */ AnswersSection),
+/* harmony export */   ListFadeContainer: () => (/* binding */ ListFadeContainer),
+/* harmony export */   NoAnswerNotice: () => (/* binding */ NoAnswerNotice)
+/* harmony export */ });
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Fade/Fade.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Typography/Typography.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Tooltip/Tooltip.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/IconButton/IconButton.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Stack/Stack.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Box/Box.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _inject_app_AppContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../inject/app/AppContext */ "./src/inject/app/AppContext.tsx");
+/* harmony import */ var _utils_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../utils/icons */ "./src/utils/icons.tsx");
+/* harmony import */ var _AnswerDisplay_AnswerDisplayComponent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AnswerDisplay/AnswerDisplayComponent */ "./src/components/MoreInfoPopup/AnswerDisplay/AnswerDisplayComponent.tsx");
+/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components */ "./src/components/MoreInfoPopup/components.tsx");
+
+
+
+
+
+
+const NoAnswerNotice = () => {
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { in: true, timeout: { enter: 350 }, unmountOnExit: true },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_4__.Item, null,
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], { component: "div", sx: {
+                    fontStyle: "italic",
+                    display: "flex",
+                    alignItems: "center",
+                } },
+                "No answer",
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], { title: "Fill in the field and click save to save an answer" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_2__.InfoIcon, { sx: { marginLeft: "4px" }, fontSize: "inherit" }))))));
+};
+function ListFadeContainer({ items, renderItem, }) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, items.map((item) => renderItem(item)));
+}
+const AnswersContainer = ({ answers, }) => {
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ListFadeContainer, { items: answers, renderItem: (answer) => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { key: answer.id, in: true, timeout: { exit: 450 }, unmountOnExit: true },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null,
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_AnswerDisplay_AnswerDisplayComponent__WEBPACK_IMPORTED_MODULE_3__.AnswerDisplayComponent, { id: answer.id })))) }));
+};
+const AnswersSection = () => {
+    const { backend, editableAnswerState: { answers, addNewAnswer }, } = (0,_inject_app_AppContext__WEBPACK_IMPORTED_MODULE_1__.useAppContext)();
+    const hasAnswers = answers.length > 0;
+    const addNewAnswerButton = (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], { onClick: () => {
+            const { path, answer } = backend.fieldSnapshot;
+            addNewAnswer(path, answer);
+        } },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_2__.AddIcon, null)));
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], { variant: "h6", mb: 2 }, "Answers"),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_9__["default"], { spacing: 1 },
+            hasAnswers ? (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(AnswersContainer, { answers: answers })) : (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(NoAnswerNotice, null)),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_10__["default"], null, addNewAnswerButton))));
+};
+
+
+/***/ }),
+
+/***/ "./src/components/MoreInfoPopup/FieldInfo.tsx":
 /*!****************************************************!*\
-  !*** ./src/inject/app/components/SimplePopper.tsx ***!
+  !*** ./src/components/MoreInfoPopup/FieldInfo.tsx ***!
   \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   FieldInfo: () => (/* binding */ FieldInfo)
+/* harmony export */ });
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Typography/Typography.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Breadcrumbs/Breadcrumbs.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Chip/Chip.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Tooltip/Tooltip.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Avatar/Avatar.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _inject_app_AppContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../inject/app/AppContext */ "./src/inject/app/AppContext.tsx");
+
+
+
+const FieldInfo = () => {
+    const { backend } = (0,_inject_app_AppContext__WEBPACK_IMPORTED_MODULE_1__.useAppContext)();
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
+        " ",
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_2__["default"], { variant: "h6" }, "Question Path:"),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], { separator: ">" },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], { variant: "outlined", avatar: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { title: "Page" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], null, "P")), label: backend.path.page }),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], { variant: "outlined", avatar: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { title: "Section" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], null, "S")), label: backend.path.section }),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], { variant: "outlined", avatar: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { title: "Field Type" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], null, "T")), label: backend.path.fieldType }),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], { sx: {
+                    height: "auto",
+                    minHeight: "32px",
+                    textWrap: "inherit",
+                    "& .MuiChip-label": {
+                        display: "block",
+                        whiteSpace: "normal",
+                    },
+                }, variant: "outlined", avatar: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { title: "Question" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], null, "Q")), label: backend.path.fieldName }))));
+};
+
+
+/***/ }),
+
+/***/ "./src/components/MoreInfoPopup/MoreInfoCardContainer.tsx":
+/*!****************************************************************!*\
+  !*** ./src/components/MoreInfoPopup/MoreInfoCardContainer.tsx ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Card/Card.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/CardContent/CardContent.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Box/Box.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Stack/Stack.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Typography/Typography.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _inject_app_AppContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../inject/app/AppContext */ "./src/inject/app/AppContext.tsx");
+/* harmony import */ var _MoreInfoHeader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MoreInfoHeader */ "./src/components/MoreInfoPopup/MoreInfoHeader.tsx");
+/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components */ "./src/components/MoreInfoPopup/components.tsx");
+/* harmony import */ var _AnswerSection__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AnswerSection */ "./src/components/MoreInfoPopup/AnswerSection.tsx");
+/* harmony import */ var _FieldInfo__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./FieldInfo */ "./src/components/MoreInfoPopup/FieldInfo.tsx");
+
+
+
+
+
+
+
+const MoreInfoCardContainer = () => {
+    const { currentValue, fieldNotice } = (0,_inject_app_AppContext__WEBPACK_IMPORTED_MODULE_1__.useAppContext)();
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], null,
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_MoreInfoHeader__WEBPACK_IMPORTED_MODULE_2__.MoreInfoHeader, null),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], { sx: { padding: 0, paddingBottom: '0px!important' } },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], { padding: 1, sx: {
+                    maxWidth: 'calc(45vw)',
+                    maxHeight: 380,
+                    overflow: 'scroll',
+                } },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_9__["default"], { spacing: 2 },
+                    fieldNotice && (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_3__.Item, null,
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_3__.FieldNotice, null, fieldNotice))),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_3__.Item, null,
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_AnswerSection__WEBPACK_IMPORTED_MODULE_4__.AnswersSection, null)),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_3__.Item, null,
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_10__["default"], { variant: "h6" }, "Current Value"),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_10__["default"], null, String(currentValue))),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_3__.Item, null,
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_FieldInfo__WEBPACK_IMPORTED_MODULE_5__.FieldInfo, null)))))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MoreInfoCardContainer);
+
+
+/***/ }),
+
+/***/ "./src/components/MoreInfoPopup/MoreInfoHeader.tsx":
+/*!*********************************************************!*\
+  !*** ./src/components/MoreInfoPopup/MoreInfoHeader.tsx ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   MoreInfoHeader: () => (/* binding */ MoreInfoHeader)
+/* harmony export */ });
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/IconButton/IconButton.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/CircularProgress/CircularProgress.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Box/Box.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/CardHeader/CardHeader.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _utils_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../utils/icons */ "./src/utils/icons.tsx");
+/* harmony import */ var _inject_app_AppContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../inject/app/AppContext */ "./src/inject/app/AppContext.tsx");
+
+
+
+
+
+const MoreInfoHeader = () => {
+    const { moreInfoPopper: { close, isRefreshing, handleRefreshButtonClick, fieldType, }, } = (0,_inject_app_AppContext__WEBPACK_IMPORTED_MODULE_3__.useAppContext)();
+    const RefreshButton = (react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], { onClick: handleRefreshButtonClick }, isRefreshing ? react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { size: "1em" }) : react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_2__.RefreshIcon, null)));
+    const CloseButton = (react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], { "aria-label": "close", onClick: close, sx: { marginLeft: "auto" } },
+        react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_2__.CloseIcon, null)));
+    return (react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], { borderBottom: "1px solid #e0e0e0" },
+        react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], { sx: { padding: 1 }, title: (0,lodash__WEBPACK_IMPORTED_MODULE_0__.startCase)(fieldType), action: react__WEBPACK_IMPORTED_MODULE_1___default().createElement((react__WEBPACK_IMPORTED_MODULE_1___default().Fragment), null,
+                RefreshButton,
+                CloseButton) })));
+};
+
+
+/***/ }),
+
+/***/ "./src/components/MoreInfoPopup/MoreInfoPopper.tsx":
+/*!*********************************************************!*\
+  !*** ./src/components/MoreInfoPopup/MoreInfoPopper.tsx ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   MoreInfoPopper: () => (/* binding */ MoreInfoPopper)
+/* harmony export */ });
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Popper/Popper.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Fade/Fade.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Box/Box.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Paper/Paper.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _inject_app_AppContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../inject/app/AppContext */ "./src/inject/app/AppContext.tsx");
+/* harmony import */ var _MoreInfoCardContainer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MoreInfoCardContainer */ "./src/components/MoreInfoPopup/MoreInfoCardContainer.tsx");
+
+
+
+
+const MoreInfoPopper = () => {
+    const { moreInfoPopper: { isOpen, popperRef, anchorEl }, } = (0,_inject_app_AppContext__WEBPACK_IMPORTED_MODULE_1__.useAppContext)();
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], { id: isOpen ? `more-info-popper` : undefined, ref: popperRef, open: isOpen, anchorEl: anchorEl, placement: "right-end", transition: true, sx: { zIndex: 100 } }, ({ TransitionProps }) => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], Object.assign({}, TransitionProps, { timeout: 350 }),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { mx: 1 },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], { elevation: 8 },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { mt: 2 },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_MoreInfoCardContainer__WEBPACK_IMPORTED_MODULE_2__["default"], null))))))));
+};
+
+
+/***/ }),
+
+/***/ "./src/components/MoreInfoPopup/components.tsx":
+/*!*****************************************************!*\
+  !*** ./src/components/MoreInfoPopup/components.tsx ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   FieldNotice: () => (/* binding */ FieldNotice),
+/* harmony export */   Item: () => (/* binding */ Item)
+/* harmony export */ });
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/styles/styled.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Paper/Paper.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Alert/Alert.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/AlertTitle/AlertTitle.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Markdown__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/Markdown */ "./src/components/Markdown.tsx");
+
+
+
+const Item = (0,_mui_material__WEBPACK_IMPORTED_MODULE_2__["default"])(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"])(({ theme }) => (Object.assign(Object.assign({ backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff" }, theme.typography.body2), { margin: theme.spacing(1), padding: theme.spacing(1), color: theme.palette.text.secondary, elevation: 6 })));
+const FieldNotice = ({ children }) => {
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], { variant: "filled", severity: "info" },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], null, "NOTE"),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Markdown__WEBPACK_IMPORTED_MODULE_1__.Markdown, null, children)));
+};
+
+
+/***/ }),
+
+/***/ "./src/components/SimplePopper.tsx":
+/*!*****************************************!*\
+  !*** ./src/components/SimplePopper.tsx ***!
+  \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -92740,10 +92625,10 @@ const StyledPopperDiv = (0,_mui_system__WEBPACK_IMPORTED_MODULE_2__["default"])(
 
 /***/ }),
 
-/***/ "./src/inject/app/components/VisuallyHiddenInput.tsx":
-/*!***********************************************************!*\
-  !*** ./src/inject/app/components/VisuallyHiddenInput.tsx ***!
-  \***********************************************************/
+/***/ "./src/components/VisuallyHiddenInput.tsx":
+/*!************************************************!*\
+  !*** ./src/components/VisuallyHiddenInput.tsx ***!
+  \************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -92768,10 +92653,10 @@ const VisuallyHiddenInput = (0,_mui_material_styles__WEBPACK_IMPORTED_MODULE_0__
 
 /***/ }),
 
-/***/ "./src/inject/app/hooks/answerValueInit.ts":
-/*!*************************************************!*\
-  !*** ./src/inject/app/hooks/answerValueInit.ts ***!
-  \*************************************************/
+/***/ "./src/hooks/answerValueInit.ts":
+/*!**************************************!*\
+  !*** ./src/hooks/answerValueInit.ts ***!
+  \**************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -92803,10 +92688,10 @@ const answerValueInitRelativeDate = (answerValue) => {
 
 /***/ }),
 
-/***/ "./src/inject/app/hooks/saveButtonClickHandlers.ts":
-/*!*********************************************************!*\
-  !*** ./src/inject/app/hooks/saveButtonClickHandlers.ts ***!
-  \*********************************************************/
+/***/ "./src/hooks/saveButtonClickHandlers.ts":
+/*!**********************************************!*\
+  !*** ./src/hooks/saveButtonClickHandlers.ts ***!
+  \**********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -92814,7 +92699,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   saveButtonClickHandlers: () => (/* binding */ saveButtonClickHandlers)
 /* harmony export */ });
-/* harmony import */ var _services_contentScriptApi__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../services/contentScriptApi */ "./src/inject/app/services/contentScriptApi.ts");
+/* harmony import */ var _services_contentScriptApi__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../services/contentScriptApi */ "./src/services/contentScriptApi.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -92826,7 +92711,7 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 };
 
 const basic = (newAnswer_1, _a) => __awaiter(void 0, [newAnswer_1, _a], void 0, function* (newAnswer, { init }) {
-    const resp = yield _services_contentScriptApi__WEBPACK_IMPORTED_MODULE_0__.contentScriptAPI.send('addAnswer', newAnswer);
+    const resp = yield _services_contentScriptApi__WEBPACK_IMPORTED_MODULE_0__.contentScriptAPI.send("addAnswer", newAnswer);
     if (resp.ok) {
         yield init();
     }
@@ -92840,7 +92725,7 @@ const backupAnswerList = (newAnswer_1, _a) => __awaiter(void 0, [newAnswer_1, _a
         yield backend.save(newAnswer);
         yield init();
     }
-    else if (answers[0].originalAnswer.matchType === 'exact') {
+    else if (answers[0].originalAnswer.matchType === "exact") {
         // make a popup that says to add a new answer
     }
 });
@@ -92853,10 +92738,10 @@ const saveButtonClickHandlers = {
 
 /***/ }),
 
-/***/ "./src/inject/app/hooks/useEditableAnswerState.ts":
-/*!********************************************************!*\
-  !*** ./src/inject/app/hooks/useEditableAnswerState.ts ***!
-  \********************************************************/
+/***/ "./src/hooks/useEditableAnswerState.ts":
+/*!*********************************************!*\
+  !*** ./src/hooks/useEditableAnswerState.ts ***!
+  \*********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -92866,8 +92751,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _src_shared_utils_async__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @src/shared/utils/async */ "./src/shared/utils/async.ts");
-/* harmony import */ var _services_contentScriptApi__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/contentScriptApi */ "./src/inject/app/services/contentScriptApi.ts");
+/* harmony import */ var _utils_async__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/async */ "./src/utils/async.ts");
+/* harmony import */ var _services_contentScriptApi__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/contentScriptApi */ "./src/services/contentScriptApi.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -92895,7 +92780,7 @@ const useEditableAnswerState = (backend) => {
             });
         });
         if (Boolean(errorMessage)) {
-            (0,_src_shared_utils_async__WEBPACK_IMPORTED_MODULE_1__.sleep)(timeout).then(() => tempErrorMessage(id, null));
+            (0,_utils_async__WEBPACK_IMPORTED_MODULE_1__.sleep)(timeout).then(() => tempErrorMessage(id, null));
         }
     };
     const initAnswer = (originalAnswer, isNew = false, editable = false) => {
@@ -93027,10 +92912,10 @@ const useEditableAnswerState = (backend) => {
 
 /***/ }),
 
-/***/ "./src/inject/app/hooks/usePopperState.ts":
-/*!************************************************!*\
-  !*** ./src/inject/app/hooks/usePopperState.ts ***!
-  \************************************************/
+/***/ "./src/hooks/usePopperState.ts":
+/*!*************************************!*\
+  !*** ./src/hooks/usePopperState.ts ***!
+  \*************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -93134,10 +93019,169 @@ const usePopperState = ({ init, backend }) => {
 
 /***/ }),
 
-/***/ "./src/inject/app/services/contentScriptApi.ts":
-/*!*****************************************************!*\
-  !*** ./src/inject/app/services/contentScriptApi.ts ***!
-  \*****************************************************/
+/***/ "./src/inject/app/App.tsx":
+/*!********************************!*\
+  !*** ./src/inject/app/App.tsx ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   App: () => (/* binding */ App),
+/* harmony export */   attachReactApp: () => (/* binding */ attachReactApp)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/styles/ThemeProvider.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Box/Box.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Grid/Grid.js");
+/* harmony import */ var _utils_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/react */ "./src/utils/react.tsx");
+/* harmony import */ var _AppContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AppContext */ "./src/inject/app/AppContext.tsx");
+/* harmony import */ var _components_FieldWidget_FieldWidgetButtons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/FieldWidget/FieldWidgetButtons */ "./src/components/FieldWidget/FieldWidgetButtons.tsx");
+/* harmony import */ var _components_Logo__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../components/Logo */ "./src/components/Logo.tsx");
+
+
+
+
+
+
+
+const Main = () => {
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], { theme: _utils_react__WEBPACK_IMPORTED_MODULE_2__.theme },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], { my: "4px" },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], { container: true, spacing: 1, alignItems: "center" },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], { item: true },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Logo__WEBPACK_IMPORTED_MODULE_5__["default"], null)),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], { item: true },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_FieldWidget_FieldWidgetButtons__WEBPACK_IMPORTED_MODULE_4__.FieldWidgetButtons, null))))));
+};
+const App = ({ backend }) => {
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_AppContext__WEBPACK_IMPORTED_MODULE_3__.ContextProvider, { backend: backend },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Main, null)));
+};
+const attachReactApp = (app, inputContainer) => {
+    // cant just append the react app to the root element...
+    // it makes the element disappear
+    const rootElement = document.createElement("div");
+    inputContainer.insertBefore(rootElement, inputContainer.lastChild);
+    (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(rootElement).render(app);
+};
+
+
+/***/ }),
+
+/***/ "./src/inject/app/AppContext.tsx":
+/*!***************************************!*\
+  !*** ./src/inject/app/AppContext.tsx ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ContextProvider: () => (/* binding */ ContextProvider),
+/* harmony export */   useAppContext: () => (/* binding */ useAppContext)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _hooks_usePopperState__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../hooks/usePopperState */ "./src/hooks/usePopperState.ts");
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+
+
+const AppContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)(null);
+const useAppContext = () => (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(AppContext);
+const ContextProvider = ({ children, backend }) => {
+    const [currentValue, setCurrentValue] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+    const [fillButtonDisabled, setFillButtonDisabled] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+    const [editableAnswer, setEditableAnswer] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
+    const editableAnswerState = backend.editableAnswerHook(backend);
+    const fieldNotice = backend.fieldNotice;
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        (() => __awaiter(void 0, void 0, void 0, function* () {
+            yield editableAnswerState.init();
+            yield refresh();
+            yield handleFill();
+        }))();
+        backend.element.addEventListener(backend.reactMessageEventId, refresh);
+        return () => {
+            backend.element.removeEventListener(backend.reactMessageEventId, refresh);
+        };
+    }, []);
+    const init = () => __awaiter(void 0, void 0, void 0, function* () {
+        yield editableAnswerState.init();
+        yield refresh();
+    });
+    const refresh = () => __awaiter(void 0, void 0, void 0, function* () {
+        setCurrentValue(backend.currentValue());
+    });
+    const isFilled = editableAnswerState.answers.length > 0 &&
+        backend.isFilled(backend.currentValue(), backend.answerValue.prepForFill(editableAnswerState.answers));
+    const deleteAnswer = (id) => __awaiter(void 0, void 0, void 0, function* () {
+        yield backend.deleteAnswer(id);
+        yield refresh();
+    });
+    const handleFill = () => __awaiter(void 0, void 0, void 0, function* () {
+        setFillButtonDisabled(true);
+        try {
+            yield backend.fill();
+            yield refresh();
+        }
+        finally {
+            setFillButtonDisabled(false);
+        }
+    });
+    const { saveButtonClickHandler } = backend;
+    const moreInfoPopper = (0,_hooks_usePopperState__WEBPACK_IMPORTED_MODULE_1__.usePopperState)({ init, backend });
+    const value = {
+        backend,
+        refresh,
+        init,
+        deleteAnswer,
+        editableAnswer,
+        setEditableAnswer,
+        currentValue,
+        setCurrentValue,
+        isFilled,
+        moreInfoPopper,
+        editableAnswerState,
+        fieldNotice,
+        fillButton: {
+            isDisabled: fillButtonDisabled,
+            onClick: handleFill,
+            isFilled: editableAnswerState.answers.length > 0 && isFilled,
+        },
+        saveButton: {
+            showSuccessBadge: editableAnswerState.answers.length > 0,
+            clickHandler: () => {
+                saveButtonClickHandler(backend.fieldSnapshot, {
+                    moreInfoPopper,
+                    init,
+                    editableAnswerState,
+                    backend,
+                });
+            },
+        },
+    };
+    return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(AppContext.Provider, { value: value }, children);
+};
+
+
+/***/ }),
+
+/***/ "./src/services/contentScriptApi.ts":
+/*!******************************************!*\
+  !*** ./src/services/contentScriptApi.ts ***!
+  \******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -93145,17 +93189,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   contentScriptAPI: () => (/* binding */ contentScriptAPI)
 /* harmony export */ });
-/* harmony import */ var _src_shared_utils_crossContextCommunication_client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @src/shared/utils/crossContextCommunication/client */ "./src/shared/utils/crossContextCommunication/client.ts");
+/* harmony import */ var _utils_crossContextCommunication_client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../utils/crossContextCommunication/client */ "./src/utils/crossContextCommunication/client.ts");
 
-const contentScriptAPI = new _src_shared_utils_crossContextCommunication_client__WEBPACK_IMPORTED_MODULE_0__.Client("943cff42-1bb1-4d5e-8741-7a0cf734adbf");
+const contentScriptAPI = new _utils_crossContextCommunication_client__WEBPACK_IMPORTED_MODULE_0__.Client("a52302e6-a6e4-4b8a-98a2-7224ed54a6b7");
 
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/baseFormInput.tsx":
-/*!**************************************************************!*\
-  !*** ./src/inject/app/services/formFields/baseFormInput.tsx ***!
-  \**************************************************************/
+/***/ "./src/services/formFields/baseFormInput.tsx":
+/*!***************************************************!*\
+  !*** ./src/services/formFields/baseFormInput.tsx ***!
+  \***************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -93167,15 +93211,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @src/shared/utils/getElements */ "./src/shared/utils/getElements.ts");
+/* harmony import */ var _utils_getElements__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../utils/getElements */ "./src/utils/getElements.ts");
 /* harmony import */ var _fontsource_roboto__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fontsource/roboto */ "./node_modules/@fontsource/roboto/index.css");
 /* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist/esm-browser/v4.js");
-/* harmony import */ var _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueSingleString__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleString */ "./src/inject/app/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleString.tsx");
-/* harmony import */ var _src_shared_utils_stringMatch__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @src/shared/utils/stringMatch */ "./src/shared/utils/stringMatch.ts");
-/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../App */ "./src/inject/app/App.tsx");
-/* harmony import */ var _hooks_saveButtonClickHandlers__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../hooks/saveButtonClickHandlers */ "./src/inject/app/hooks/saveButtonClickHandlers.ts");
-/* harmony import */ var _hooks_useEditableAnswerState__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../hooks/useEditableAnswerState */ "./src/inject/app/hooks/useEditableAnswerState.ts");
-/* harmony import */ var _contentScriptApi__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../contentScriptApi */ "./src/inject/app/services/contentScriptApi.ts");
+/* harmony import */ var _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueSingleString__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleString */ "./src/components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleString.tsx");
+/* harmony import */ var _utils_stringMatch__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../utils/stringMatch */ "./src/utils/stringMatch.ts");
+/* harmony import */ var _inject_app_App__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../inject/app/App */ "./src/inject/app/App.tsx");
+/* harmony import */ var _hooks_saveButtonClickHandlers__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../hooks/saveButtonClickHandlers */ "./src/hooks/saveButtonClickHandlers.ts");
+/* harmony import */ var _hooks_useEditableAnswerState__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../hooks/useEditableAnswerState */ "./src/hooks/useEditableAnswerState.ts");
+/* harmony import */ var _contentScriptApi__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../contentScriptApi */ "./src/services/contentScriptApi.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -93196,7 +93240,7 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 
 
 function isRegistered(el) {
-    return el.hasAttribute('job-app-filler');
+    return el.hasAttribute("job-app-filler");
 }
 function isVisible(el) {
     return el.getBoundingClientRect().height > 0;
@@ -93204,7 +93248,7 @@ function isVisible(el) {
 class BaseFormInput {
     get answerValue() {
         return {
-            displayComponent: _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueSingleString__WEBPACK_IMPORTED_MODULE_3__.AnswerValueSingleString,
+            displayComponent: _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueSingleString__WEBPACK_IMPORTED_MODULE_3__.AnswerValueSingleString,
             init: (answer) => structuredClone(answer),
             prepForSave: (_) => _,
             prepForFill: (answers) => answers.map((a) => a.originalAnswer.answer),
@@ -93217,13 +93261,13 @@ class BaseFormInput {
         this.uuid = (0,uuid__WEBPACK_IMPORTED_MODULE_9__["default"])();
         this.reactMessageEventId = `reactMessage-${this.uuid}`;
         /** prevents the element from being registered twice */
-        this.element.setAttribute('job-app-filler', this.uuid);
+        this.element.setAttribute("job-app-filler", this.uuid);
         this.listenForChanges();
-        this.attachReactApp(react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_App__WEBPACK_IMPORTED_MODULE_5__.App, { backend: this }), element);
+        this.attachReactApp(react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_inject_app_App__WEBPACK_IMPORTED_MODULE_5__.App, { backend: this }), element);
     }
     static autoDiscover() {
         return __awaiter(this, arguments, void 0, function* (node = document) {
-            const elements = (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElements)(node, this.XPATH);
+            const elements = (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElements)(node, this.XPATH);
             elements.forEach((el) => {
                 if (isRegistered(el)) {
                     return;
@@ -93243,7 +93287,7 @@ class BaseFormInput {
     }
     get page() {
         var _a;
-        return ((_a = (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(document, './/h2')) === null || _a === void 0 ? void 0 : _a.innerText) || '';
+        return ((_a = (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(document, ".//h2")) === null || _a === void 0 ? void 0 : _a.innerText) || "";
     }
     /**
      * can sometimes be overriden but is mostly the same.
@@ -93251,10 +93295,10 @@ class BaseFormInput {
      */
     get labelElement() {
         const XPATH = [
-            './/*[self::label or self::legend]',
+            ".//*[self::label or self::legend]",
             "[.//text()[(normalize-space() != '')]]",
-        ].join('');
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, XPATH);
+        ].join("");
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, XPATH);
     }
     get fieldName() {
         var _a;
@@ -93269,7 +93313,7 @@ class BaseFormInput {
      */
     get section() {
         // must always return a string, even a blank one
-        return '';
+        return "";
     }
     get path() {
         return {
@@ -93287,20 +93331,20 @@ class BaseFormInput {
     }
     save(answer) {
         return __awaiter(this, void 0, void 0, function* () {
-            const response = yield _contentScriptApi__WEBPACK_IMPORTED_MODULE_8__.contentScriptAPI.send('saveAnswer', answer);
+            const response = yield _contentScriptApi__WEBPACK_IMPORTED_MODULE_8__.contentScriptAPI.send("saveAnswer", answer);
             return response.data;
         });
     }
     deleteAnswer(id) {
         return __awaiter(this, void 0, void 0, function* () {
-            const res = yield _contentScriptApi__WEBPACK_IMPORTED_MODULE_8__.contentScriptAPI.send('deleteAnswer', id);
+            const res = yield _contentScriptApi__WEBPACK_IMPORTED_MODULE_8__.contentScriptAPI.send("deleteAnswer", id);
             return res.ok;
         });
     }
     answer(path) {
         return __awaiter(this, void 0, void 0, function* () {
             path = path || this.path;
-            const res = yield _contentScriptApi__WEBPACK_IMPORTED_MODULE_8__.contentScriptAPI.send('getAnswer', path);
+            const res = yield _contentScriptApi__WEBPACK_IMPORTED_MODULE_8__.contentScriptAPI.send("getAnswer", path);
             if (res.ok) {
                 return res.data;
             }
@@ -93314,17 +93358,17 @@ class BaseFormInput {
         return e.composedPath().includes(this.element);
     }
     isFilled(current, stored) {
-        return stored.some((answer) => _src_shared_utils_stringMatch__WEBPACK_IMPORTED_MODULE_4__["default"].exact(current, answer));
+        return stored.some((answer) => _utils_stringMatch__WEBPACK_IMPORTED_MODULE_4__["default"].exact(current, answer));
     }
 }
 
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/greenhouse/AddressSearchable.ts":
-/*!****************************************************************************!*\
-  !*** ./src/inject/app/services/formFields/greenhouse/AddressSearchable.ts ***!
-  \****************************************************************************/
+/***/ "./src/services/formFields/greenhouse/AddressSearchable.ts":
+/*!*****************************************************************!*\
+  !*** ./src/services/formFields/greenhouse/AddressSearchable.ts ***!
+  \*****************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -93332,13 +93376,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   AddressSearchable: () => (/* binding */ AddressSearchable)
 /* harmony export */ });
-/* harmony import */ var _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings */ "./src/inject/app/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings.tsx");
-/* harmony import */ var _src_shared_utils_async__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @src/shared/utils/async */ "./src/shared/utils/async.ts");
-/* harmony import */ var _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @src/shared/utils/fieldFillerQueue */ "./src/shared/utils/fieldFillerQueue.ts");
-/* harmony import */ var _src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @src/shared/utils/getElements */ "./src/shared/utils/getElements.ts");
-/* harmony import */ var _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./GreenhouseBaseInput */ "./src/inject/app/services/formFields/greenhouse/GreenhouseBaseInput.ts");
-/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./xpaths */ "./src/inject/app/services/formFields/greenhouse/xpaths.ts");
-/* harmony import */ var _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../hooks/answerValueInit */ "./src/inject/app/hooks/answerValueInit.ts");
+/* harmony import */ var _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../../components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings */ "./src/components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings.tsx");
+/* harmony import */ var _utils_async__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../utils/async */ "./src/utils/async.ts");
+/* harmony import */ var _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../utils/fieldFillerQueue */ "./src/utils/fieldFillerQueue.ts");
+/* harmony import */ var _utils_getElements__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../../utils/getElements */ "./src/utils/getElements.ts");
+/* harmony import */ var _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./GreenhouseBaseInput */ "./src/services/formFields/greenhouse/GreenhouseBaseInput.ts");
+/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./xpaths */ "./src/services/formFields/greenhouse/xpaths.ts");
+/* harmony import */ var _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../../../hooks/answerValueInit */ "./src/hooks/answerValueInit.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -93358,10 +93402,10 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 class AddressSearchable extends _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_4__.GreenhouseBaseInput {
     constructor() {
         super(...arguments);
-        this.fieldType = 'SimpleDropdown';
+        this.fieldType = "SimpleDropdown";
     }
     get answerValue() {
-        return Object.assign(Object.assign({}, super.answerValue), { displayComponent: _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__.AnswerValueBackupStrings, init: _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_6__.answerValueInitList, prepForSave: (values) => {
+        return Object.assign(Object.assign({}, super.answerValue), { displayComponent: _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__.AnswerValueBackupStrings, init: _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_6__.answerValueInitList, prepForSave: (values) => {
                 return values.map(([value, editable]) => value);
             }, prepForFill: (answers) => {
                 return super.answerValue.prepForFill(answers).flat();
@@ -93374,7 +93418,7 @@ class AddressSearchable extends _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_4_
         };
     }
     inputElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_3__.getElement)(this.element, ".//input[@type='text']");
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_3__.getElement)(this.element, ".//input[@type='text']");
     }
     listenForChanges() {
         const observer = new MutationObserver((mutationsList) => {
@@ -93383,32 +93427,32 @@ class AddressSearchable extends _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_4_
         // Set the observer to watch for attribute changes
         observer.observe(this.autoCompleteElement, {
             attributes: true,
-            attributeFilter: ['value'],
+            attributeFilter: ["value"],
         });
     }
     get autoCompleteElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_3__.getElement)(this.element, './/auto-complete');
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_3__.getElement)(this.element, ".//auto-complete");
     }
     currentValue() {
-        return this.autoCompleteElement.getAttribute('value') || '';
+        return this.autoCompleteElement.getAttribute("value") || "";
     }
     fill() {
         return __awaiter(this, void 0, void 0, function* () {
             const answers = yield this.answer();
-            yield _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_2__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
+            yield _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_2__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
                 if (this.inputElement && answers.length > 0) {
                     for (const answer of answers) {
                         this.inputElement().value = answer.answer;
-                        yield (0,_src_shared_utils_async__WEBPACK_IMPORTED_MODULE_1__.sleep)(100);
-                        this.inputElement().dispatchEvent(new InputEvent('input'));
-                        yield (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_3__.waitForElement)(this.element, './/auto-complete[@open]', {
+                        yield (0,_utils_async__WEBPACK_IMPORTED_MODULE_1__.sleep)(100);
+                        this.inputElement().dispatchEvent(new InputEvent("input"));
+                        yield (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_3__.waitForElement)(this.element, ".//auto-complete[@open]", {
                             timeout: 1500,
                         });
                         const correctAnswerXpath = [
-                            './/ul/li',
+                            ".//ul/li",
                             `[text() = '${answer.answer}']`,
-                        ].join('');
-                        const correctAnswerElement = (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_3__.getElement)(this.element, correctAnswerXpath);
+                        ].join("");
+                        const correctAnswerElement = (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_3__.getElement)(this.element, correctAnswerXpath);
                         correctAnswerElement && correctAnswerElement.click();
                         if (this.currentValue() === answer.answer[0]) {
                             return;
@@ -93424,10 +93468,10 @@ AddressSearchable.XPATH = _xpaths__WEBPACK_IMPORTED_MODULE_5__.xpaths.ADDRESS_SE
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/greenhouse/Checkboxes.ts":
-/*!*********************************************************************!*\
-  !*** ./src/inject/app/services/formFields/greenhouse/Checkboxes.ts ***!
-  \*********************************************************************/
+/***/ "./src/services/formFields/greenhouse/Checkboxes.ts":
+/*!**********************************************************!*\
+  !*** ./src/services/formFields/greenhouse/Checkboxes.ts ***!
+  \**********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -93435,12 +93479,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Checkboxes: () => (/* binding */ Checkboxes)
 /* harmony export */ });
-/* harmony import */ var _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings */ "./src/inject/app/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings.tsx");
-/* harmony import */ var _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @src/shared/utils/fieldFillerQueue */ "./src/shared/utils/fieldFillerQueue.ts");
-/* harmony import */ var _src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @src/shared/utils/getElements */ "./src/shared/utils/getElements.ts");
-/* harmony import */ var _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./GreenhouseBaseInput */ "./src/inject/app/services/formFields/greenhouse/GreenhouseBaseInput.ts");
-/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./xpaths */ "./src/inject/app/services/formFields/greenhouse/xpaths.ts");
-/* harmony import */ var _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../hooks/answerValueInit */ "./src/inject/app/hooks/answerValueInit.ts");
+/* harmony import */ var _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../../components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings */ "./src/components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings.tsx");
+/* harmony import */ var _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../utils/fieldFillerQueue */ "./src/utils/fieldFillerQueue.ts");
+/* harmony import */ var _utils_getElements__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../utils/getElements */ "./src/utils/getElements.ts");
+/* harmony import */ var _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./GreenhouseBaseInput */ "./src/services/formFields/greenhouse/GreenhouseBaseInput.ts");
+/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./xpaths */ "./src/services/formFields/greenhouse/xpaths.ts");
+/* harmony import */ var _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../../hooks/answerValueInit */ "./src/hooks/answerValueInit.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -93462,10 +93506,10 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 class Checkboxes extends _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_3__.GreenhouseBaseInput {
     constructor() {
         super(...arguments);
-        this.fieldType = 'SimpleDropdown';
+        this.fieldType = "SimpleDropdown";
     }
     get answerValue() {
-        return Object.assign(Object.assign({}, super.answerValue), { displayComponent: _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__.AnswerValueBackupStrings, init: _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_5__.answerValueInitList, prepForSave: (values) => {
+        return Object.assign(Object.assign({}, super.answerValue), { displayComponent: _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__.AnswerValueBackupStrings, init: _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_5__.answerValueInitList, prepForSave: (values) => {
                 return values.map(([value, editable]) => value);
             }, prepForFill: (answers) => {
                 return super.answerValue.prepForFill(answers).flat();
@@ -93484,17 +93528,17 @@ class Checkboxes extends _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_3__.Green
         return this.element.childNodes[0].textContent.trim();
     }
     inputDisplayElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, ".//input[@type='hidden']");
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, ".//input[@type='hidden']");
     }
     listenForChanges() {
-        this.element.addEventListener('click', (e) => {
-            if (e.target.nodeName === 'INPUT') {
+        this.element.addEventListener("click", (e) => {
+            if (e.target.nodeName === "INPUT") {
                 this.triggerReactUpdate();
             }
         });
     }
     get checkboxLabelElements() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElements)(this.element, ".//label[.//input[@type='checkbox']]");
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElements)(this.element, ".//label[.//input[@type='checkbox']]");
     }
     get selectedElement() {
         return this.checkboxLabelElements.find((labelEl) => {
@@ -93503,15 +93547,15 @@ class Checkboxes extends _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_3__.Green
     }
     currentValue() {
         var _a;
-        return ((_a = this.selectedElement) === null || _a === void 0 ? void 0 : _a.innerText) || '';
+        return ((_a = this.selectedElement) === null || _a === void 0 ? void 0 : _a.innerText) || "";
     }
     fill() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
+            yield _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
                 const answers = yield this.answer();
                 if (answers.length > 0) {
                     for (const answer of answers) {
-                        const correctAnswerElement = (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElements)(this.element, `.//label`).find((el) => el.innerText.trim() === answer.answer[0].trim());
+                        const correctAnswerElement = (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElements)(this.element, `.//label`).find((el) => el.innerText.trim() === answer.answer[0].trim());
                         if (correctAnswerElement) {
                             correctAnswerElement.click();
                             break;
@@ -93527,10 +93571,10 @@ Checkboxes.XPATH = _xpaths__WEBPACK_IMPORTED_MODULE_4__.xpaths.MULTI_CHECKBOX;
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/greenhouse/Dropdown.ts":
-/*!*******************************************************************!*\
-  !*** ./src/inject/app/services/formFields/greenhouse/Dropdown.ts ***!
-  \*******************************************************************/
+/***/ "./src/services/formFields/greenhouse/Dropdown.ts":
+/*!********************************************************!*\
+  !*** ./src/services/formFields/greenhouse/Dropdown.ts ***!
+  \********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -93538,12 +93582,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Dropdown: () => (/* binding */ Dropdown)
 /* harmony export */ });
-/* harmony import */ var _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings */ "./src/inject/app/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings.tsx");
-/* harmony import */ var _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @src/shared/utils/fieldFillerQueue */ "./src/shared/utils/fieldFillerQueue.ts");
-/* harmony import */ var _src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @src/shared/utils/getElements */ "./src/shared/utils/getElements.ts");
-/* harmony import */ var _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./GreenhouseBaseInput */ "./src/inject/app/services/formFields/greenhouse/GreenhouseBaseInput.ts");
-/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./xpaths */ "./src/inject/app/services/formFields/greenhouse/xpaths.ts");
-/* harmony import */ var _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../hooks/answerValueInit */ "./src/inject/app/hooks/answerValueInit.ts");
+/* harmony import */ var _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../../components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings */ "./src/components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings.tsx");
+/* harmony import */ var _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../utils/fieldFillerQueue */ "./src/utils/fieldFillerQueue.ts");
+/* harmony import */ var _utils_getElements__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../utils/getElements */ "./src/utils/getElements.ts");
+/* harmony import */ var _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./GreenhouseBaseInput */ "./src/services/formFields/greenhouse/GreenhouseBaseInput.ts");
+/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./xpaths */ "./src/services/formFields/greenhouse/xpaths.ts");
+/* harmony import */ var _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../../hooks/answerValueInit */ "./src/hooks/answerValueInit.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -93562,10 +93606,10 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 class Dropdown extends _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_3__.GreenhouseBaseInput {
     constructor() {
         super(...arguments);
-        this.fieldType = 'SimpleDropdown';
+        this.fieldType = "SimpleDropdown";
     }
     get answerValue() {
-        return Object.assign(Object.assign({}, super.answerValue), { displayComponent: _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__.AnswerValueBackupStrings, init: _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_5__.answerValueInitList, prepForSave: (values) => {
+        return Object.assign(Object.assign({}, super.answerValue), { displayComponent: _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__.AnswerValueBackupStrings, init: _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_5__.answerValueInitList, prepForSave: (values) => {
                 return values.map(([value, editable]) => value);
             }, prepForFill: (answers) => {
                 return super.answerValue.prepForFill(answers).flat();
@@ -93578,17 +93622,17 @@ class Dropdown extends _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_3__.Greenho
         };
     }
     inputElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, './/select');
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, ".//select");
     }
     get select2ContainerElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, ".//div[contains(@class, 'select2-container')]");
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, ".//div[contains(@class, 'select2-container')]");
     }
     get select2ContainerAElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.select2ContainerElement, './/a');
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.select2ContainerElement, ".//a");
     }
     toggleDropdown() {
         var _a;
-        (_a = this.select2ContainerAElement) === null || _a === void 0 ? void 0 : _a.dispatchEvent(new MouseEvent('mousedown'));
+        (_a = this.select2ContainerAElement) === null || _a === void 0 ? void 0 : _a.dispatchEvent(new MouseEvent("mousedown"));
     }
     openDropdown() {
         if (!this.dropdownIsOpen) {
@@ -93601,18 +93645,18 @@ class Dropdown extends _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_3__.Greenho
         }
     }
     get dropdownIsOpen() {
-        return this.select2ContainerElement.classList.contains('select2-dropdown-open');
+        return this.select2ContainerElement.classList.contains("select2-dropdown-open");
     }
     get dropdownId() {
         var _a;
-        return (_a = (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.select2ContainerElement, "./label")) === null || _a === void 0 ? void 0 : _a.getAttribute("for");
+        return (_a = (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.select2ContainerElement, "./label")) === null || _a === void 0 ? void 0 : _a.getAttribute("for");
     }
     get dropdownElement() {
         const XPATH = [
             ".//div[contains(@class, 'select2-drop-active')]",
-            `[.//label[@for='${this.dropdownId}_search']]`
+            `[.//label[@for='${this.dropdownId}_search']]`,
         ].join("");
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(document, XPATH);
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(document, XPATH);
     }
     inputDisplayElement() {
         return this.select2ContainerElement;
@@ -93633,15 +93677,15 @@ class Dropdown extends _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_3__.Greenho
     fill() {
         return __awaiter(this, void 0, void 0, function* () {
             const answers = yield this.answer();
-            yield _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
+            yield _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
                 if (answers.length > 0) {
                     for (const answer of answers) {
                         this.openDropdown();
                         if (this.dropdownIsOpen) {
                             const correctAnswerXpath = [
-                                `.//div[contains(text(), "${answer.answer}")]/parent::li`
+                                `.//div[contains(text(), "${answer.answer}")]/parent::li`,
                             ].join("");
-                            const correctAnswerElement = (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.dropdownElement, correctAnswerXpath);
+                            const correctAnswerElement = (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.dropdownElement, correctAnswerXpath);
                             if (correctAnswerElement) {
                                 correctAnswerElement.dispatchEvent(new Event("mouseup", {
                                     bubbles: true,
@@ -93662,10 +93706,10 @@ Dropdown.XPATH = _xpaths__WEBPACK_IMPORTED_MODULE_4__.xpaths.SIMPLE_DROPDOWN;
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/greenhouse/DropdownMulti.ts":
-/*!************************************************************************!*\
-  !*** ./src/inject/app/services/formFields/greenhouse/DropdownMulti.ts ***!
-  \************************************************************************/
+/***/ "./src/services/formFields/greenhouse/DropdownMulti.ts":
+/*!*************************************************************!*\
+  !*** ./src/services/formFields/greenhouse/DropdownMulti.ts ***!
+  \*************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -93673,13 +93717,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   DropdownMulti: () => (/* binding */ DropdownMulti)
 /* harmony export */ });
-/* harmony import */ var _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings */ "./src/inject/app/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings.tsx");
-/* harmony import */ var _src_shared_utils_events__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @src/shared/utils/events */ "./src/shared/utils/events.ts");
-/* harmony import */ var _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @src/shared/utils/fieldFillerQueue */ "./src/shared/utils/fieldFillerQueue.ts");
-/* harmony import */ var _src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @src/shared/utils/getElements */ "./src/shared/utils/getElements.ts");
-/* harmony import */ var _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./GreenhouseBaseInput */ "./src/inject/app/services/formFields/greenhouse/GreenhouseBaseInput.ts");
-/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./xpaths */ "./src/inject/app/services/formFields/greenhouse/xpaths.ts");
-/* harmony import */ var _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../hooks/answerValueInit */ "./src/inject/app/hooks/answerValueInit.ts");
+/* harmony import */ var _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../../components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings */ "./src/components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings.tsx");
+/* harmony import */ var _utils_events__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../..//utils/events */ "./src/utils/events.ts");
+/* harmony import */ var _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../utils/fieldFillerQueue */ "./src/utils/fieldFillerQueue.ts");
+/* harmony import */ var _utils_getElements__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../../utils/getElements */ "./src/utils/getElements.ts");
+/* harmony import */ var _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./GreenhouseBaseInput */ "./src/services/formFields/greenhouse/GreenhouseBaseInput.ts");
+/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./xpaths */ "./src/services/formFields/greenhouse/xpaths.ts");
+/* harmony import */ var _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../../../hooks/answerValueInit */ "./src/hooks/answerValueInit.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -93699,10 +93743,10 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 class DropdownMulti extends _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_4__.GreenhouseBaseInput {
     constructor() {
         super(...arguments);
-        this.fieldType = 'SimpleDropdown';
+        this.fieldType = "SimpleDropdown";
     }
     get answerValue() {
-        return Object.assign(Object.assign({}, super.answerValue), { displayComponent: _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__.AnswerValueBackupStrings, init: _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_6__.answerValueInitList, prepForSave: (values) => {
+        return Object.assign(Object.assign({}, super.answerValue), { displayComponent: _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__.AnswerValueBackupStrings, init: _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_6__.answerValueInitList, prepForSave: (values) => {
                 return values.map(([value, editable]) => value);
             }, prepForFill: (answers) => {
                 return super.answerValue.prepForFill(answers).flat();
@@ -93732,11 +93776,11 @@ class DropdownMulti extends _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_4__.Gr
     }
     currentValue() {
         // return only first value for now to make it compatible with dropdown single
-        return (this.elements.selectedOptions.map((element) => element.innerText)[0] || '');
+        return (this.elements.selectedOptions.map((element) => element.innerText)[0] || "");
     }
     fill() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_2__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
+            yield _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_2__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
                 const answers = yield this.answer();
                 if (answers.length > 0) {
                     const { dropdown } = this.elements;
@@ -93760,13 +93804,13 @@ class ElementContainer {
         this.element = element;
     }
     getElement(xpath) {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_3__.getElement)(this.element, xpath);
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_3__.getElement)(this.element, xpath);
     }
     get choiceList() {
         return this.getElement(`.//ul[@class="select2-choices"]`);
     }
     get selectedOptions() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_3__.getElements)(this.choiceList, `.//li[@class="select2-search-choice"]`);
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_3__.getElements)(this.choiceList, `.//li[@class="select2-search-choice"]`);
     }
     get input() {
         return this.select2Container;
@@ -93795,36 +93839,36 @@ class DropdownContainer {
     }
     deleteSelectedItem(el) {
         var _a;
-        (_a = (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_3__.getElement)(el, './a')) === null || _a === void 0 ? void 0 : _a.click();
+        (_a = (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_3__.getElement)(el, "./a")) === null || _a === void 0 ? void 0 : _a.click();
     }
     get dropdown() {
-        const XPATH = [`./div`, `[@id="select2-drop"]`].join('');
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_3__.getElement)(document.body, XPATH);
+        const XPATH = [`./div`, `[@id="select2-drop"]`].join("");
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_3__.getElement)(document.body, XPATH);
     }
     get isOpen() {
-        return this.elements.select2Container.classList.contains('select2-dropdown-open');
+        return this.elements.select2Container.classList.contains("select2-dropdown-open");
     }
     close() {
-        this.elements.searchInput.dispatchEvent((0,_src_shared_utils_events__WEBPACK_IMPORTED_MODULE_1__.createKeyboardEvent)('keydown', 'Escape'));
+        this.elements.searchInput.dispatchEvent((0,_utils_events__WEBPACK_IMPORTED_MODULE_1__.createKeyboardEvent)("keydown", "Escape"));
     }
     open() {
         !this.isOpen && this.elements.searchInput.click();
     }
     get choices() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_3__.getElements)(this.dropdown, `.//li`);
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_3__.getElements)(this.dropdown, `.//li`);
     }
     hasChoice(value) {
         return this.choices.find((el) => el.innerText === value);
     }
     highlightedChoice() {
         const XPATH = `./ul/li[contains(@class,"select2-highlighted")]`;
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_3__.getElement)(this.dropdown, XPATH);
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_3__.getElement)(this.dropdown, XPATH);
     }
     keydownEnter() {
-        this.elements.searchInput.dispatchEvent((0,_src_shared_utils_events__WEBPACK_IMPORTED_MODULE_1__.createKeyboardEvent)('keydown', 'Enter'));
+        this.elements.searchInput.dispatchEvent((0,_utils_events__WEBPACK_IMPORTED_MODULE_1__.createKeyboardEvent)("keydown", "Enter"));
     }
     keydownArrowDown() {
-        this.elements.searchInput.dispatchEvent((0,_src_shared_utils_events__WEBPACK_IMPORTED_MODULE_1__.createKeyboardEvent)('keydown', 'ArrowDown'));
+        this.elements.searchInput.dispatchEvent((0,_utils_events__WEBPACK_IMPORTED_MODULE_1__.createKeyboardEvent)("keydown", "ArrowDown"));
     }
     /**
      * uses the keyboard to navigate through the list of options by dispatching
@@ -93849,10 +93893,10 @@ class DropdownContainer {
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/greenhouse/DropdownSearchable.ts":
-/*!*****************************************************************************!*\
-  !*** ./src/inject/app/services/formFields/greenhouse/DropdownSearchable.ts ***!
-  \*****************************************************************************/
+/***/ "./src/services/formFields/greenhouse/DropdownSearchable.ts":
+/*!******************************************************************!*\
+  !*** ./src/services/formFields/greenhouse/DropdownSearchable.ts ***!
+  \******************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -93860,12 +93904,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   DropdownSearchable: () => (/* binding */ DropdownSearchable)
 /* harmony export */ });
-/* harmony import */ var _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings */ "./src/inject/app/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings.tsx");
-/* harmony import */ var _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @src/shared/utils/fieldFillerQueue */ "./src/shared/utils/fieldFillerQueue.ts");
-/* harmony import */ var _src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @src/shared/utils/getElements */ "./src/shared/utils/getElements.ts");
-/* harmony import */ var _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./GreenhouseBaseInput */ "./src/inject/app/services/formFields/greenhouse/GreenhouseBaseInput.ts");
-/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./xpaths */ "./src/inject/app/services/formFields/greenhouse/xpaths.ts");
-/* harmony import */ var _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../hooks/answerValueInit */ "./src/inject/app/hooks/answerValueInit.ts");
+/* harmony import */ var _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../../components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings */ "./src/components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings.tsx");
+/* harmony import */ var _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../utils/fieldFillerQueue */ "./src/utils/fieldFillerQueue.ts");
+/* harmony import */ var _utils_getElements__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../utils/getElements */ "./src/utils/getElements.ts");
+/* harmony import */ var _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./GreenhouseBaseInput */ "./src/services/formFields/greenhouse/GreenhouseBaseInput.ts");
+/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./xpaths */ "./src/services/formFields/greenhouse/xpaths.ts");
+/* harmony import */ var _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../../hooks/answerValueInit */ "./src/hooks/answerValueInit.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -93884,10 +93928,10 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 class DropdownSearchable extends _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_3__.GreenhouseBaseInput {
     constructor() {
         super(...arguments);
-        this.fieldType = 'SimpleDropdown';
+        this.fieldType = "SimpleDropdown";
     }
     get answerValue() {
-        return Object.assign(Object.assign({}, super.answerValue), { displayComponent: _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__.AnswerValueBackupStrings, init: _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_5__.answerValueInitList, prepForSave: (values) => {
+        return Object.assign(Object.assign({}, super.answerValue), { displayComponent: _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__.AnswerValueBackupStrings, init: _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_5__.answerValueInitList, prepForSave: (values) => {
                 return values.map(([value, editable]) => value);
             }, prepForFill: (answers) => {
                 return super.answerValue.prepForFill(answers).flat();
@@ -93900,17 +93944,17 @@ class DropdownSearchable extends _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_3
         };
     }
     inputElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, './/select');
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, ".//select");
     }
     get select2ContainerElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, ".//div[contains(@class, 'select2-container')]");
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, ".//div[contains(@class, 'select2-container')]");
     }
     get select2ContainerAElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.select2ContainerElement, './/a');
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.select2ContainerElement, ".//a");
     }
     toggleDropdown() {
         var _a;
-        (_a = this.select2ContainerAElement) === null || _a === void 0 ? void 0 : _a.dispatchEvent(new MouseEvent('mousedown'));
+        (_a = this.select2ContainerAElement) === null || _a === void 0 ? void 0 : _a.dispatchEvent(new MouseEvent("mousedown"));
     }
     openDropdown() {
         if (!this.dropdownIsOpen) {
@@ -93923,18 +93967,18 @@ class DropdownSearchable extends _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_3
         }
     }
     get dropdownIsOpen() {
-        return this.select2ContainerElement.classList.contains('select2-dropdown-open');
+        return this.select2ContainerElement.classList.contains("select2-dropdown-open");
     }
     get dropdownId() {
         var _a;
-        return (_a = (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.select2ContainerElement, "./label")) === null || _a === void 0 ? void 0 : _a.getAttribute("for");
+        return (_a = (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.select2ContainerElement, "./label")) === null || _a === void 0 ? void 0 : _a.getAttribute("for");
     }
     get dropdownElement() {
         const XPATH = [
             ".//div[contains(@class, 'select2-drop-active')]",
-            `[.//label[@for='${this.dropdownId}_search']]`
+            `[.//label[@for='${this.dropdownId}_search']]`,
         ].join("");
-        const dropdown = (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(document, XPATH);
+        const dropdown = (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(document, XPATH);
         return new DropdownElement(dropdown);
     }
     inputDisplayElement() {
@@ -93956,7 +94000,7 @@ class DropdownSearchable extends _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_3
     fill() {
         return __awaiter(this, void 0, void 0, function* () {
             const answers = yield this.answer();
-            yield _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
+            yield _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
                 if (answers.length > 0) {
                     for (const answer of answers) {
                         const answerValue = answer.answer[0];
@@ -93977,7 +94021,7 @@ class DropdownElement {
         this.element = element;
     }
     getElement(xpath) {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, xpath);
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, xpath);
     }
     get searchInput() {
         return this.getElement(`.//div[@class="select2-search"]/input`);
@@ -93994,7 +94038,10 @@ class DropdownElement {
             `[not(./li[starts-with(text(),"Searching")])]`,
         ].join("");
         return new Promise((resolve) => {
-            (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.waitForElement)(this.element, RESULTS_ELEMENT_XPATH, { onlyNew: true, timeout: 600 }).then((foundElement) => resolve(foundElement));
+            (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.waitForElement)(this.element, RESULTS_ELEMENT_XPATH, {
+                onlyNew: true,
+                timeout: 600,
+            }).then((foundElement) => resolve(foundElement));
             this.searchInput.value = value;
             this.searchInput.dispatchEvent(new InputEvent("input"));
         });
@@ -94005,7 +94052,7 @@ class DropdownElement {
     search(value) {
         return __awaiter(this, void 0, void 0, function* () {
             const searchResults = yield this.performSearch(value);
-            const listElements = (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElements)(searchResults, `./li`);
+            const listElements = (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElements)(searchResults, `./li`);
             return listElements.find((el) => el.innerText === value);
         });
     }
@@ -94027,10 +94074,10 @@ class DropdownElement {
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/greenhouse/File.ts":
-/*!***************************************************************!*\
-  !*** ./src/inject/app/services/formFields/greenhouse/File.ts ***!
-  \***************************************************************/
+/***/ "./src/services/formFields/greenhouse/File.ts":
+/*!****************************************************!*\
+  !*** ./src/services/formFields/greenhouse/File.ts ***!
+  \****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -94038,14 +94085,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   File: () => (/* binding */ File)
 /* harmony export */ });
-/* harmony import */ var _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueSingleFileUpload__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleFileUpload */ "./src/inject/app/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleFileUpload.tsx");
-/* harmony import */ var _src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @src/shared/utils/getElements */ "./src/shared/utils/getElements.ts");
-/* harmony import */ var _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./GreenhouseBaseInput */ "./src/inject/app/services/formFields/greenhouse/GreenhouseBaseInput.ts");
-/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./xpaths */ "./src/inject/app/services/formFields/greenhouse/xpaths.ts");
-/* harmony import */ var _src_shared_utils_file__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @src/shared/utils/file */ "./src/shared/utils/file.ts");
-/* harmony import */ var _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @src/shared/utils/fieldFillerQueue */ "./src/shared/utils/fieldFillerQueue.ts");
-/* harmony import */ var _src_shared_utils_fileUploadHelpers__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @src/shared/utils/fileUploadHelpers */ "./src/shared/utils/fileUploadHelpers.ts");
-/* harmony import */ var _hooks_saveButtonClickHandlers__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../hooks/saveButtonClickHandlers */ "./src/inject/app/hooks/saveButtonClickHandlers.ts");
+/* harmony import */ var _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueSingleFileUpload__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../../components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleFileUpload */ "./src/components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleFileUpload.tsx");
+/* harmony import */ var _utils_getElements__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../utils/getElements */ "./src/utils/getElements.ts");
+/* harmony import */ var _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./GreenhouseBaseInput */ "./src/services/formFields/greenhouse/GreenhouseBaseInput.ts");
+/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./xpaths */ "./src/services/formFields/greenhouse/xpaths.ts");
+/* harmony import */ var _utils_file__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../../utils/file */ "./src/utils/file.ts");
+/* harmony import */ var _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../../utils/fieldFillerQueue */ "./src/utils/fieldFillerQueue.ts");
+/* harmony import */ var _utils_fileUploadHelpers__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../../../utils/fileUploadHelpers */ "./src/utils/fileUploadHelpers.ts");
+/* harmony import */ var _hooks_saveButtonClickHandlers__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../hooks/saveButtonClickHandlers */ "./src/hooks/saveButtonClickHandlers.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -94066,59 +94113,59 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 class File extends _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_2__.GreenhouseBaseInput {
     constructor() {
         super(...arguments);
-        this.fieldType = 'SingleFileUpload';
+        this.fieldType = "SingleFileUpload";
         this.saveButtonClickHandler = _hooks_saveButtonClickHandlers__WEBPACK_IMPORTED_MODULE_7__.saveButtonClickHandlers.withNotice;
         this.fieldNotice = "To save and autofill a file, upload it in the 'Answers' section below.";
         this.fieldNoticeLink = {
-            display: 'See How',
-            url: 'https://www.youtube.com/watch?v=JYMATq9siIY&t=134s',
+            display: "See How",
+            url: "https://www.youtube.com/watch?v=JYMATq9siIY&t=134s",
         };
     }
     get answerValue() {
-        return Object.assign(Object.assign({}, super.answerValue), { displayComponent: _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueSingleFileUpload__WEBPACK_IMPORTED_MODULE_0__.AnswerValueSingleFileUpload });
+        return Object.assign(Object.assign({}, super.answerValue), { displayComponent: _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueSingleFileUpload__WEBPACK_IMPORTED_MODULE_0__.AnswerValueSingleFileUpload });
     }
     listenForChanges() {
         const observer = new MutationObserver(() => {
             this.triggerReactUpdate();
         });
-        const chosenFileDisplayElement = (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, ".//div[@class='chosen']");
+        const chosenFileDisplayElement = (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, ".//div[@class='chosen']");
         observer.observe(chosenFileDisplayElement, {
             attributes: true,
-            attributeFilter: ['style'],
+            attributeFilter: ["style"],
         });
     }
     inputElement() {
         return;
     }
     inputDisplayElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, ".//div[contains(@class, 'attach-or-paste')]");
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, ".//div[contains(@class, 'attach-or-paste')]");
     }
     isFilled(current, stored) {
         return current === stored[0].name;
     }
     get deleteButtonElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, ".//button[@aria-label='Remove attachment']");
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, ".//button[@aria-label='Remove attachment']");
     }
     get dropZoneElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, ".//div[contains(@class, 'drop-zone')]");
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, ".//div[contains(@class, 'drop-zone')]");
     }
     currentValue() {
         var _a;
         const XPATH = [
             ".//div[@class='chosen']",
             "//span[contains(@id, '_filename')]",
-        ].join('');
-        return ((_a = (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, XPATH)) === null || _a === void 0 ? void 0 : _a.innerText) || '';
+        ].join("");
+        return ((_a = (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, XPATH)) === null || _a === void 0 ? void 0 : _a.innerText) || "";
     }
     fill() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_5__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
+            yield _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_5__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
                 var _a;
                 const answer = (yield this.answer()) || [];
                 if (answer.length > 0 && answer[0].answer) {
-                    const file = (0,_src_shared_utils_file__WEBPACK_IMPORTED_MODULE_4__.localStorageToFile)(answer[0].answer);
+                    const file = (0,_utils_file__WEBPACK_IMPORTED_MODULE_4__.localStorageToFile)(answer[0].answer);
                     (_a = this.deleteButtonElement) === null || _a === void 0 ? void 0 : _a.click();
-                    (0,_src_shared_utils_fileUploadHelpers__WEBPACK_IMPORTED_MODULE_6__.dispatchFileDragEvent)('drop', this.dropZoneElement, [file]);
+                    (0,_utils_fileUploadHelpers__WEBPACK_IMPORTED_MODULE_6__.dispatchFileDragEvent)("drop", this.dropZoneElement, [file]);
                 }
             }));
         });
@@ -94129,10 +94176,10 @@ File.XPATH = _xpaths__WEBPACK_IMPORTED_MODULE_3__.xpaths.SINGLE_FILE_UPLOAD;
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/greenhouse/GreenhouseBaseInput.ts":
-/*!******************************************************************************!*\
-  !*** ./src/inject/app/services/formFields/greenhouse/GreenhouseBaseInput.ts ***!
-  \******************************************************************************/
+/***/ "./src/services/formFields/greenhouse/GreenhouseBaseInput.ts":
+/*!*******************************************************************!*\
+  !*** ./src/services/formFields/greenhouse/GreenhouseBaseInput.ts ***!
+  \*******************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -94141,8 +94188,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   GreenhouseBaseInput: () => (/* binding */ GreenhouseBaseInput)
 /* harmony export */ });
 /* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js");
-/* harmony import */ var _baseFormInput__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../baseFormInput */ "./src/inject/app/services/formFields/baseFormInput.tsx");
-/* harmony import */ var _src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @src/shared/utils/getElements */ "./src/shared/utils/getElements.ts");
+/* harmony import */ var _baseFormInput__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../baseFormInput */ "./src/services/formFields/baseFormInput.tsx");
+/* harmony import */ var _utils_getElements__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../utils/getElements */ "./src/utils/getElements.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -94158,7 +94205,7 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 class GreenhouseBaseInput extends _baseFormInput__WEBPACK_IMPORTED_MODULE_1__.BaseFormInput {
     static autoDiscover() {
         return __awaiter(this, arguments, void 0, function* (node = document) {
-            const elements = (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElements)(node, this.XPATH);
+            const elements = (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElements)(node, this.XPATH);
             elements.forEach((el) => {
                 if ((0,_baseFormInput__WEBPACK_IMPORTED_MODULE_1__.isRegistered)(el) || !(0,_baseFormInput__WEBPACK_IMPORTED_MODULE_1__.isVisible)(el)) {
                     return;
@@ -94179,18 +94226,18 @@ class GreenhouseBaseInput extends _baseFormInput__WEBPACK_IMPORTED_MODULE_1__.Ba
         return (_a = super.fieldName) === null || _a === void 0 ? void 0 : _a.replace("j\n\na\n\nf", "");
     }
     sectionElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `ancestor::div[@jaf-section]`);
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `ancestor::div[@jaf-section]`);
     }
     get section() {
         var _a;
-        return ((_a = this.sectionElement()) === null || _a === void 0 ? void 0 : _a.getAttribute('jaf-section')) || "";
+        return ((_a = this.sectionElement()) === null || _a === void 0 ? void 0 : _a.getAttribute("jaf-section")) || "";
     }
     /**
      * Attach widget between label and field
      */
     attachReactApp(app, inputContainer) {
         var _a;
-        const rootElement = document.createElement('div');
+        const rootElement = document.createElement("div");
         rootElement.classList.add("jaf-widget");
         if (this.inputDisplayElement) {
             (_a = this.inputDisplayElement()) === null || _a === void 0 ? void 0 : _a.parentElement.insertBefore(rootElement, this.inputDisplayElement());
@@ -94202,10 +94249,10 @@ class GreenhouseBaseInput extends _baseFormInput__WEBPACK_IMPORTED_MODULE_1__.Ba
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/greenhouse/MonthYear.ts":
-/*!********************************************************************!*\
-  !*** ./src/inject/app/services/formFields/greenhouse/MonthYear.ts ***!
-  \********************************************************************/
+/***/ "./src/services/formFields/greenhouse/MonthYear.ts":
+/*!*********************************************************!*\
+  !*** ./src/services/formFields/greenhouse/MonthYear.ts ***!
+  \*********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -94213,12 +94260,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   MonthYear: () => (/* binding */ MonthYear)
 /* harmony export */ });
-/* harmony import */ var _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueSingleDate__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleDate */ "./src/inject/app/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleDate.tsx");
-/* harmony import */ var _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @src/shared/utils/fieldFillerQueue */ "./src/shared/utils/fieldFillerQueue.ts");
-/* harmony import */ var _src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @src/shared/utils/getElements */ "./src/shared/utils/getElements.ts");
-/* harmony import */ var _utils_dateUtils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/dateUtils */ "./src/inject/app/services/formFields/utils/dateUtils.ts");
-/* harmony import */ var _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./GreenhouseBaseInput */ "./src/inject/app/services/formFields/greenhouse/GreenhouseBaseInput.ts");
-/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./xpaths */ "./src/inject/app/services/formFields/greenhouse/xpaths.ts");
+/* harmony import */ var _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueSingleDate__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../../components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleDate */ "./src/components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleDate.tsx");
+/* harmony import */ var _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../utils/fieldFillerQueue */ "./src/utils/fieldFillerQueue.ts");
+/* harmony import */ var _utils_getElements__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../utils/getElements */ "./src/utils/getElements.ts");
+/* harmony import */ var _utils_dateUtils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/dateUtils */ "./src/services/formFields/utils/dateUtils.ts");
+/* harmony import */ var _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./GreenhouseBaseInput */ "./src/services/formFields/greenhouse/GreenhouseBaseInput.ts");
+/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./xpaths */ "./src/services/formFields/greenhouse/xpaths.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -94237,28 +94284,28 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 class MonthYear extends _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_4__.GreenhouseBaseInput {
     constructor() {
         super(...arguments);
-        this.fieldType = 'MonthYear';
-        this.answerValueDisplayComponent = _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueSingleDate__WEBPACK_IMPORTED_MODULE_0__.AnswerValueSingleDate;
+        this.fieldType = "MonthYear";
+        this.answerValueDisplayComponent = _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueSingleDate__WEBPACK_IMPORTED_MODULE_0__.AnswerValueSingleDate;
     }
     get answerValue() {
-        return Object.assign(Object.assign({}, super.answerValue), { displayComponent: _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueSingleDate__WEBPACK_IMPORTED_MODULE_0__.AnswerValueSingleDate });
+        return Object.assign(Object.assign({}, super.answerValue), { displayComponent: _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueSingleDate__WEBPACK_IMPORTED_MODULE_0__.AnswerValueSingleDate });
     }
     get inputWrapper() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `./fieldset`);
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `./fieldset`);
     }
     listenForChanges() {
-        this.inputWrapper.addEventListener('input', (e) => {
+        this.inputWrapper.addEventListener("input", (e) => {
             this.triggerReactUpdate();
         });
     }
     inputElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//input`);
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//input`);
     }
     get monthInputElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//input[@placeholder="MM"]`);
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//input[@placeholder="MM"]`);
     }
     get yearInputElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//input[@placeholder="YYYY"]`);
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//input[@placeholder="YYYY"]`);
     }
     currentValue() {
         return [this.monthInputElement.value, this.yearInputElement.value];
@@ -94273,12 +94320,12 @@ class MonthYear extends _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_4__.Greenh
         return __awaiter(this, void 0, void 0, function* () {
             const answers = yield this.answer();
             if (answers.length > 0) {
-                yield _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
+                yield _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
                     const [month, year] = answers[0].answer;
                     this.monthInputElement.value = month;
-                    this.monthInputElement.dispatchEvent(new InputEvent('input'));
+                    this.monthInputElement.dispatchEvent(new InputEvent("input"));
                     this.yearInputElement.value = year;
-                    this.yearInputElement.dispatchEvent(new InputEvent('input'));
+                    this.yearInputElement.dispatchEvent(new InputEvent("input"));
                 }));
             }
         });
@@ -94289,10 +94336,10 @@ MonthYear.XPATH = _xpaths__WEBPACK_IMPORTED_MODULE_5__.xpaths.MONTH_YEAR;
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/greenhouse/Sections.ts":
-/*!*******************************************************************!*\
-  !*** ./src/inject/app/services/formFields/greenhouse/Sections.ts ***!
-  \*******************************************************************/
+/***/ "./src/services/formFields/greenhouse/Sections.ts":
+/*!********************************************************!*\
+  !*** ./src/services/formFields/greenhouse/Sections.ts ***!
+  \********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -94300,7 +94347,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Sections: () => (/* binding */ Sections)
 /* harmony export */ });
-/* harmony import */ var _src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @src/shared/utils/getElements */ "./src/shared/utils/getElements.ts");
+/* harmony import */ var _utils_getElements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../../utils/getElements */ "./src/utils/getElements.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -94316,7 +94363,7 @@ const SECTION_WRAPPER_IDS = `[@id="education_section" or @id="employment_section
 class Sections {
     static autoDiscover() {
         return __awaiter(this, arguments, void 0, function* (node = document) {
-            const elements = (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_0__.getElements)(node, this.XPATH);
+            const elements = (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_0__.getElements)(node, this.XPATH);
             elements.forEach((el) => {
                 if (!el.hasAttribute('job-app-filler')) {
                     // @ts-ignore
@@ -94338,7 +94385,7 @@ class Sections {
         return this.element.id.split('_')[0];
     }
     registerSections() {
-        const sectionElements = (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_0__.getElements)(this.element, `.//div${SECTION_CLASSES}`);
+        const sectionElements = (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_0__.getElements)(this.element, `.//div${SECTION_CLASSES}`);
         sectionElements.forEach((element, index) => {
             const sectionId = this.sectionType + ' ' + (index + 1).toString();
             element.setAttribute('jaf-section', sectionId);
@@ -94346,7 +94393,7 @@ class Sections {
     }
     reregisterSectionsOnMutation() {
         const observer = new MutationObserver((mutations) => {
-            if ((0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_0__.getElement)(mutations, `self::div${SECTION_CLASSES}`)) {
+            if ((0,_utils_getElements__WEBPACK_IMPORTED_MODULE_0__.getElement)(mutations, `self::div${SECTION_CLASSES}`)) {
                 this.registerSections();
             }
         });
@@ -94358,10 +94405,10 @@ Sections.XPATH = `.//div${SECTION_WRAPPER_IDS}`;
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/greenhouse/Select.ts":
-/*!*****************************************************************!*\
-  !*** ./src/inject/app/services/formFields/greenhouse/Select.ts ***!
-  \*****************************************************************/
+/***/ "./src/services/formFields/greenhouse/Select.ts":
+/*!******************************************************!*\
+  !*** ./src/services/formFields/greenhouse/Select.ts ***!
+  \******************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -94369,12 +94416,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Select: () => (/* binding */ Select)
 /* harmony export */ });
-/* harmony import */ var _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings */ "./src/inject/app/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings.tsx");
-/* harmony import */ var _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @src/shared/utils/fieldFillerQueue */ "./src/shared/utils/fieldFillerQueue.ts");
-/* harmony import */ var _src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @src/shared/utils/getElements */ "./src/shared/utils/getElements.ts");
-/* harmony import */ var _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./GreenhouseBaseInput */ "./src/inject/app/services/formFields/greenhouse/GreenhouseBaseInput.ts");
-/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./xpaths */ "./src/inject/app/services/formFields/greenhouse/xpaths.ts");
-/* harmony import */ var _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../hooks/answerValueInit */ "./src/inject/app/hooks/answerValueInit.ts");
+/* harmony import */ var _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../../components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings */ "./src/components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings.tsx");
+/* harmony import */ var _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../utils/fieldFillerQueue */ "./src/utils/fieldFillerQueue.ts");
+/* harmony import */ var _utils_getElements__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../utils/getElements */ "./src/utils/getElements.ts");
+/* harmony import */ var _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./GreenhouseBaseInput */ "./src/services/formFields/greenhouse/GreenhouseBaseInput.ts");
+/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./xpaths */ "./src/services/formFields/greenhouse/xpaths.ts");
+/* harmony import */ var _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../../hooks/answerValueInit */ "./src/hooks/answerValueInit.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -94393,10 +94440,10 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 class Select extends _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_3__.GreenhouseBaseInput {
     constructor() {
         super(...arguments);
-        this.fieldType = 'SimpleDropdown';
+        this.fieldType = "SimpleDropdown";
     }
     get answerValue() {
-        return Object.assign(Object.assign({}, super.answerValue), { displayComponent: _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__.AnswerValueBackupStrings, init: _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_5__.answerValueInitList, prepForSave: (values) => {
+        return Object.assign(Object.assign({}, super.answerValue), { displayComponent: _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__.AnswerValueBackupStrings, init: _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_5__.answerValueInitList, prepForSave: (values) => {
                 return values.map(([value, editable]) => value);
             }, prepForFill: (answers) => {
                 return super.answerValue.prepForFill(answers).flat();
@@ -94409,7 +94456,7 @@ class Select extends _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_3__.Greenhous
         };
     }
     get selectElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, './/select');
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, ".//select");
     }
     inputElement() {
         return this.selectElement;
@@ -94424,14 +94471,14 @@ class Select extends _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_3__.Greenhous
     }
     currentValue() {
         var _a;
-        return ((_a = this.selectElement.selectedOptions[0]) === null || _a === void 0 ? void 0 : _a.innerText) || '';
+        return ((_a = this.selectElement.selectedOptions[0]) === null || _a === void 0 ? void 0 : _a.innerText) || "";
     }
     fill() {
         return __awaiter(this, void 0, void 0, function* () {
             const answers = yield this.answer();
-            yield _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
+            yield _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
                 for (const answer of answers) {
-                    const correctAnswerElement = (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.selectElement, `./option[text() = "${answer.answer}"]`);
+                    const correctAnswerElement = (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.selectElement, `./option[text() = "${answer.answer}"]`);
                     if (correctAnswerElement) {
                         this.selectElement.selectedIndex = correctAnswerElement.index;
                         break;
@@ -94446,10 +94493,10 @@ Select.XPATH = _xpaths__WEBPACK_IMPORTED_MODULE_4__.xpaths.BASIC_SELECT;
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/greenhouse/TextInput.ts":
-/*!********************************************************************!*\
-  !*** ./src/inject/app/services/formFields/greenhouse/TextInput.ts ***!
-  \********************************************************************/
+/***/ "./src/services/formFields/greenhouse/TextInput.ts":
+/*!*********************************************************!*\
+  !*** ./src/services/formFields/greenhouse/TextInput.ts ***!
+  \*********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -94457,10 +94504,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   TextInput: () => (/* binding */ TextInput)
 /* harmony export */ });
-/* harmony import */ var _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @src/shared/utils/fieldFillerQueue */ "./src/shared/utils/fieldFillerQueue.ts");
-/* harmony import */ var _src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @src/shared/utils/getElements */ "./src/shared/utils/getElements.ts");
-/* harmony import */ var _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./GreenhouseBaseInput */ "./src/inject/app/services/formFields/greenhouse/GreenhouseBaseInput.ts");
-/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./xpaths */ "./src/inject/app/services/formFields/greenhouse/xpaths.ts");
+/* harmony import */ var _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../../utils/fieldFillerQueue */ "./src/utils/fieldFillerQueue.ts");
+/* harmony import */ var _utils_getElements__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../utils/getElements */ "./src/utils/getElements.ts");
+/* harmony import */ var _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./GreenhouseBaseInput */ "./src/services/formFields/greenhouse/GreenhouseBaseInput.ts");
+/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./xpaths */ "./src/services/formFields/greenhouse/xpaths.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -94477,10 +94524,10 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 class TextInput extends _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_2__.GreenhouseBaseInput {
     constructor() {
         super(...arguments);
-        this.fieldType = 'TextInput';
+        this.fieldType = "TextInput";
     }
     inputElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, ".//input[@type='text']");
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, ".//input[@type='text']");
     }
     listenForChanges() {
         var _a;
@@ -94497,7 +94544,7 @@ class TextInput extends _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_2__.Greenh
             const answers = yield this.answer();
             if (this.inputElement() && answers.length > 0) {
                 const firstAnswer = answers[0];
-                yield _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_0__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
+                yield _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_0__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
                     this.inputElement().value = firstAnswer.answer;
                     this.inputElement().dispatchEvent(new InputEvent("input"));
                 }));
@@ -94510,10 +94557,10 @@ TextInput.XPATH = _xpaths__WEBPACK_IMPORTED_MODULE_3__.xpaths.TEXT_FIELD;
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/greenhouse/Textarea.ts":
-/*!*******************************************************************!*\
-  !*** ./src/inject/app/services/formFields/greenhouse/Textarea.ts ***!
-  \*******************************************************************/
+/***/ "./src/services/formFields/greenhouse/Textarea.ts":
+/*!********************************************************!*\
+  !*** ./src/services/formFields/greenhouse/Textarea.ts ***!
+  \********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -94521,10 +94568,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Textarea: () => (/* binding */ Textarea)
 /* harmony export */ });
-/* harmony import */ var _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @src/shared/utils/fieldFillerQueue */ "./src/shared/utils/fieldFillerQueue.ts");
-/* harmony import */ var _src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @src/shared/utils/getElements */ "./src/shared/utils/getElements.ts");
-/* harmony import */ var _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./GreenhouseBaseInput */ "./src/inject/app/services/formFields/greenhouse/GreenhouseBaseInput.ts");
-/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./xpaths */ "./src/inject/app/services/formFields/greenhouse/xpaths.ts");
+/* harmony import */ var _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../../utils/fieldFillerQueue */ "./src/utils/fieldFillerQueue.ts");
+/* harmony import */ var _utils_getElements__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../utils/getElements */ "./src/utils/getElements.ts");
+/* harmony import */ var _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./GreenhouseBaseInput */ "./src/services/formFields/greenhouse/GreenhouseBaseInput.ts");
+/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./xpaths */ "./src/services/formFields/greenhouse/xpaths.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -94541,10 +94588,10 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 class Textarea extends _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_2__.GreenhouseBaseInput {
     constructor() {
         super(...arguments);
-        this.fieldType = 'TextInput';
+        this.fieldType = "TextInput";
     }
     inputElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, ".//textarea");
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, ".//textarea");
     }
     listenForChanges() {
         var _a;
@@ -94561,7 +94608,7 @@ class Textarea extends _GreenhouseBaseInput__WEBPACK_IMPORTED_MODULE_2__.Greenho
             const answers = yield this.answer();
             if (this.inputElement() && answers.length > 0) {
                 const firstAnswer = answers[0];
-                yield _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_0__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
+                yield _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_0__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
                     this.inputElement().value = firstAnswer.answer;
                     this.inputElement().dispatchEvent(new InputEvent("input"));
                 }));
@@ -94574,10 +94621,10 @@ Textarea.XPATH = _xpaths__WEBPACK_IMPORTED_MODULE_3__.xpaths.TEXTAREA;
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/greenhouse/index.ts":
-/*!****************************************************************!*\
-  !*** ./src/inject/app/services/formFields/greenhouse/index.ts ***!
-  \****************************************************************/
+/***/ "./src/services/formFields/greenhouse/index.ts":
+/*!*****************************************************!*\
+  !*** ./src/services/formFields/greenhouse/index.ts ***!
+  \*****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -94585,17 +94632,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   RegisterInputs: () => (/* binding */ RegisterInputs)
 /* harmony export */ });
-/* harmony import */ var _Sections__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Sections */ "./src/inject/app/services/formFields/greenhouse/Sections.ts");
-/* harmony import */ var _Textarea__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Textarea */ "./src/inject/app/services/formFields/greenhouse/Textarea.ts");
-/* harmony import */ var _MonthYear__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MonthYear */ "./src/inject/app/services/formFields/greenhouse/MonthYear.ts");
-/* harmony import */ var _DropdownSearchable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DropdownSearchable */ "./src/inject/app/services/formFields/greenhouse/DropdownSearchable.ts");
-/* harmony import */ var _DropdownMulti__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./DropdownMulti */ "./src/inject/app/services/formFields/greenhouse/DropdownMulti.ts");
-/* harmony import */ var _TextInput__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./TextInput */ "./src/inject/app/services/formFields/greenhouse/TextInput.ts");
-/* harmony import */ var _File__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./File */ "./src/inject/app/services/formFields/greenhouse/File.ts");
-/* harmony import */ var _Dropdown__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Dropdown */ "./src/inject/app/services/formFields/greenhouse/Dropdown.ts");
-/* harmony import */ var _Checkboxes__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Checkboxes */ "./src/inject/app/services/formFields/greenhouse/Checkboxes.ts");
-/* harmony import */ var _Select__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Select */ "./src/inject/app/services/formFields/greenhouse/Select.ts");
-/* harmony import */ var _AddressSearchable__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./AddressSearchable */ "./src/inject/app/services/formFields/greenhouse/AddressSearchable.ts");
+/* harmony import */ var _Sections__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Sections */ "./src/services/formFields/greenhouse/Sections.ts");
+/* harmony import */ var _Textarea__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Textarea */ "./src/services/formFields/greenhouse/Textarea.ts");
+/* harmony import */ var _MonthYear__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MonthYear */ "./src/services/formFields/greenhouse/MonthYear.ts");
+/* harmony import */ var _DropdownSearchable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DropdownSearchable */ "./src/services/formFields/greenhouse/DropdownSearchable.ts");
+/* harmony import */ var _DropdownMulti__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./DropdownMulti */ "./src/services/formFields/greenhouse/DropdownMulti.ts");
+/* harmony import */ var _TextInput__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./TextInput */ "./src/services/formFields/greenhouse/TextInput.ts");
+/* harmony import */ var _File__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./File */ "./src/services/formFields/greenhouse/File.ts");
+/* harmony import */ var _Dropdown__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Dropdown */ "./src/services/formFields/greenhouse/Dropdown.ts");
+/* harmony import */ var _Checkboxes__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Checkboxes */ "./src/services/formFields/greenhouse/Checkboxes.ts");
+/* harmony import */ var _Select__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Select */ "./src/services/formFields/greenhouse/Select.ts");
+/* harmony import */ var _AddressSearchable__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./AddressSearchable */ "./src/services/formFields/greenhouse/AddressSearchable.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -94636,10 +94683,10 @@ const RegisterInputs = (...args_1) => __awaiter(void 0, [...args_1], void 0, fun
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/greenhouse/xpaths.ts":
-/*!*****************************************************************!*\
-  !*** ./src/inject/app/services/formFields/greenhouse/xpaths.ts ***!
-  \*****************************************************************/
+/***/ "./src/services/formFields/greenhouse/xpaths.ts":
+/*!******************************************************!*\
+  !*** ./src/services/formFields/greenhouse/xpaths.ts ***!
+  \******************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -94693,10 +94740,10 @@ const xpaths = {
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/greenhouseReact/AddressSearchable.ts":
-/*!*********************************************************************************!*\
-  !*** ./src/inject/app/services/formFields/greenhouseReact/AddressSearchable.ts ***!
-  \*********************************************************************************/
+/***/ "./src/services/formFields/greenhouseReact/AddressSearchable.ts":
+/*!**********************************************************************!*\
+  !*** ./src/services/formFields/greenhouseReact/AddressSearchable.ts ***!
+  \**********************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -94704,14 +94751,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   AddressSearchable: () => (/* binding */ AddressSearchable)
 /* harmony export */ });
-/* harmony import */ var _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings */ "./src/inject/app/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings.tsx");
-/* harmony import */ var _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @src/shared/utils/fieldFillerQueue */ "./src/shared/utils/fieldFillerQueue.ts");
-/* harmony import */ var _src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @src/shared/utils/getElements */ "./src/shared/utils/getElements.ts");
-/* harmony import */ var _src_shared_utils_scroll__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @src/shared/utils/scroll */ "./src/shared/utils/scroll.ts");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils */ "./src/inject/app/services/formFields/utils/index.ts");
-/* harmony import */ var _GreenhouseReactBaseInput__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./GreenhouseReactBaseInput */ "./src/inject/app/services/formFields/greenhouseReact/GreenhouseReactBaseInput.ts");
-/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./xpaths */ "./src/inject/app/services/formFields/greenhouseReact/xpaths.ts");
-/* harmony import */ var _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../hooks/answerValueInit */ "./src/inject/app/hooks/answerValueInit.ts");
+/* harmony import */ var _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings */ "./src/components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings.tsx");
+/* harmony import */ var _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../utils/fieldFillerQueue */ "./src/utils/fieldFillerQueue.ts");
+/* harmony import */ var _utils_getElements__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../utils/getElements */ "./src/utils/getElements.ts");
+/* harmony import */ var _utils_scroll__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../../utils/scroll */ "./src/utils/scroll.ts");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils */ "./src/services/formFields/utils/index.ts");
+/* harmony import */ var _GreenhouseReactBaseInput__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./GreenhouseReactBaseInput */ "./src/services/formFields/greenhouseReact/GreenhouseReactBaseInput.ts");
+/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./xpaths */ "./src/services/formFields/greenhouseReact/xpaths.ts");
+/* harmony import */ var _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../../../hooks/answerValueInit */ "./src/hooks/answerValueInit.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -94732,10 +94779,10 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 class AddressSearchable extends _GreenhouseReactBaseInput__WEBPACK_IMPORTED_MODULE_5__.GreenhouseReactBaseInput {
     constructor() {
         super(...arguments);
-        this.fieldType = 'SimpleDropdown';
+        this.fieldType = "SimpleDropdown";
     }
     get answerValue() {
-        return Object.assign(Object.assign({}, super.answerValue), { displayComponent: _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__.AnswerValueBackupStrings, init: _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_7__.answerValueInitList, prepForSave: (values) => {
+        return Object.assign(Object.assign({}, super.answerValue), { displayComponent: _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__.AnswerValueBackupStrings, init: _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_7__.answerValueInitList, prepForSave: (values) => {
                 return values.map(([value, editable]) => value);
             }, prepForFill: (answers) => {
                 return super.answerValue.prepForFill(answers).flat();
@@ -94748,12 +94795,12 @@ class AddressSearchable extends _GreenhouseReactBaseInput__WEBPACK_IMPORTED_MODU
         };
     }
     get labelElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//label`);
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//label`);
     }
     listenForChanges() {
         const observer = new MutationObserver((mutations) => {
             const XPATH = `self::*[starts-with(@class, "select__single-value")]`;
-            if ((0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(mutations, XPATH)) {
+            if ((0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(mutations, XPATH)) {
                 this.triggerReactUpdate();
             }
         });
@@ -94763,7 +94810,7 @@ class AddressSearchable extends _GreenhouseReactBaseInput__WEBPACK_IMPORTED_MODU
         });
     }
     get menuOpenTriggerDivElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//div[starts-with(@class, "select-shell")]/div[not(@*)]`);
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//div[starts-with(@class, "select-shell")]/div[not(@*)]`);
     }
     toggleDropdown() {
         const reactProps = (0,_utils__WEBPACK_IMPORTED_MODULE_4__.getReactProps)(this.menuOpenTriggerDivElement);
@@ -94775,11 +94822,11 @@ class AddressSearchable extends _GreenhouseReactBaseInput__WEBPACK_IMPORTED_MODU
         this.dropdownIsOpen || this.toggleDropdown();
     }
     get dropdownElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//div[starts-with(@class, "select__menu")]`);
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//div[starts-with(@class, "select__menu")]`);
     }
     waitForDropdownElement() {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.waitForElement)(this.element, `.//div[starts-with(@class, "select__menu")]`, { timeout: 500 });
+            return yield (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.waitForElement)(this.element, `.//div[starts-with(@class, "select__menu")]`, { timeout: 500 });
         });
     }
     waitForCorrectAnswerElement(answerValue) {
@@ -94789,8 +94836,8 @@ class AddressSearchable extends _GreenhouseReactBaseInput__WEBPACK_IMPORTED_MODU
                 `.//div`,
                 `[starts-with(@class, "select__option")]`,
                 `[text() = "${answerValue}"]`,
-            ].join('');
-            return yield (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.waitForElement)(dropdownElement, XPATH, { timeout: 500 });
+            ].join("");
+            return yield (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.waitForElement)(dropdownElement, XPATH, { timeout: 500 });
         });
     }
     correctAnswerElement(answerValue) {
@@ -94798,29 +94845,29 @@ class AddressSearchable extends _GreenhouseReactBaseInput__WEBPACK_IMPORTED_MODU
             `.//div`,
             `[starts-with(@class, "select__option")]`,
             `[text() = "${answerValue}"]`,
-        ].join('');
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.dropdownElement, XPATH);
+        ].join("");
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.dropdownElement, XPATH);
     }
     get dropdownIsOpen() {
         return !!this.dropdownElement;
     }
     currentValue() {
         var _a;
-        return ((_a = this.selectedValueElement) === null || _a === void 0 ? void 0 : _a.innerText) || '';
+        return ((_a = this.selectedValueElement) === null || _a === void 0 ? void 0 : _a.innerText) || "";
     }
     get selectControlElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//div[starts-with(@class, "select__control")]`);
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//div[starts-with(@class, "select__control")]`);
     }
     get selectedValueElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//div[starts-with(@class, "select__single-value")]`);
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//div[starts-with(@class, "select__single-value")]`);
     }
     /** It's actually the button's parent div that gets the onMouseDown. */
     get clearSelectionButtonElement() {
         const XPATH = [
             `.//div[starts-with(@class, "select__indicators")]`,
             `/div[@aria-hidden="false"]`,
-        ].join('');
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, XPATH);
+        ].join("");
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, XPATH);
     }
     clearSelection() {
         if (this.clearSelectionButtonElement) {
@@ -94832,12 +94879,12 @@ class AddressSearchable extends _GreenhouseReactBaseInput__WEBPACK_IMPORTED_MODU
         return stored.includes(current);
     }
     get searchInputElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//input[@class="select__input"]`);
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//input[@class="select__input"]`);
     }
     fill() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
-                yield (0,_src_shared_utils_scroll__WEBPACK_IMPORTED_MODULE_3__.scrollBack)(() => __awaiter(this, void 0, void 0, function* () {
+            yield _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
+                yield (0,_utils_scroll__WEBPACK_IMPORTED_MODULE_3__.scrollBack)(() => __awaiter(this, void 0, void 0, function* () {
                     const answers = yield this.answer();
                     if (answers.length > 0) {
                         this.clearSelection();
@@ -94865,10 +94912,10 @@ AddressSearchable.XPATH = _xpaths__WEBPACK_IMPORTED_MODULE_6__.xpaths.ADDRESS_SE
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/greenhouseReact/CheckboxBoolean.ts":
-/*!*******************************************************************************!*\
-  !*** ./src/inject/app/services/formFields/greenhouseReact/CheckboxBoolean.ts ***!
-  \*******************************************************************************/
+/***/ "./src/services/formFields/greenhouseReact/CheckboxBoolean.ts":
+/*!********************************************************************!*\
+  !*** ./src/services/formFields/greenhouseReact/CheckboxBoolean.ts ***!
+  \********************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -94876,12 +94923,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   CheckboxBoolean: () => (/* binding */ CheckboxBoolean)
 /* harmony export */ });
-/* harmony import */ var _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueSingleBool__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleBool */ "./src/inject/app/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleBool.tsx");
-/* harmony import */ var _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @src/shared/utils/fieldFillerQueue */ "./src/shared/utils/fieldFillerQueue.ts");
-/* harmony import */ var _src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @src/shared/utils/getElements */ "./src/shared/utils/getElements.ts");
-/* harmony import */ var _GreenhouseReactBaseInput__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./GreenhouseReactBaseInput */ "./src/inject/app/services/formFields/greenhouseReact/GreenhouseReactBaseInput.ts");
-/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./xpaths */ "./src/inject/app/services/formFields/greenhouseReact/xpaths.ts");
-/* harmony import */ var _ElementWrappers_CheckboxWrapperContainer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ElementWrappers/CheckboxWrapperContainer */ "./src/inject/app/services/formFields/greenhouseReact/ElementWrappers/CheckboxWrapperContainer.ts");
+/* harmony import */ var _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueSingleBool__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleBool */ "./src/components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleBool.tsx");
+/* harmony import */ var _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../utils/fieldFillerQueue */ "./src/utils/fieldFillerQueue.ts");
+/* harmony import */ var _utils_getElements__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../utils/getElements */ "./src/utils/getElements.ts");
+/* harmony import */ var _GreenhouseReactBaseInput__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./GreenhouseReactBaseInput */ "./src/services/formFields/greenhouseReact/GreenhouseReactBaseInput.ts");
+/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./xpaths */ "./src/services/formFields/greenhouseReact/xpaths.ts");
+/* harmony import */ var _ElementWrappers_CheckboxWrapperContainer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ElementWrappers/CheckboxWrapperContainer */ "./src/services/formFields/greenhouseReact/ElementWrappers/CheckboxWrapperContainer.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -94900,17 +94947,17 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 class CheckboxBoolean extends _GreenhouseReactBaseInput__WEBPACK_IMPORTED_MODULE_3__.GreenhouseReactBaseInput {
     constructor() {
         super(...arguments);
-        this.fieldType = 'SingleCheckbox';
-        this.answerValueDisplayComponent = _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueSingleBool__WEBPACK_IMPORTED_MODULE_0__.AnswerValueSingleBool;
+        this.fieldType = "SingleCheckbox";
+        this.answerValueDisplayComponent = _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueSingleBool__WEBPACK_IMPORTED_MODULE_0__.AnswerValueSingleBool;
     }
     get answerValue() {
-        return Object.assign(Object.assign({}, super.answerValue), { displayComponent: _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueSingleBool__WEBPACK_IMPORTED_MODULE_0__.AnswerValueSingleBool });
+        return Object.assign(Object.assign({}, super.answerValue), { displayComponent: _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueSingleBool__WEBPACK_IMPORTED_MODULE_0__.AnswerValueSingleBool });
     }
     get labelElement() {
         return this.element;
     }
     get labelDisplayElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//legend`);
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//legend`);
     }
     listenForChanges() {
         this.element.addEventListener("click", (e) => {
@@ -94924,7 +94971,7 @@ class CheckboxBoolean extends _GreenhouseReactBaseInput__WEBPACK_IMPORTED_MODULE
         return this.checkboxWrapper.checked;
     }
     get checkboxWrapper() {
-        const el = (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//div[@class="checkbox__wrapper"]`);
+        const el = (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//div[@class="checkbox__wrapper"]`);
         return new _ElementWrappers_CheckboxWrapperContainer__WEBPACK_IMPORTED_MODULE_5__.CheckboxWrapperContainer(el);
     }
     isFilled(current, stored) {
@@ -94932,7 +94979,7 @@ class CheckboxBoolean extends _GreenhouseReactBaseInput__WEBPACK_IMPORTED_MODULE
     }
     fill() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
+            yield _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
                 const answers = yield this.answer();
                 if (answers.length > 0) {
                     const firstAnswer = answers[0].answer;
@@ -94949,10 +94996,10 @@ CheckboxBoolean.XPATH = _xpaths__WEBPACK_IMPORTED_MODULE_4__.xpaths.CHECKBOX_BOO
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/greenhouseReact/CheckboxMulti.ts":
-/*!*****************************************************************************!*\
-  !*** ./src/inject/app/services/formFields/greenhouseReact/CheckboxMulti.ts ***!
-  \*****************************************************************************/
+/***/ "./src/services/formFields/greenhouseReact/CheckboxMulti.ts":
+/*!******************************************************************!*\
+  !*** ./src/services/formFields/greenhouseReact/CheckboxMulti.ts ***!
+  \******************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -94960,13 +95007,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   CheckboxMulti: () => (/* binding */ CheckboxMulti)
 /* harmony export */ });
-/* harmony import */ var _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings */ "./src/inject/app/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings.tsx");
-/* harmony import */ var _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @src/shared/utils/fieldFillerQueue */ "./src/shared/utils/fieldFillerQueue.ts");
-/* harmony import */ var _src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @src/shared/utils/getElements */ "./src/shared/utils/getElements.ts");
-/* harmony import */ var _GreenhouseReactBaseInput__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./GreenhouseReactBaseInput */ "./src/inject/app/services/formFields/greenhouseReact/GreenhouseReactBaseInput.ts");
-/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./xpaths */ "./src/inject/app/services/formFields/greenhouseReact/xpaths.ts");
-/* harmony import */ var _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../hooks/answerValueInit */ "./src/inject/app/hooks/answerValueInit.ts");
-/* harmony import */ var _ElementWrappers_CheckboxWrapperContainer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ElementWrappers/CheckboxWrapperContainer */ "./src/inject/app/services/formFields/greenhouseReact/ElementWrappers/CheckboxWrapperContainer.ts");
+/* harmony import */ var _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings */ "./src/components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings.tsx");
+/* harmony import */ var _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../utils/fieldFillerQueue */ "./src/utils/fieldFillerQueue.ts");
+/* harmony import */ var _utils_getElements__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../utils/getElements */ "./src/utils/getElements.ts");
+/* harmony import */ var _GreenhouseReactBaseInput__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./GreenhouseReactBaseInput */ "./src/services/formFields/greenhouseReact/GreenhouseReactBaseInput.ts");
+/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./xpaths */ "./src/services/formFields/greenhouseReact/xpaths.ts");
+/* harmony import */ var _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../../hooks/answerValueInit */ "./src/hooks/answerValueInit.ts");
+/* harmony import */ var _ElementWrappers_CheckboxWrapperContainer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ElementWrappers/CheckboxWrapperContainer */ "./src/services/formFields/greenhouseReact/ElementWrappers/CheckboxWrapperContainer.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -94989,7 +95036,7 @@ class CheckboxMulti extends _GreenhouseReactBaseInput__WEBPACK_IMPORTED_MODULE_3
         this.fieldType = "SimpleDropdown";
     }
     get answerValue() {
-        return Object.assign(Object.assign({}, super.answerValue), { displayComponent: _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__.AnswerValueBackupStrings, init: _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_5__.answerValueInitList, prepForSave: (values) => {
+        return Object.assign(Object.assign({}, super.answerValue), { displayComponent: _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__.AnswerValueBackupStrings, init: _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_5__.answerValueInitList, prepForSave: (values) => {
                 return values.map(([value, editable]) => value);
             }, prepForFill: (answers) => {
                 return super.answerValue.prepForFill(answers).flat();
@@ -95002,7 +95049,7 @@ class CheckboxMulti extends _GreenhouseReactBaseInput__WEBPACK_IMPORTED_MODULE_3
         };
     }
     get labelElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//legend[starts-with(@class, "label")]`);
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//legend[starts-with(@class, "label")]`);
     }
     listenForChanges() {
         this.element.addEventListener("click", (e) => {
@@ -95016,24 +95063,24 @@ class CheckboxMulti extends _GreenhouseReactBaseInput__WEBPACK_IMPORTED_MODULE_3
      * for now treat multis like singles.
      */
     currentValue() {
-        const firstSelectedElement = this.choiceElements.find(el => el.checked);
+        const firstSelectedElement = this.choiceElements.find((el) => el.checked);
         return (firstSelectedElement === null || firstSelectedElement === void 0 ? void 0 : firstSelectedElement.value) || "";
     }
     get choiceElements() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElements)(this.element, `.//div[@class="checkbox__wrapper"]`).map((el) => new _ElementWrappers_CheckboxWrapperContainer__WEBPACK_IMPORTED_MODULE_6__.CheckboxWrapperContainer(el));
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElements)(this.element, `.//div[@class="checkbox__wrapper"]`).map((el) => new _ElementWrappers_CheckboxWrapperContainer__WEBPACK_IMPORTED_MODULE_6__.CheckboxWrapperContainer(el));
     }
     isFilled(current, stored) {
         return stored.includes(current);
     }
     fill() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
+            yield _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
                 const answers = yield this.answer();
                 if (answers.length > 0) {
                     const choiceElements = this.choiceElements;
-                    choiceElements.forEach(el => el.uncheck());
+                    choiceElements.forEach((el) => el.uncheck());
                     for (const storedAnswer of answers) {
-                        const correctChoice = this.choiceElements.find(el => el.value === storedAnswer.answer[0]);
+                        const correctChoice = this.choiceElements.find((el) => el.value === storedAnswer.answer[0]);
                         if (correctChoice) {
                             correctChoice.check();
                             break;
@@ -95049,10 +95096,10 @@ CheckboxMulti.XPATH = _xpaths__WEBPACK_IMPORTED_MODULE_4__.xpaths.CHECKBOX_MULTI
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/greenhouseReact/DropdownMultiSearchable.ts":
-/*!***************************************************************************************!*\
-  !*** ./src/inject/app/services/formFields/greenhouseReact/DropdownMultiSearchable.ts ***!
-  \***************************************************************************************/
+/***/ "./src/services/formFields/greenhouseReact/DropdownMultiSearchable.ts":
+/*!****************************************************************************!*\
+  !*** ./src/services/formFields/greenhouseReact/DropdownMultiSearchable.ts ***!
+  \****************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -95060,14 +95107,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   DropdownMultiSearchable: () => (/* binding */ DropdownMultiSearchable)
 /* harmony export */ });
-/* harmony import */ var _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings */ "./src/inject/app/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings.tsx");
-/* harmony import */ var _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @src/shared/utils/fieldFillerQueue */ "./src/shared/utils/fieldFillerQueue.ts");
-/* harmony import */ var _src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @src/shared/utils/getElements */ "./src/shared/utils/getElements.ts");
-/* harmony import */ var _src_shared_utils_scroll__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @src/shared/utils/scroll */ "./src/shared/utils/scroll.ts");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils */ "./src/inject/app/services/formFields/utils/index.ts");
-/* harmony import */ var _GreenhouseReactBaseInput__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./GreenhouseReactBaseInput */ "./src/inject/app/services/formFields/greenhouseReact/GreenhouseReactBaseInput.ts");
-/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./xpaths */ "./src/inject/app/services/formFields/greenhouseReact/xpaths.ts");
-/* harmony import */ var _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../hooks/answerValueInit */ "./src/inject/app/hooks/answerValueInit.ts");
+/* harmony import */ var _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings */ "./src/components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings.tsx");
+/* harmony import */ var _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../utils/fieldFillerQueue */ "./src/utils/fieldFillerQueue.ts");
+/* harmony import */ var _utils_getElements__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../utils/getElements */ "./src/utils/getElements.ts");
+/* harmony import */ var _utils_scroll__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../../utils/scroll */ "./src/utils/scroll.ts");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils */ "./src/services/formFields/utils/index.ts");
+/* harmony import */ var _GreenhouseReactBaseInput__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./GreenhouseReactBaseInput */ "./src/services/formFields/greenhouseReact/GreenhouseReactBaseInput.ts");
+/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./xpaths */ "./src/services/formFields/greenhouseReact/xpaths.ts");
+/* harmony import */ var _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../../../hooks/answerValueInit */ "./src/hooks/answerValueInit.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -95093,10 +95140,10 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 class DropdownMultiSearchable extends _GreenhouseReactBaseInput__WEBPACK_IMPORTED_MODULE_5__.GreenhouseReactBaseInput {
     constructor() {
         super(...arguments);
-        this.fieldType = 'SimpleDropdown';
+        this.fieldType = "SimpleDropdown";
     }
     get answerValue() {
-        return Object.assign(Object.assign({}, super.answerValue), { displayComponent: _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__.AnswerValueBackupStrings, init: _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_7__.answerValueInitList, prepForSave: (values) => {
+        return Object.assign(Object.assign({}, super.answerValue), { displayComponent: _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__.AnswerValueBackupStrings, init: _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_7__.answerValueInitList, prepForSave: (values) => {
                 return values.map(([value, editable]) => value);
             }, prepForFill: (answers) => {
                 return super.answerValue.prepForFill(answers).flat();
@@ -95109,12 +95156,12 @@ class DropdownMultiSearchable extends _GreenhouseReactBaseInput__WEBPACK_IMPORTE
         };
     }
     get labelElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//label`);
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//label`);
     }
     listenForChanges() {
         const observer = new MutationObserver((mutations) => {
             const XPATH = `.//parent::*//*[starts-with(@class, "select__multi-value")]`;
-            if ((0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(mutations, XPATH)) {
+            if ((0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(mutations, XPATH)) {
                 this.triggerReactUpdate();
             }
         });
@@ -95124,7 +95171,7 @@ class DropdownMultiSearchable extends _GreenhouseReactBaseInput__WEBPACK_IMPORTE
         });
     }
     get menuOpenTriggerDivElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//div[starts-with(@class, "select-shell")]/div[not(@*)]`);
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//div[starts-with(@class, "select-shell")]/div[not(@*)]`);
     }
     toggleDropdown() {
         const reactProps = (0,_utils__WEBPACK_IMPORTED_MODULE_4__.getReactProps)(this.menuOpenTriggerDivElement);
@@ -95139,7 +95186,7 @@ class DropdownMultiSearchable extends _GreenhouseReactBaseInput__WEBPACK_IMPORTE
         this.dropdownIsOpen && this.toggleDropdown();
     }
     get dropdownElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//div[starts-with(@class, "select__menu")]`);
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//div[starts-with(@class, "select__menu")]`);
     }
     get dropdownIsOpen() {
         return !!this.dropdownElement;
@@ -95147,25 +95194,25 @@ class DropdownMultiSearchable extends _GreenhouseReactBaseInput__WEBPACK_IMPORTE
     get answerElements() {
         const { dropdownElement } = this;
         return dropdownElement
-            ? (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElements)(dropdownElement, `.//div[starts-with(@class, "select__option")]`)
+            ? (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElements)(dropdownElement, `.//div[starts-with(@class, "select__option")]`)
             : [];
     }
     currentValue() {
         var _a;
-        return ((_a = this.selectedValueElement) === null || _a === void 0 ? void 0 : _a.innerText) || '';
+        return ((_a = this.selectedValueElement) === null || _a === void 0 ? void 0 : _a.innerText) || "";
     }
     get selectControlElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//div[starts-with(@class, "select__control")]`);
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//div[starts-with(@class, "select__control")]`);
     }
     get selectedValueElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//div[starts-with(@class, "select__multi-value")]`);
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//div[starts-with(@class, "select__multi-value")]`);
     }
     /** It's actually the button's parent div that gets the onMouseDown. */
     get clearSelectionButtonElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, [
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, [
             `.//div[starts-with(@class, "select__indicators")]`,
             `/div[@aria-hidden="false"]`,
-        ].join(''));
+        ].join(""));
     }
     clearSelection() {
         if (this.clearSelectionButtonElement) {
@@ -95177,13 +95224,13 @@ class DropdownMultiSearchable extends _GreenhouseReactBaseInput__WEBPACK_IMPORTE
         return stored.includes(current);
     }
     get searchInputElement() {
-        const input = (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//input[@class="select__input"]`);
+        const input = (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//input[@class="select__input"]`);
         input["reactProps"] = (0,_utils__WEBPACK_IMPORTED_MODULE_4__.getReactProps)(input);
         return input;
     }
     waitForDropdownElement() {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.waitForElement)(this.element, `.//div[starts-with(@class, "select__menu")]`, { timeout: 200 });
+            return yield (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.waitForElement)(this.element, `.//div[starts-with(@class, "select__menu")]`, { timeout: 200 });
         });
     }
     waitForCorrectAnswerElement(answerValue) {
@@ -95194,13 +95241,13 @@ class DropdownMultiSearchable extends _GreenhouseReactBaseInput__WEBPACK_IMPORTE
                 `[starts-with(@class, "select__option")]`,
                 `[text() = "${answerValue}"]`,
             ].join("");
-            return yield (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.waitForElement)(dropdownElement, XPATH, { timeout: 200 });
+            return yield (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.waitForElement)(dropdownElement, XPATH, { timeout: 200 });
         });
     }
     fill() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield (0,_src_shared_utils_scroll__WEBPACK_IMPORTED_MODULE_3__.scrollBack)(() => __awaiter(this, void 0, void 0, function* () {
-                yield _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
+            yield (0,_utils_scroll__WEBPACK_IMPORTED_MODULE_3__.scrollBack)(() => __awaiter(this, void 0, void 0, function* () {
+                yield _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
                     const answers = yield this.answer();
                     if (answers.length > 0) {
                         this.clearSelection();
@@ -95229,10 +95276,10 @@ DropdownMultiSearchable.XPATH = _xpaths__WEBPACK_IMPORTED_MODULE_6__.xpaths.DROP
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/greenhouseReact/DropdownSearchable.ts":
-/*!**********************************************************************************!*\
-  !*** ./src/inject/app/services/formFields/greenhouseReact/DropdownSearchable.ts ***!
-  \**********************************************************************************/
+/***/ "./src/services/formFields/greenhouseReact/DropdownSearchable.ts":
+/*!***********************************************************************!*\
+  !*** ./src/services/formFields/greenhouseReact/DropdownSearchable.ts ***!
+  \***********************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -95240,14 +95287,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   DropdownSearchable: () => (/* binding */ DropdownSearchable)
 /* harmony export */ });
-/* harmony import */ var _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings */ "./src/inject/app/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings.tsx");
-/* harmony import */ var _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @src/shared/utils/fieldFillerQueue */ "./src/shared/utils/fieldFillerQueue.ts");
-/* harmony import */ var _src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @src/shared/utils/getElements */ "./src/shared/utils/getElements.ts");
-/* harmony import */ var _src_shared_utils_scroll__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @src/shared/utils/scroll */ "./src/shared/utils/scroll.ts");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils */ "./src/inject/app/services/formFields/utils/index.ts");
-/* harmony import */ var _GreenhouseReactBaseInput__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./GreenhouseReactBaseInput */ "./src/inject/app/services/formFields/greenhouseReact/GreenhouseReactBaseInput.ts");
-/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./xpaths */ "./src/inject/app/services/formFields/greenhouseReact/xpaths.ts");
-/* harmony import */ var _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../hooks/answerValueInit */ "./src/inject/app/hooks/answerValueInit.ts");
+/* harmony import */ var _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings */ "./src/components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings.tsx");
+/* harmony import */ var _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../utils/fieldFillerQueue */ "./src/utils/fieldFillerQueue.ts");
+/* harmony import */ var _utils_getElements__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../utils/getElements */ "./src/utils/getElements.ts");
+/* harmony import */ var _utils_scroll__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../../utils/scroll */ "./src/utils/scroll.ts");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils */ "./src/services/formFields/utils/index.ts");
+/* harmony import */ var _GreenhouseReactBaseInput__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./GreenhouseReactBaseInput */ "./src/services/formFields/greenhouseReact/GreenhouseReactBaseInput.ts");
+/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./xpaths */ "./src/services/formFields/greenhouseReact/xpaths.ts");
+/* harmony import */ var _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../../../hooks/answerValueInit */ "./src/hooks/answerValueInit.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -95268,10 +95315,10 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 class DropdownSearchable extends _GreenhouseReactBaseInput__WEBPACK_IMPORTED_MODULE_5__.GreenhouseReactBaseInput {
     constructor() {
         super(...arguments);
-        this.fieldType = 'SimpleDropdown';
+        this.fieldType = "SimpleDropdown";
     }
     get answerValue() {
-        return Object.assign(Object.assign({}, super.answerValue), { displayComponent: _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__.AnswerValueBackupStrings, init: _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_7__.answerValueInitList, prepForSave: (values) => {
+        return Object.assign(Object.assign({}, super.answerValue), { displayComponent: _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__.AnswerValueBackupStrings, init: _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_7__.answerValueInitList, prepForSave: (values) => {
                 return values.map(([value, editable]) => value);
             }, prepForFill: (answers) => {
                 return super.answerValue.prepForFill(answers).flat();
@@ -95289,7 +95336,7 @@ class DropdownSearchable extends _GreenhouseReactBaseInput__WEBPACK_IMPORTED_MOD
     listenForChanges() {
         const observer = new MutationObserver((mutations) => {
             const XPATH = `self::*[starts-with(@class, "select__single-value")]`;
-            if ((0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(mutations, XPATH)) {
+            if ((0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(mutations, XPATH)) {
                 this.triggerReactUpdate();
             }
         });
@@ -95300,7 +95347,7 @@ class DropdownSearchable extends _GreenhouseReactBaseInput__WEBPACK_IMPORTED_MOD
     }
     currentValue() {
         var _a;
-        return ((_a = this.elements.selectedValue) === null || _a === void 0 ? void 0 : _a.innerText) || '';
+        return ((_a = this.elements.selectedValue) === null || _a === void 0 ? void 0 : _a.innerText) || "";
     }
     clearSelection() {
         if (this.elements.clearSelectionButton) {
@@ -95320,15 +95367,15 @@ class DropdownSearchable extends _GreenhouseReactBaseInput__WEBPACK_IMPORTED_MOD
     fill() {
         return __awaiter(this, void 0, void 0, function* () {
             // TODO: break out dropdown as separate component.
-            yield _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
-                yield (0,_src_shared_utils_scroll__WEBPACK_IMPORTED_MODULE_3__.scrollBack)(() => __awaiter(this, void 0, void 0, function* () {
+            yield _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
+                yield (0,_utils_scroll__WEBPACK_IMPORTED_MODULE_3__.scrollBack)(() => __awaiter(this, void 0, void 0, function* () {
                     const answers = yield this.answer();
                     if (answers.length > 0) {
                         this.clearSelection();
                         this.dropdown.open();
                         if (yield this.dropdown.isOpen()) {
                             const choices = yield this.elements.waitForChoices();
-                            // pagination of lazy answers is 
+                            // pagination of lazy answers is
                             if (choices.length < 100) {
                                 for (const storedAnswer of answers) {
                                     const answerValue = storedAnswer.answer[0];
@@ -95418,7 +95465,7 @@ class Elements {
         this.element = element;
     }
     get searchInput() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//input[@class="select__input"]`);
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//input[@class="select__input"]`);
     }
     get searchInputProps() {
         return (0,_utils__WEBPACK_IMPORTED_MODULE_4__.getReactProps)(this.searchInput);
@@ -95428,42 +95475,42 @@ class Elements {
         const XPATH = [
             `.//div[starts-with(@class, "select__indicators")]`,
             `/div[@aria-hidden="false"]`,
-        ].join('');
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, XPATH);
+        ].join("");
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, XPATH);
     }
     get selectedValue() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//div[starts-with(@class, "select__single-value")]`);
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//div[starts-with(@class, "select__single-value")]`);
     }
     get selectControl() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//div[starts-with(@class, "select__control")]`);
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//div[starts-with(@class, "select__control")]`);
     }
     get label() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//label`);
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//label`);
     }
     get menuOpenTriggerDiv() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//div[starts-with(@class, "select-shell")]/div[not(@*)]`);
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//div[starts-with(@class, "select-shell")]/div[not(@*)]`);
     }
     get menuOpenTriggerDivProps() {
         return (0,_utils__WEBPACK_IMPORTED_MODULE_4__.getReactProps)(this.menuOpenTriggerDiv);
     }
     get dropdown() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//div[starts-with(@class, "select__menu")]`);
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `.//div[starts-with(@class, "select__menu")]`);
     }
     get choices() {
         return this.dropdown
-            ? (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElements)(this.dropdown, `.//div[starts-with(@class, "select__option")]`)
+            ? (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElements)(this.dropdown, `.//div[starts-with(@class, "select__option")]`)
             : [];
     }
     waitForDropdown() {
         return __awaiter(this, arguments, void 0, function* (timeout = 300) {
-            return yield (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.waitForElement)(this.element, `.//div[starts-with(@class, "select__menu")]`, { timeout });
+            return yield (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.waitForElement)(this.element, `.//div[starts-with(@class, "select__menu")]`, { timeout });
         });
     }
     waitForChoices() {
         return __awaiter(this, void 0, void 0, function* () {
             const dropdown = yield this.waitForDropdown();
             return dropdown
-                ? (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElements)(dropdown, `.//div[starts-with(@class, "select__option")]`)
+                ? (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElements)(dropdown, `.//div[starts-with(@class, "select__option")]`)
                 : [];
         });
     }
@@ -95474,8 +95521,8 @@ class Elements {
                 `.//div`,
                 `[starts-with(@class, "select__option")]`,
                 `[text() = "${answerValue}"]`,
-            ].join('');
-            return yield (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.waitForElement)(dropdownElement, XPATH, { timeout: 200 });
+            ].join("");
+            return yield (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.waitForElement)(dropdownElement, XPATH, { timeout: 200 });
         });
     }
 }
@@ -95483,10 +95530,10 @@ class Elements {
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/greenhouseReact/ElementWrappers/CheckboxWrapperContainer.ts":
-/*!********************************************************************************************************!*\
-  !*** ./src/inject/app/services/formFields/greenhouseReact/ElementWrappers/CheckboxWrapperContainer.ts ***!
-  \********************************************************************************************************/
+/***/ "./src/services/formFields/greenhouseReact/ElementWrappers/CheckboxWrapperContainer.ts":
+/*!*********************************************************************************************!*\
+  !*** ./src/services/formFields/greenhouseReact/ElementWrappers/CheckboxWrapperContainer.ts ***!
+  \*********************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -95494,21 +95541,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   CheckboxWrapperContainer: () => (/* binding */ CheckboxWrapperContainer)
 /* harmony export */ });
-/* harmony import */ var _src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @src/shared/utils/getElements */ "./src/shared/utils/getElements.ts");
+/* harmony import */ var _utils_getElements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../../../utils/getElements */ "./src/utils/getElements.ts");
 
 class CheckboxWrapperContainer {
     constructor(element) {
         this.element = element;
     }
     get labelElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_0__.getElement)(this.element, `.//label`);
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_0__.getElement)(this.element, `.//label`);
     }
     get value() {
         var _a;
         return (_a = this.labelElement) === null || _a === void 0 ? void 0 : _a.innerText;
     }
     get inputElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_0__.getElement)(this.element, `.//input`);
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_0__.getElement)(this.element, `.//input`);
     }
     get checked() {
         return this.inputElement.checked;
@@ -95524,10 +95571,10 @@ class CheckboxWrapperContainer {
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/greenhouseReact/File.ts":
-/*!********************************************************************!*\
-  !*** ./src/inject/app/services/formFields/greenhouseReact/File.ts ***!
-  \********************************************************************/
+/***/ "./src/services/formFields/greenhouseReact/File.ts":
+/*!*********************************************************!*\
+  !*** ./src/services/formFields/greenhouseReact/File.ts ***!
+  \*********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -95535,15 +95582,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   File: () => (/* binding */ File)
 /* harmony export */ });
-/* harmony import */ var _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueSingleFileUpload__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleFileUpload */ "./src/inject/app/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleFileUpload.tsx");
-/* harmony import */ var _src_shared_utils_async__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @src/shared/utils/async */ "./src/shared/utils/async.ts");
-/* harmony import */ var _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @src/shared/utils/fieldFillerQueue */ "./src/shared/utils/fieldFillerQueue.ts");
-/* harmony import */ var _src_shared_utils_file__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @src/shared/utils/file */ "./src/shared/utils/file.ts");
-/* harmony import */ var _src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @src/shared/utils/getElements */ "./src/shared/utils/getElements.ts");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils */ "./src/inject/app/services/formFields/utils/index.ts");
-/* harmony import */ var _GreenhouseReactBaseInput__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./GreenhouseReactBaseInput */ "./src/inject/app/services/formFields/greenhouseReact/GreenhouseReactBaseInput.ts");
-/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./xpaths */ "./src/inject/app/services/formFields/greenhouseReact/xpaths.ts");
-/* harmony import */ var _hooks_saveButtonClickHandlers__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../hooks/saveButtonClickHandlers */ "./src/inject/app/hooks/saveButtonClickHandlers.ts");
+/* harmony import */ var _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueSingleFileUpload__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleFileUpload */ "./src/components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleFileUpload.tsx");
+/* harmony import */ var _utils_async__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../utils/async */ "./src/utils/async.ts");
+/* harmony import */ var _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../utils/fieldFillerQueue */ "./src/utils/fieldFillerQueue.ts");
+/* harmony import */ var _utils_file__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../../utils/file */ "./src/utils/file.ts");
+/* harmony import */ var _utils_getElements__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../../utils/getElements */ "./src/utils/getElements.ts");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils */ "./src/services/formFields/utils/index.ts");
+/* harmony import */ var _GreenhouseReactBaseInput__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./GreenhouseReactBaseInput */ "./src/services/formFields/greenhouseReact/GreenhouseReactBaseInput.ts");
+/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./xpaths */ "./src/services/formFields/greenhouseReact/xpaths.ts");
+/* harmony import */ var _hooks_saveButtonClickHandlers__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../hooks/saveButtonClickHandlers */ "./src/hooks/saveButtonClickHandlers.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -95565,24 +95612,24 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 class File extends _GreenhouseReactBaseInput__WEBPACK_IMPORTED_MODULE_6__.GreenhouseReactBaseInput {
     constructor() {
         super(...arguments);
-        this.fieldType = 'SingleFileUpload';
+        this.fieldType = "SingleFileUpload";
         this.saveButtonClickHandler = _hooks_saveButtonClickHandlers__WEBPACK_IMPORTED_MODULE_8__.saveButtonClickHandlers.withNotice;
         this.fieldNotice = "To save and autofill files, upload them in the 'Answers' section below.";
         this.fieldNoticeLink = {
             display: "See How",
-            url: "https://www.youtube.com/watch?v=JYMATq9siIY&t=134s"
+            url: "https://www.youtube.com/watch?v=JYMATq9siIY&t=134s",
         };
     }
     get answerValue() {
-        return Object.assign(Object.assign({}, super.answerValue), { displayComponent: _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueSingleFileUpload__WEBPACK_IMPORTED_MODULE_0__.AnswerValueSingleFileUpload });
+        return Object.assign(Object.assign({}, super.answerValue), { displayComponent: _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueSingleFileUpload__WEBPACK_IMPORTED_MODULE_0__.AnswerValueSingleFileUpload });
     }
     get labelElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_4__.getElement)(this.element, `.//div[contains(@class, "label")]`);
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_4__.getElement)(this.element, `.//div[contains(@class, "label")]`);
     }
     listenForChanges() {
         const observer = new MutationObserver((mutations) => {
             const XPATH = `self::*[starts-with(@class, "file-upload__filename")]`;
-            if ((0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_4__.getElement)(mutations, XPATH)) {
+            if ((0,_utils_getElements__WEBPACK_IMPORTED_MODULE_4__.getElement)(mutations, XPATH)) {
                 this.triggerReactUpdate();
             }
         });
@@ -95593,27 +95640,27 @@ class File extends _GreenhouseReactBaseInput__WEBPACK_IMPORTED_MODULE_6__.Greenh
     }
     currentValue() {
         var _a;
-        return ((_a = (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_4__.getElement)(this.element, `.//div[@class="file-upload__filename"]`)) === null || _a === void 0 ? void 0 : _a.innerText) || "";
+        return (((_a = (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_4__.getElement)(this.element, `.//div[@class="file-upload__filename"]`)) === null || _a === void 0 ? void 0 : _a.innerText) || "");
     }
     get deleteButtonElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_4__.getElement)(this.element, ".//button[@aria-label='Remove file']");
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_4__.getElement)(this.element, ".//button[@aria-label='Remove file']");
     }
     get inputElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_4__.getElement)(this.element, `.//input[@type="file"]`);
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_4__.getElement)(this.element, `.//input[@type="file"]`);
     }
     isFilled(current, stored) {
         return current === stored[0].name;
     }
     fill() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_2__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
+            yield _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_2__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
                 const answers = yield this.answer();
                 if (answers.length > 0) {
                     if (this.deleteButtonElement) {
                         this.deleteButtonElement.click();
-                        yield (0,_src_shared_utils_async__WEBPACK_IMPORTED_MODULE_1__.sleep)(500);
+                        yield (0,_utils_async__WEBPACK_IMPORTED_MODULE_1__.sleep)(500);
                     }
-                    const file = (0,_src_shared_utils_file__WEBPACK_IMPORTED_MODULE_3__.localStorageToFile)(answers[0].answer);
+                    const file = (0,_utils_file__WEBPACK_IMPORTED_MODULE_3__.localStorageToFile)(answers[0].answer);
                     const reactProps = (0,_utils__WEBPACK_IMPORTED_MODULE_5__.getReactProps)(this.inputElement);
                     reactProps === null || reactProps === void 0 ? void 0 : reactProps.onChange({ target: { files: [file] } });
                 }
@@ -95626,10 +95673,10 @@ File.XPATH = _xpaths__WEBPACK_IMPORTED_MODULE_7__.xpaths.FILE;
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/greenhouseReact/GreenhouseReactBaseInput.ts":
-/*!****************************************************************************************!*\
-  !*** ./src/inject/app/services/formFields/greenhouseReact/GreenhouseReactBaseInput.ts ***!
-  \****************************************************************************************/
+/***/ "./src/services/formFields/greenhouseReact/GreenhouseReactBaseInput.ts":
+/*!*****************************************************************************!*\
+  !*** ./src/services/formFields/greenhouseReact/GreenhouseReactBaseInput.ts ***!
+  \*****************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -95638,8 +95685,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   GreenhouseReactBaseInput: () => (/* binding */ GreenhouseReactBaseInput)
 /* harmony export */ });
 /* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js");
-/* harmony import */ var _baseFormInput__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../baseFormInput */ "./src/inject/app/services/formFields/baseFormInput.tsx");
-/* harmony import */ var _src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @src/shared/utils/getElements */ "./src/shared/utils/getElements.ts");
+/* harmony import */ var _baseFormInput__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../baseFormInput */ "./src/services/formFields/baseFormInput.tsx");
+/* harmony import */ var _utils_getElements__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../utils/getElements */ "./src/utils/getElements.ts");
 
 
 
@@ -95648,16 +95695,16 @@ class GreenhouseReactBaseInput extends _baseFormInput__WEBPACK_IMPORTED_MODULE_1
         return this.labelElement;
     }
     sectionElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `ancestor::div[@jaf-section][1]`);
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, `ancestor::div[@jaf-section][1]`);
     }
     get section() {
         var _a;
         return ((_a = this.sectionElement()) === null || _a === void 0 ? void 0 : _a.getAttribute("jaf-section")) || "";
     }
     attachReactApp(app, inputContainer) {
-        const rootElement = document.createElement('div');
-        rootElement.classList.add('jaf-widget');
-        this.labelDisplayElement.insertAdjacentElement('afterend', rootElement);
+        const rootElement = document.createElement("div");
+        rootElement.classList.add("jaf-widget");
+        this.labelDisplayElement.insertAdjacentElement("afterend", rootElement);
         (0,react_dom_client__WEBPACK_IMPORTED_MODULE_0__.createRoot)(rootElement).render(app);
     }
 }
@@ -95665,10 +95712,10 @@ class GreenhouseReactBaseInput extends _baseFormInput__WEBPACK_IMPORTED_MODULE_1
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/greenhouseReact/NumberInput.ts":
-/*!***************************************************************************!*\
-  !*** ./src/inject/app/services/formFields/greenhouseReact/NumberInput.ts ***!
-  \***************************************************************************/
+/***/ "./src/services/formFields/greenhouseReact/NumberInput.ts":
+/*!****************************************************************!*\
+  !*** ./src/services/formFields/greenhouseReact/NumberInput.ts ***!
+  \****************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -95676,10 +95723,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   NumberInput: () => (/* binding */ NumberInput)
 /* harmony export */ });
-/* harmony import */ var _src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @src/shared/utils/getElements */ "./src/shared/utils/getElements.ts");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils */ "./src/inject/app/services/formFields/utils/index.ts");
-/* harmony import */ var _GreenhouseReactBaseInput__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./GreenhouseReactBaseInput */ "./src/inject/app/services/formFields/greenhouseReact/GreenhouseReactBaseInput.ts");
-/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./xpaths */ "./src/inject/app/services/formFields/greenhouseReact/xpaths.ts");
+/* harmony import */ var _utils_getElements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../../utils/getElements */ "./src/utils/getElements.ts");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils */ "./src/services/formFields/utils/index.ts");
+/* harmony import */ var _GreenhouseReactBaseInput__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./GreenhouseReactBaseInput */ "./src/services/formFields/greenhouseReact/GreenhouseReactBaseInput.ts");
+/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./xpaths */ "./src/services/formFields/greenhouseReact/xpaths.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -95696,13 +95743,13 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 class NumberInput extends _GreenhouseReactBaseInput__WEBPACK_IMPORTED_MODULE_2__.GreenhouseReactBaseInput {
     constructor() {
         super(...arguments);
-        this.fieldType = 'TextInput';
+        this.fieldType = "TextInput";
     }
     get labelElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_0__.getElement)(this.element, `.//label`);
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_0__.getElement)(this.element, `.//label`);
     }
     get inputElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_0__.getElement)(this.element, './/input');
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_0__.getElement)(this.element, ".//input");
     }
     listenForChanges() {
         this.inputElement.addEventListener("input", () => {
@@ -95729,10 +95776,10 @@ NumberInput.XPATH = _xpaths__WEBPACK_IMPORTED_MODULE_3__.xpaths.NUMBER_INPUT;
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/greenhouseReact/Section.ts":
-/*!***********************************************************************!*\
-  !*** ./src/inject/app/services/formFields/greenhouseReact/Section.ts ***!
-  \***********************************************************************/
+/***/ "./src/services/formFields/greenhouseReact/Section.ts":
+/*!************************************************************!*\
+  !*** ./src/services/formFields/greenhouseReact/Section.ts ***!
+  \************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -95740,7 +95787,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Section: () => (/* binding */ Section)
 /* harmony export */ });
-/* harmony import */ var _src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @src/shared/utils/getElements */ "./src/shared/utils/getElements.ts");
+/* harmony import */ var _utils_getElements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../../utils/getElements */ "./src/utils/getElements.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -95753,7 +95800,7 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 
 const SECTION_XPATH = `.//div[@class = "education--form"]`;
 const assignNumbersToSections = () => {
-    const sectionElements = (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_0__.getElements)(document, SECTION_XPATH);
+    const sectionElements = (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_0__.getElements)(document, SECTION_XPATH);
     sectionElements.forEach((element, index) => {
         element.setAttribute("jaf-section", "education " + (index + 1).toString());
     });
@@ -95765,9 +95812,9 @@ const assignNumbersToSections = () => {
 class Section {
     static autoDiscover() {
         return __awaiter(this, arguments, void 0, function* (node = document) {
-            const elements = (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_0__.getElements)(node, this.XPATH);
+            const elements = (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_0__.getElements)(node, this.XPATH);
             elements.forEach((el) => {
-                if (!el.hasAttribute('jaf-section')) {
+                if (!el.hasAttribute("jaf-section")) {
                     // @ts-ignore
                     const input = new this(el);
                 }
@@ -95781,7 +95828,9 @@ class Section {
     }
     reassignNumberOnRemoval() {
         const observer = new MutationObserver((mutations) => {
-            if ((0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_0__.getElement)(mutations, `self::div[@class = "education--form"]`, { only: "removedNodes" })) {
+            if ((0,_utils_getElements__WEBPACK_IMPORTED_MODULE_0__.getElement)(mutations, `self::div[@class = "education--form"]`, {
+                only: "removedNodes",
+            })) {
                 assignNumbersToSections();
                 observer.disconnect();
             }
@@ -95794,10 +95843,10 @@ Section.XPATH = SECTION_XPATH;
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/greenhouseReact/TextInput.ts":
-/*!*************************************************************************!*\
-  !*** ./src/inject/app/services/formFields/greenhouseReact/TextInput.ts ***!
-  \*************************************************************************/
+/***/ "./src/services/formFields/greenhouseReact/TextInput.ts":
+/*!**************************************************************!*\
+  !*** ./src/services/formFields/greenhouseReact/TextInput.ts ***!
+  \**************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -95805,10 +95854,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   TextInput: () => (/* binding */ TextInput)
 /* harmony export */ });
-/* harmony import */ var _src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @src/shared/utils/getElements */ "./src/shared/utils/getElements.ts");
-/* harmony import */ var _GreenhouseReactBaseInput__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GreenhouseReactBaseInput */ "./src/inject/app/services/formFields/greenhouseReact/GreenhouseReactBaseInput.ts");
-/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./xpaths */ "./src/inject/app/services/formFields/greenhouseReact/xpaths.ts");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils */ "./src/inject/app/services/formFields/utils/index.ts");
+/* harmony import */ var _utils_getElements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../../utils/getElements */ "./src/utils/getElements.ts");
+/* harmony import */ var _GreenhouseReactBaseInput__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GreenhouseReactBaseInput */ "./src/services/formFields/greenhouseReact/GreenhouseReactBaseInput.ts");
+/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./xpaths */ "./src/services/formFields/greenhouseReact/xpaths.ts");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils */ "./src/services/formFields/utils/index.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -95828,10 +95877,10 @@ class TextInput extends _GreenhouseReactBaseInput__WEBPACK_IMPORTED_MODULE_1__.G
         this.fieldType = 'TextInput';
     }
     get labelElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_0__.getElement)(this.element, `.//label`);
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_0__.getElement)(this.element, `.//label`);
     }
     get inputElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_0__.getElement)(this.element, './/input');
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_0__.getElement)(this.element, './/input');
     }
     listenForChanges() {
         this.inputElement.addEventListener("input", () => {
@@ -95858,10 +95907,10 @@ TextInput.XPATH = _xpaths__WEBPACK_IMPORTED_MODULE_2__.xpaths.TEXT_INPUT;
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/greenhouseReact/Textarea.ts":
-/*!************************************************************************!*\
-  !*** ./src/inject/app/services/formFields/greenhouseReact/Textarea.ts ***!
-  \************************************************************************/
+/***/ "./src/services/formFields/greenhouseReact/Textarea.ts":
+/*!*************************************************************!*\
+  !*** ./src/services/formFields/greenhouseReact/Textarea.ts ***!
+  \*************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -95869,10 +95918,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Textarea: () => (/* binding */ Textarea)
 /* harmony export */ });
-/* harmony import */ var _src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @src/shared/utils/getElements */ "./src/shared/utils/getElements.ts");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils */ "./src/inject/app/services/formFields/utils/index.ts");
-/* harmony import */ var _GreenhouseReactBaseInput__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./GreenhouseReactBaseInput */ "./src/inject/app/services/formFields/greenhouseReact/GreenhouseReactBaseInput.ts");
-/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./xpaths */ "./src/inject/app/services/formFields/greenhouseReact/xpaths.ts");
+/* harmony import */ var _utils_getElements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../../utils/getElements */ "./src/utils/getElements.ts");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils */ "./src/services/formFields/utils/index.ts");
+/* harmony import */ var _GreenhouseReactBaseInput__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./GreenhouseReactBaseInput */ "./src/services/formFields/greenhouseReact/GreenhouseReactBaseInput.ts");
+/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./xpaths */ "./src/services/formFields/greenhouseReact/xpaths.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -95889,13 +95938,13 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 class Textarea extends _GreenhouseReactBaseInput__WEBPACK_IMPORTED_MODULE_2__.GreenhouseReactBaseInput {
     constructor() {
         super(...arguments);
-        this.fieldType = 'TextInput';
+        this.fieldType = "TextInput";
     }
     get labelElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_0__.getElement)(this.element, `.//label`);
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_0__.getElement)(this.element, `.//label`);
     }
     get inputElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_0__.getElement)(this.element, './/textarea');
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_0__.getElement)(this.element, ".//textarea");
     }
     listenForChanges() {
         this.inputElement.addEventListener("input", () => {
@@ -95922,10 +95971,10 @@ Textarea.XPATH = _xpaths__WEBPACK_IMPORTED_MODULE_3__.xpaths.TEXTAREA;
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/greenhouseReact/index.ts":
-/*!*********************************************************************!*\
-  !*** ./src/inject/app/services/formFields/greenhouseReact/index.ts ***!
-  \*********************************************************************/
+/***/ "./src/services/formFields/greenhouseReact/index.ts":
+/*!**********************************************************!*\
+  !*** ./src/services/formFields/greenhouseReact/index.ts ***!
+  \**********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -95933,17 +95982,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   RegisterInputs: () => (/* binding */ RegisterInputs)
 /* harmony export */ });
-/* harmony import */ var _src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @src/shared/utils/getElements */ "./src/shared/utils/getElements.ts");
-/* harmony import */ var _AddressSearchable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AddressSearchable */ "./src/inject/app/services/formFields/greenhouseReact/AddressSearchable.ts");
-/* harmony import */ var _CheckboxBoolean__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CheckboxBoolean */ "./src/inject/app/services/formFields/greenhouseReact/CheckboxBoolean.ts");
-/* harmony import */ var _CheckboxMulti__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./CheckboxMulti */ "./src/inject/app/services/formFields/greenhouseReact/CheckboxMulti.ts");
-/* harmony import */ var _DropdownMultiSearchable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./DropdownMultiSearchable */ "./src/inject/app/services/formFields/greenhouseReact/DropdownMultiSearchable.ts");
-/* harmony import */ var _DropdownSearchable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./DropdownSearchable */ "./src/inject/app/services/formFields/greenhouseReact/DropdownSearchable.ts");
-/* harmony import */ var _File__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./File */ "./src/inject/app/services/formFields/greenhouseReact/File.ts");
-/* harmony import */ var _NumberInput__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./NumberInput */ "./src/inject/app/services/formFields/greenhouseReact/NumberInput.ts");
-/* harmony import */ var _Section__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Section */ "./src/inject/app/services/formFields/greenhouseReact/Section.ts");
-/* harmony import */ var _Textarea__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Textarea */ "./src/inject/app/services/formFields/greenhouseReact/Textarea.ts");
-/* harmony import */ var _TextInput__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./TextInput */ "./src/inject/app/services/formFields/greenhouseReact/TextInput.ts");
+/* harmony import */ var _utils_getElements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../../utils/getElements */ "./src/utils/getElements.ts");
+/* harmony import */ var _AddressSearchable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AddressSearchable */ "./src/services/formFields/greenhouseReact/AddressSearchable.ts");
+/* harmony import */ var _CheckboxBoolean__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CheckboxBoolean */ "./src/services/formFields/greenhouseReact/CheckboxBoolean.ts");
+/* harmony import */ var _CheckboxMulti__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./CheckboxMulti */ "./src/services/formFields/greenhouseReact/CheckboxMulti.ts");
+/* harmony import */ var _DropdownMultiSearchable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./DropdownMultiSearchable */ "./src/services/formFields/greenhouseReact/DropdownMultiSearchable.ts");
+/* harmony import */ var _DropdownSearchable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./DropdownSearchable */ "./src/services/formFields/greenhouseReact/DropdownSearchable.ts");
+/* harmony import */ var _File__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./File */ "./src/services/formFields/greenhouseReact/File.ts");
+/* harmony import */ var _NumberInput__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./NumberInput */ "./src/services/formFields/greenhouseReact/NumberInput.ts");
+/* harmony import */ var _Section__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Section */ "./src/services/formFields/greenhouseReact/Section.ts");
+/* harmony import */ var _Textarea__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Textarea */ "./src/services/formFields/greenhouseReact/Textarea.ts");
+/* harmony import */ var _TextInput__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./TextInput */ "./src/services/formFields/greenhouseReact/TextInput.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -95965,7 +96014,7 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 
 
 /** Not present in job search page */
-const applicationContainerElement = (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_0__.getElement)(document, `.//div[@class="application--container"]`);
+const applicationContainerElement = (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_0__.getElement)(document, `.//div[@class="application--container"]`);
 const inputs = [
     _TextInput__WEBPACK_IMPORTED_MODULE_10__.TextInput,
     _Textarea__WEBPACK_IMPORTED_MODULE_9__.Textarea,
@@ -95987,10 +96036,10 @@ const RegisterInputs = (...args_1) => __awaiter(void 0, [...args_1], void 0, fun
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/greenhouseReact/xpaths.ts":
-/*!**********************************************************************!*\
-  !*** ./src/inject/app/services/formFields/greenhouseReact/xpaths.ts ***!
-  \**********************************************************************/
+/***/ "./src/services/formFields/greenhouseReact/xpaths.ts":
+/*!***********************************************************!*\
+  !*** ./src/services/formFields/greenhouseReact/xpaths.ts ***!
+  \***********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -96002,25 +96051,25 @@ const xpaths = {
     TEXT_INPUT: [
         `.//div[@class="text-input-wrapper"]`,
         `[.//input[@type="text"]]`,
-    ].join(''),
+    ].join(""),
     NUMBER_INPUT: [
         `.//div[@class="text-input-wrapper"]`,
         `[.//input[@type="number"]]`,
-    ].join(''),
-    TEXTAREA: [`.//div[@class="text-input-wrapper"]`, `[.//textarea]`].join(''),
-    FILE: [`.//div[@class="file-upload"]`].join(''),
+    ].join(""),
+    TEXTAREA: [`.//div[@class="text-input-wrapper"]`, `[.//textarea]`].join(""),
+    FILE: [`.//div[@class="file-upload"]`].join(""),
     DROPDOWN: [
         `.//div`,
         `[@class="select"]`,
         `[.//button[@aria-label="Toggle flyout"]]`,
         `[not(.//div[contains(@class, "is-multi")])]`,
-    ].join(''),
+    ].join(""),
     DROPDOWN_SEARCHABLE: [
         `.//div`,
         `[@class="select"]`,
         `[.//button[@aria-label="Toggle flyout"]]`,
         `[not(.//div[contains(@class, "is-multi")])]`,
-    ].join(''),
+    ].join(""),
     ADDRESS_SEARCHABLE: [
         `.//div`,
         `[@class="select"]`,
@@ -96031,26 +96080,26 @@ const xpaths = {
         `[@class="select"]`,
         `[.//button[@aria-label="Toggle flyout"]]`,
         `[.//div[contains(@class, "is-multi")]]`,
-    ].join(''),
+    ].join(""),
     CHECKBOX_MULTI: [
         `.//fieldset`,
         `[@class="checkbox"]`,
         `[count(.//input[@type="checkbox"]) > 1]`,
-    ].join(''),
+    ].join(""),
     CHECKBOX_BOOLEAN: [
         `.//fieldset`,
         `[@class="checkbox"]`,
         `[count(.//input[@type="checkbox"]) = 1]`,
-    ].join(''),
+    ].join(""),
 };
 
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/utils/dateUtils.ts":
-/*!***************************************************************!*\
-  !*** ./src/inject/app/services/formFields/utils/dateUtils.ts ***!
-  \***************************************************************/
+/***/ "./src/services/formFields/utils/dateUtils.ts":
+/*!****************************************************!*\
+  !*** ./src/services/formFields/utils/dateUtils.ts ***!
+  \****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -96073,10 +96122,10 @@ function dateCompare(date1, date2) {
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/utils/index.ts":
-/*!***********************************************************!*\
-  !*** ./src/inject/app/services/formFields/utils/index.ts ***!
-  \***********************************************************/
+/***/ "./src/services/formFields/utils/index.ts":
+/*!************************************************!*\
+  !*** ./src/services/formFields/utils/index.ts ***!
+  \************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -96129,10 +96178,10 @@ const addCharacterMutationObserver = (element, callback) => {
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/workday/BooleanCheckbox.ts":
-/*!***********************************************************************!*\
-  !*** ./src/inject/app/services/formFields/workday/BooleanCheckbox.ts ***!
-  \***********************************************************************/
+/***/ "./src/services/formFields/workday/BooleanCheckbox.ts":
+/*!************************************************************!*\
+  !*** ./src/services/formFields/workday/BooleanCheckbox.ts ***!
+  \************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -96140,11 +96189,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   BooleanCheckbox: () => (/* binding */ BooleanCheckbox)
 /* harmony export */ });
-/* harmony import */ var _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @src/shared/utils/fieldFillerQueue */ "./src/shared/utils/fieldFillerQueue.ts");
-/* harmony import */ var _src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @src/shared/utils/getElements */ "./src/shared/utils/getElements.ts");
-/* harmony import */ var _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./WorkdayBaseInput */ "./src/inject/app/services/formFields/workday/WorkdayBaseInput.ts");
-/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./xpaths */ "./src/inject/app/services/formFields/workday/xpaths.ts");
-/* harmony import */ var _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueSingleBool__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleBool */ "./src/inject/app/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleBool.tsx");
+/* harmony import */ var _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../../utils/fieldFillerQueue */ "./src/utils/fieldFillerQueue.ts");
+/* harmony import */ var _utils_getElements__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../utils/getElements */ "./src/utils/getElements.ts");
+/* harmony import */ var _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./WorkdayBaseInput */ "./src/services/formFields/workday/WorkdayBaseInput.ts");
+/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./xpaths */ "./src/services/formFields/workday/xpaths.ts");
+/* harmony import */ var _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueSingleBool__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleBool */ "./src/components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleBool.tsx");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -96163,10 +96212,10 @@ class BooleanCheckbox extends _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_2__.Wor
     constructor() {
         super(...arguments);
         this.fieldType = 'SingleCheckbox';
-        this.answerValueDisplayComponent = _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueSingleBool__WEBPACK_IMPORTED_MODULE_4__.AnswerValueSingleBool;
+        this.answerValueDisplayComponent = _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueSingleBool__WEBPACK_IMPORTED_MODULE_4__.AnswerValueSingleBool;
     }
     get answerValue() {
-        return Object.assign(Object.assign({}, super.answerValue), { displayComponent: _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueSingleBool__WEBPACK_IMPORTED_MODULE_4__.AnswerValueSingleBool });
+        return Object.assign(Object.assign({}, super.answerValue), { displayComponent: _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueSingleBool__WEBPACK_IMPORTED_MODULE_4__.AnswerValueSingleBool });
     }
     /**
      * When the change event is intercepted, the value is still the old value.
@@ -96175,7 +96224,7 @@ class BooleanCheckbox extends _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_2__.Wor
      */
     listenForChanges() {
         this.checkboxElement().addEventListener('change', (e) => {
-            (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.waitForElement)(this.element, this.currentStateXpath(!e.target['checked'])).then(() => {
+            (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.waitForElement)(this.element, this.currentStateXpath(!e.target['checked'])).then(() => {
                 this.triggerReactUpdate();
             });
         });
@@ -96188,7 +96237,7 @@ class BooleanCheckbox extends _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_2__.Wor
         ].join('');
     }
     checkboxElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, ".//input[@type='checkbox']");
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, ".//input[@type='checkbox']");
     }
     currentValue() {
         return this.checkboxElement().checked;
@@ -96203,13 +96252,13 @@ class BooleanCheckbox extends _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_2__.Wor
      */
     fill() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_0__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
+            yield _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_0__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
                 const answer = yield this.answer();
                 const isFilled = this.isFilled(this.currentValue(), answer.map(a => a.answer));
                 if (answer.length > 0 && !isFilled) {
                     const initialValue = this.currentValue();
                     this.checkboxElement().click();
-                    yield (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.waitForElement)(this.element, this.currentStateXpath(!initialValue));
+                    yield (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.waitForElement)(this.element, this.currentStateXpath(!initialValue));
                 }
             }));
         });
@@ -96220,10 +96269,10 @@ BooleanCheckbox.XPATH = _xpaths__WEBPACK_IMPORTED_MODULE_3__.xpaths.SINGLE_CHECK
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/workday/BooleanRadio.tsx":
-/*!*********************************************************************!*\
-  !*** ./src/inject/app/services/formFields/workday/BooleanRadio.tsx ***!
-  \*********************************************************************/
+/***/ "./src/services/formFields/workday/BooleanRadio.tsx":
+/*!**********************************************************!*\
+  !*** ./src/services/formFields/workday/BooleanRadio.tsx ***!
+  \**********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -96231,12 +96280,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   BooleanRadio: () => (/* binding */ BooleanRadio)
 /* harmony export */ });
-/* harmony import */ var _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @src/shared/utils/fieldFillerQueue */ "./src/shared/utils/fieldFillerQueue.ts");
-/* harmony import */ var _src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @src/shared/utils/getElements */ "./src/shared/utils/getElements.ts");
-/* harmony import */ var _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./WorkdayBaseInput */ "./src/inject/app/services/formFields/workday/WorkdayBaseInput.ts");
-/* harmony import */ var _src_shared_utils_stringMatch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @src/shared/utils/stringMatch */ "./src/shared/utils/stringMatch.ts");
-/* harmony import */ var _src_shared_utils_xpath__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @src/shared/utils/xpath */ "./src/shared/utils/xpath.ts");
-/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./xpaths */ "./src/inject/app/services/formFields/workday/xpaths.ts");
+/* harmony import */ var _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../../utils/fieldFillerQueue */ "./src/utils/fieldFillerQueue.ts");
+/* harmony import */ var _utils_getElements__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../utils/getElements */ "./src/utils/getElements.ts");
+/* harmony import */ var _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./WorkdayBaseInput */ "./src/services/formFields/workday/WorkdayBaseInput.ts");
+/* harmony import */ var _utils_stringMatch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../../utils/stringMatch */ "./src/utils/stringMatch.ts");
+/* harmony import */ var _utils_xpath__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../../utils/xpath */ "./src/utils/xpath.ts");
+/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./xpaths */ "./src/services/formFields/workday/xpaths.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -96258,7 +96307,7 @@ class BooleanRadio extends _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_2__.Workda
         this.fieldType = 'BooleanRadio';
     }
     listenForChanges() {
-        const radioGroupElement = (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, './/fieldset');
+        const radioGroupElement = (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, './/fieldset');
         radioGroupElement.addEventListener('change', (e) => {
             this.triggerReactUpdate();
         });
@@ -96266,11 +96315,11 @@ class BooleanRadio extends _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_2__.Workda
     get fieldName() {
         const fieldNames = ['previousWorker'];
         for (const name in fieldNames) {
-            if ((0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, `.//div[@data-automation-id='${fieldNames[name]}']`)) {
+            if ((0,_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, `.//div[@data-automation-id='${fieldNames[name]}']`)) {
                 return fieldNames[name];
             }
         }
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, './/legend').innerText;
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, './/legend').innerText;
     }
     get checkedRadioElement() {
         const XPATH = [
@@ -96278,14 +96327,14 @@ class BooleanRadio extends _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_2__.Workda
             '/ancestor::div',
             '[label]',
         ].join('');
-        const el = (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, XPATH);
+        const el = (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, XPATH);
         return el;
     }
     /**
      * exact match (case insensetive)
      */
     isFilled(current, stored) {
-        return stored.some(answer => _src_shared_utils_stringMatch__WEBPACK_IMPORTED_MODULE_3__["default"].exact(current, answer));
+        return stored.some(answer => _utils_stringMatch__WEBPACK_IMPORTED_MODULE_3__["default"].exact(current, answer));
     }
     currentValue() {
         var _a;
@@ -96293,15 +96342,15 @@ class BooleanRadio extends _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_2__.Workda
     }
     fill() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_0__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
+            yield _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_0__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
                 const answer = yield this.answer();
                 if (answer.length > 0) {
                     const XPATH = [
                         '//div',
-                        `[label[${(0,_src_shared_utils_xpath__WEBPACK_IMPORTED_MODULE_4__.lowerText)()}='${answer[0].answer.toLowerCase()}']]`,
+                        `[label[${(0,_utils_xpath__WEBPACK_IMPORTED_MODULE_4__.lowerText)()}='${answer[0].answer.toLowerCase()}']]`,
                         "//input[@type='radio']",
                     ].join('');
-                    const checkElement = (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, XPATH);
+                    const checkElement = (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, XPATH);
                     checkElement === null || checkElement === void 0 ? void 0 : checkElement.click();
                 }
             }));
@@ -96313,10 +96362,10 @@ BooleanRadio.XPATH = _xpaths__WEBPACK_IMPORTED_MODULE_5__.xpaths.BOOLEAN_RADIO;
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/workday/CheckboxesSingle.ts":
-/*!************************************************************************!*\
-  !*** ./src/inject/app/services/formFields/workday/CheckboxesSingle.ts ***!
-  \************************************************************************/
+/***/ "./src/services/formFields/workday/CheckboxesSingle.ts":
+/*!*************************************************************!*\
+  !*** ./src/services/formFields/workday/CheckboxesSingle.ts ***!
+  \*************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -96324,14 +96373,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   CheckboxesSingle: () => (/* binding */ CheckboxesSingle)
 /* harmony export */ });
-/* harmony import */ var _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings */ "./src/inject/app/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings.tsx");
-/* harmony import */ var _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @src/shared/utils/fieldFillerQueue */ "./src/shared/utils/fieldFillerQueue.ts");
-/* harmony import */ var _src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @src/shared/utils/getElements */ "./src/shared/utils/getElements.ts");
-/* harmony import */ var _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./WorkdayBaseInput */ "./src/inject/app/services/formFields/workday/WorkdayBaseInput.ts");
-/* harmony import */ var _src_shared_utils_stringMatch__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @src/shared/utils/stringMatch */ "./src/shared/utils/stringMatch.ts");
-/* harmony import */ var _src_shared_utils_scroll__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @src/shared/utils/scroll */ "./src/shared/utils/scroll.ts");
-/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./xpaths */ "./src/inject/app/services/formFields/workday/xpaths.ts");
-/* harmony import */ var _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../hooks/answerValueInit */ "./src/inject/app/hooks/answerValueInit.ts");
+/* harmony import */ var _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings */ "./src/components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings.tsx");
+/* harmony import */ var _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../utils/fieldFillerQueue */ "./src/utils/fieldFillerQueue.ts");
+/* harmony import */ var _utils_getElements__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../utils/getElements */ "./src/utils/getElements.ts");
+/* harmony import */ var _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./WorkdayBaseInput */ "./src/services/formFields/workday/WorkdayBaseInput.ts");
+/* harmony import */ var _utils_stringMatch__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../../utils/stringMatch */ "./src/utils/stringMatch.ts");
+/* harmony import */ var _utils_scroll__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../../utils/scroll */ "./src/utils/scroll.ts");
+/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./xpaths */ "./src/services/formFields/workday/xpaths.ts");
+/* harmony import */ var _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../../../hooks/answerValueInit */ "./src/hooks/answerValueInit.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -96352,10 +96401,10 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 class CheckboxesSingle extends _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_3__.WorkdayBaseInput {
     constructor() {
         super(...arguments);
-        this.fieldType = 'MultiCheckbox';
+        this.fieldType = "MultiCheckbox";
     }
     get answerValue() {
-        return Object.assign(Object.assign({}, super.answerValue), { displayComponent: _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__.AnswerValueBackupStrings, init: _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_7__.answerValueInitList, prepForSave: (values) => {
+        return Object.assign(Object.assign({}, super.answerValue), { displayComponent: _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__.AnswerValueBackupStrings, init: _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_7__.answerValueInitList, prepForSave: (values) => {
                 return values.map(([value, editable]) => value);
             }, prepForFill: (answers) => {
                 return super.answerValue.prepForFill(answers).flat();
@@ -96363,39 +96412,39 @@ class CheckboxesSingle extends _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_3__.Wo
     }
     get fieldName() {
         var _a;
-        if ((_a = this.element.getAttribute('data-automation-id')) === null || _a === void 0 ? void 0 : _a.endsWith('-disability')) {
-            return 'disability';
+        if ((_a = this.element.getAttribute("data-automation-id")) === null || _a === void 0 ? void 0 : _a.endsWith("-disability")) {
+            return "disability";
         }
         return super.fieldName;
     }
     listenForChanges() {
-        this.element.addEventListener('change', (e) => {
+        this.element.addEventListener("change", (e) => {
             this.triggerReactUpdate();
         });
     }
     get selectedCheckBoxElement() {
         const XPATH = [
             ".//div[@role='cell']",
-            '[',
+            "[",
             ".//input[@type='checkbox'][@aria-checked='true']",
-            ']',
-        ].join('');
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, XPATH);
+            "]",
+        ].join("");
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, XPATH);
     }
     currentValue() {
         var _a;
-        return ((_a = this.selectedCheckBoxElement) === null || _a === void 0 ? void 0 : _a.innerText) || '';
+        return ((_a = this.selectedCheckBoxElement) === null || _a === void 0 ? void 0 : _a.innerText) || "";
     }
     isFilled(current, stored) {
-        return stored.some((answer) => _src_shared_utils_stringMatch__WEBPACK_IMPORTED_MODULE_4__["default"].contains(current, answer));
+        return stored.some((answer) => _utils_stringMatch__WEBPACK_IMPORTED_MODULE_4__["default"].contains(current, answer));
     }
     getCheckboxElement(answer) {
         const XPATH = [
             ".//div[@role='cell']",
             `[.//label[normalize-space(text())='${answer}']]`,
             "//input[@type='checkbox']",
-        ].join('');
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, XPATH);
+        ].join("");
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, XPATH);
     }
     get fieldSnapshot() {
         return {
@@ -96405,10 +96454,10 @@ class CheckboxesSingle extends _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_3__.Wo
     }
     fill() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
-                yield (0,_src_shared_utils_scroll__WEBPACK_IMPORTED_MODULE_5__.scrollBack)(() => __awaiter(this, void 0, void 0, function* () {
+            yield _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
+                yield (0,_utils_scroll__WEBPACK_IMPORTED_MODULE_5__.scrollBack)(() => __awaiter(this, void 0, void 0, function* () {
                     if (this.selectedCheckBoxElement) {
-                        (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.selectedCheckBoxElement, ".//input[@type='checkbox']").click();
+                        (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.selectedCheckBoxElement, ".//input[@type='checkbox']").click();
                     }
                     const answers = (yield this.answer()) || [];
                     const answerValues = answers
@@ -96433,10 +96482,10 @@ CheckboxesSingle.XPATH = _xpaths__WEBPACK_IMPORTED_MODULE_6__.xpaths.MULTI_CHECK
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/workday/Dates/MonthDayYear.ts":
-/*!**************************************************************************!*\
-  !*** ./src/inject/app/services/formFields/workday/Dates/MonthDayYear.ts ***!
-  \**************************************************************************/
+/***/ "./src/services/formFields/workday/Dates/MonthDayYear.ts":
+/*!***************************************************************!*\
+  !*** ./src/services/formFields/workday/Dates/MonthDayYear.ts ***!
+  \***************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -96444,15 +96493,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   MonthDayYear: () => (/* binding */ MonthDayYear)
 /* harmony export */ });
-/* harmony import */ var _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @src/shared/utils/fieldFillerQueue */ "./src/shared/utils/fieldFillerQueue.ts");
-/* harmony import */ var _src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @src/shared/utils/getElements */ "./src/shared/utils/getElements.ts");
-/* harmony import */ var _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../WorkdayBaseInput */ "./src/inject/app/services/formFields/workday/WorkdayBaseInput.ts");
-/* harmony import */ var _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueSingleRelativeDate__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleRelativeDate */ "./src/inject/app/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleRelativeDate.tsx");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./utils */ "./src/inject/app/services/formFields/workday/Dates/utils.ts");
-/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../xpaths */ "./src/inject/app/services/formFields/workday/xpaths.ts");
-/* harmony import */ var _utils_dateUtils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/dateUtils */ "./src/inject/app/services/formFields/utils/dateUtils.ts");
-/* harmony import */ var _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../hooks/answerValueInit */ "./src/inject/app/hooks/answerValueInit.ts");
-/* harmony import */ var _hooks_saveButtonClickHandlers__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../hooks/saveButtonClickHandlers */ "./src/inject/app/hooks/saveButtonClickHandlers.ts");
+/* harmony import */ var _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../../../utils/fieldFillerQueue */ "./src/utils/fieldFillerQueue.ts");
+/* harmony import */ var _utils_getElements__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../../utils/getElements */ "./src/utils/getElements.ts");
+/* harmony import */ var _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../WorkdayBaseInput */ "./src/services/formFields/workday/WorkdayBaseInput.ts");
+/* harmony import */ var _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueSingleRelativeDate__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleRelativeDate */ "./src/components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleRelativeDate.tsx");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./utils */ "./src/services/formFields/workday/Dates/utils.ts");
+/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../xpaths */ "./src/services/formFields/workday/xpaths.ts");
+/* harmony import */ var _utils_dateUtils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/dateUtils */ "./src/services/formFields/utils/dateUtils.ts");
+/* harmony import */ var _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../../../../hooks/answerValueInit */ "./src/hooks/answerValueInit.ts");
+/* harmony import */ var _hooks_saveButtonClickHandlers__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../hooks/saveButtonClickHandlers */ "./src/hooks/saveButtonClickHandlers.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -96474,7 +96523,7 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 class MonthDayYear extends _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_2__.WorkdayBaseInput {
     constructor() {
         super(...arguments);
-        this.fieldType = 'MonthDayYear';
+        this.fieldType = "MonthDayYear";
         this.saveButtonClickHandler = _hooks_saveButtonClickHandlers__WEBPACK_IMPORTED_MODULE_8__.saveButtonClickHandlers.withNotice;
         this.fieldNotice = `##### Choose a relative or absolute date. 
   [See how](https://www.youtube.com/watch?v=JYMATq9siIY&t=207s)`;
@@ -96486,19 +96535,19 @@ class MonthDayYear extends _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_2__.Workda
                     relative,
                     value: relative ? relativeValue : absoluteValue,
                 };
-            }, displayComponent: _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueSingleRelativeDate__WEBPACK_IMPORTED_MODULE_3__.AnswerValueSingleRelativeDate });
+            }, displayComponent: _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueSingleRelativeDate__WEBPACK_IMPORTED_MODULE_3__.AnswerValueSingleRelativeDate });
     }
     listenForChanges() {
         (0,_utils__WEBPACK_IMPORTED_MODULE_4__.setupChangeListener)(this);
     }
     get monthInputElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, ".//input[@aria-label='Month']");
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, ".//input[@aria-label='Month']");
     }
     get dayInputElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, ".//input[@aria-label='Day']");
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, ".//input[@aria-label='Day']");
     }
     get yearInputElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, ".//input[@aria-label='Year']");
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, ".//input[@aria-label='Year']");
     }
     currentValue() {
         return [
@@ -96514,7 +96563,7 @@ class MonthDayYear extends _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_2__.Workda
         };
     }
     get wrapperElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, ".//div[@data-automation-id='dateInputWrapper']");
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, ".//div[@data-automation-id='dateInputWrapper']");
     }
     /**
      * Compare only the first stored date.
@@ -96528,7 +96577,7 @@ class MonthDayYear extends _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_2__.Workda
     }
     fill(answers) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_0__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
+            yield _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_0__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
                 answers = answers || (yield this.answer());
                 if (answers.length > 0) {
                     const [month, day, year] = (0,_utils__WEBPACK_IMPORTED_MODULE_4__.convertRelativeDate)(answers[0].answer);
@@ -96545,10 +96594,10 @@ MonthDayYear.XPATH = _xpaths__WEBPACK_IMPORTED_MODULE_5__.xpaths.MONTH_DAY_YEAR;
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/workday/Dates/MonthYear.ts":
-/*!***********************************************************************!*\
-  !*** ./src/inject/app/services/formFields/workday/Dates/MonthYear.ts ***!
-  \***********************************************************************/
+/***/ "./src/services/formFields/workday/Dates/MonthYear.ts":
+/*!************************************************************!*\
+  !*** ./src/services/formFields/workday/Dates/MonthYear.ts ***!
+  \************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -96556,13 +96605,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   MonthYear: () => (/* binding */ MonthYear)
 /* harmony export */ });
-/* harmony import */ var _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @src/shared/utils/fieldFillerQueue */ "./src/shared/utils/fieldFillerQueue.ts");
-/* harmony import */ var _src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @src/shared/utils/getElements */ "./src/shared/utils/getElements.ts");
-/* harmony import */ var _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../WorkdayBaseInput */ "./src/inject/app/services/formFields/workday/WorkdayBaseInput.ts");
-/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../xpaths */ "./src/inject/app/services/formFields/workday/xpaths.ts");
-/* harmony import */ var _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueSingleDate__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleDate */ "./src/inject/app/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleDate.tsx");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./utils */ "./src/inject/app/services/formFields/workday/Dates/utils.ts");
-/* harmony import */ var _utils_dateUtils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/dateUtils */ "./src/inject/app/services/formFields/utils/dateUtils.ts");
+/* harmony import */ var _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../../../utils/fieldFillerQueue */ "./src/utils/fieldFillerQueue.ts");
+/* harmony import */ var _utils_getElements__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../../utils/getElements */ "./src/utils/getElements.ts");
+/* harmony import */ var _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../WorkdayBaseInput */ "./src/services/formFields/workday/WorkdayBaseInput.ts");
+/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../xpaths */ "./src/services/formFields/workday/xpaths.ts");
+/* harmony import */ var _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueSingleDate__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleDate */ "./src/components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueSingleDate.tsx");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./utils */ "./src/services/formFields/workday/Dates/utils.ts");
+/* harmony import */ var _utils_dateUtils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/dateUtils */ "./src/services/formFields/utils/dateUtils.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -96582,26 +96631,26 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 class MonthYear extends _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_2__.WorkdayBaseInput {
     constructor() {
         super(...arguments);
-        this.fieldType = 'MonthYear';
-        this.answerValueDisplayComponent = _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueSingleDate__WEBPACK_IMPORTED_MODULE_4__.AnswerValueSingleDate;
+        this.fieldType = "MonthYear";
+        this.answerValueDisplayComponent = _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueSingleDate__WEBPACK_IMPORTED_MODULE_4__.AnswerValueSingleDate;
     }
     get answerValue() {
-        return Object.assign(Object.assign({}, super.answerValue), { displayComponent: _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueSingleDate__WEBPACK_IMPORTED_MODULE_4__.AnswerValueSingleDate });
+        return Object.assign(Object.assign({}, super.answerValue), { displayComponent: _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueSingleDate__WEBPACK_IMPORTED_MODULE_4__.AnswerValueSingleDate });
     }
     listenForChanges() {
         (0,_utils__WEBPACK_IMPORTED_MODULE_5__.setupChangeListener)(this);
     }
     get monthInputElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, ".//input[@aria-label='Month']");
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, ".//input[@aria-label='Month']");
     }
     get yearInputElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, ".//input[@aria-label='Year']");
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, ".//input[@aria-label='Year']");
     }
     currentValue() {
         return [this.monthInputElement.value, this.yearInputElement.value];
     }
     get wrapperElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, ".//div[@data-automation-id='dateInputWrapper']");
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, ".//div[@data-automation-id='dateInputWrapper']");
     }
     /**
      * Compare only the first stored date.
@@ -96614,7 +96663,7 @@ class MonthYear extends _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_2__.WorkdayBa
     }
     fill(answers) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_0__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
+            yield _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_0__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
                 answers = answers || (yield this.answer());
                 if (answers.length > 0) {
                     const [month, year] = answers[0].answer;
@@ -96630,10 +96679,10 @@ MonthYear.XPATH = _xpaths__WEBPACK_IMPORTED_MODULE_3__.xpaths.MONTH_YEAR;
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/workday/Dates/Year.ts":
-/*!******************************************************************!*\
-  !*** ./src/inject/app/services/formFields/workday/Dates/Year.ts ***!
-  \******************************************************************/
+/***/ "./src/services/formFields/workday/Dates/Year.ts":
+/*!*******************************************************!*\
+  !*** ./src/services/formFields/workday/Dates/Year.ts ***!
+  \*******************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -96641,11 +96690,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Year: () => (/* binding */ Year)
 /* harmony export */ });
-/* harmony import */ var _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @src/shared/utils/fieldFillerQueue */ "./src/shared/utils/fieldFillerQueue.ts");
-/* harmony import */ var _src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @src/shared/utils/getElements */ "./src/shared/utils/getElements.ts");
-/* harmony import */ var _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../WorkdayBaseInput */ "./src/inject/app/services/formFields/workday/WorkdayBaseInput.ts");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./utils */ "./src/inject/app/services/formFields/workday/Dates/utils.ts");
-/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../xpaths */ "./src/inject/app/services/formFields/workday/xpaths.ts");
+/* harmony import */ var _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../../../utils/fieldFillerQueue */ "./src/utils/fieldFillerQueue.ts");
+/* harmony import */ var _utils_getElements__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../../utils/getElements */ "./src/utils/getElements.ts");
+/* harmony import */ var _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../WorkdayBaseInput */ "./src/services/formFields/workday/WorkdayBaseInput.ts");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./utils */ "./src/services/formFields/workday/Dates/utils.ts");
+/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../xpaths */ "./src/services/formFields/workday/xpaths.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -96663,26 +96712,26 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 class Year extends _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_2__.WorkdayBaseInput {
     constructor() {
         super(...arguments);
-        this.fieldType = 'Year';
+        this.fieldType = "Year";
     }
     listenForChanges() {
         (0,_utils__WEBPACK_IMPORTED_MODULE_3__.setupChangeListener)(this);
     }
     get yearInputElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, ".//input[@aria-label='Year']");
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, ".//input[@aria-label='Year']");
     }
     currentValue() {
         return this.yearInputElement.value;
     }
     get wrapperElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, ".//div[@data-automation-id='dateInputWrapper']");
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, ".//div[@data-automation-id='dateInputWrapper']");
     }
     isFilled(current, stored) {
         return stored[0] === current;
     }
     fill() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_0__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
+            yield _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_0__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
                 var _a;
                 const answers = yield this.answer();
                 const isFilled = this.isFilled(this.currentValue(), answers.map((a) => a.answer));
@@ -96699,10 +96748,10 @@ Year.XPATH = _xpaths__WEBPACK_IMPORTED_MODULE_4__.xpaths.YEAR;
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/workday/Dates/index.ts":
-/*!*******************************************************************!*\
-  !*** ./src/inject/app/services/formFields/workday/Dates/index.ts ***!
-  \*******************************************************************/
+/***/ "./src/services/formFields/workday/Dates/index.ts":
+/*!********************************************************!*\
+  !*** ./src/services/formFields/workday/Dates/index.ts ***!
+  \********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -96712,9 +96761,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   MonthYear: () => (/* reexport safe */ _MonthYear__WEBPACK_IMPORTED_MODULE_0__.MonthYear),
 /* harmony export */   Year: () => (/* reexport safe */ _Year__WEBPACK_IMPORTED_MODULE_1__.Year)
 /* harmony export */ });
-/* harmony import */ var _MonthYear__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MonthYear */ "./src/inject/app/services/formFields/workday/Dates/MonthYear.ts");
-/* harmony import */ var _Year__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Year */ "./src/inject/app/services/formFields/workday/Dates/Year.ts");
-/* harmony import */ var _MonthDayYear__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MonthDayYear */ "./src/inject/app/services/formFields/workday/Dates/MonthDayYear.ts");
+/* harmony import */ var _MonthYear__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MonthYear */ "./src/services/formFields/workday/Dates/MonthYear.ts");
+/* harmony import */ var _Year__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Year */ "./src/services/formFields/workday/Dates/Year.ts");
+/* harmony import */ var _MonthDayYear__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MonthDayYear */ "./src/services/formFields/workday/Dates/MonthDayYear.ts");
 
 
 
@@ -96722,10 +96771,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/workday/Dates/utils.ts":
-/*!*******************************************************************!*\
-  !*** ./src/inject/app/services/formFields/workday/Dates/utils.ts ***!
-  \*******************************************************************/
+/***/ "./src/services/formFields/workday/Dates/utils.ts":
+/*!********************************************************!*\
+  !*** ./src/services/formFields/workday/Dates/utils.ts ***!
+  \********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -96737,8 +96786,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   getAbsoluteDate: () => (/* binding */ getAbsoluteDate),
 /* harmony export */   setupChangeListener: () => (/* binding */ setupChangeListener)
 /* harmony export */ });
-/* harmony import */ var _src_shared_utils_events__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @src/shared/utils/events */ "./src/shared/utils/events.ts");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils */ "./src/inject/app/services/formFields/utils/index.ts");
+/* harmony import */ var _utils_events__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../../../utils/events */ "./src/utils/events.ts");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils */ "./src/services/formFields/utils/index.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -96758,7 +96807,7 @@ function formatDate(date) {
     ];
 }
 function getAbsoluteDate(relativeDateOption) {
-    if (relativeDateOption === 'today') {
+    if (relativeDateOption === "today") {
         return new Date();
     }
 }
@@ -96782,7 +96831,7 @@ const setupChangeListener = (formField) => {
 function fillDatePart(datePartElement, datePartValue) {
     return __awaiter(this, void 0, void 0, function* () {
         datePartElement.value = (parseInt(datePartValue) - 1).toString();
-        datePartElement.dispatchEvent((0,_src_shared_utils_events__WEBPACK_IMPORTED_MODULE_0__.createKeyboardEvent)('keydown', 'ArrowUp'));
+        datePartElement.dispatchEvent((0,_utils_events__WEBPACK_IMPORTED_MODULE_0__.createKeyboardEvent)("keydown", "ArrowUp"));
         datePartElement.click();
     });
 }
@@ -96819,10 +96868,10 @@ function fillDatePart(datePartElement, datePartValue) {
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/workday/Dropdown.ts":
-/*!****************************************************************!*\
-  !*** ./src/inject/app/services/formFields/workday/Dropdown.ts ***!
-  \****************************************************************/
+/***/ "./src/services/formFields/workday/Dropdown.ts":
+/*!*****************************************************!*\
+  !*** ./src/services/formFields/workday/Dropdown.ts ***!
+  \*****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -96830,17 +96879,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Dropdown: () => (/* binding */ Dropdown)
 /* harmony export */ });
-/* harmony import */ var _src_shared_utils_async__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @src/shared/utils/async */ "./src/shared/utils/async.ts");
-/* harmony import */ var _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @src/shared/utils/fieldFillerQueue */ "./src/shared/utils/fieldFillerQueue.ts");
-/* harmony import */ var _src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @src/shared/utils/getElements */ "./src/shared/utils/getElements.ts");
-/* harmony import */ var _src_shared_utils_scroll__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @src/shared/utils/scroll */ "./src/shared/utils/scroll.ts");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils */ "./src/inject/app/services/formFields/utils/index.ts");
-/* harmony import */ var _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./WorkdayBaseInput */ "./src/inject/app/services/formFields/workday/WorkdayBaseInput.ts");
-/* harmony import */ var _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings */ "./src/inject/app/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings.tsx");
-/* harmony import */ var _src_shared_utils_stringMatch__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @src/shared/utils/stringMatch */ "./src/shared/utils/stringMatch.ts");
-/* harmony import */ var _src_shared_utils_xpath__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @src/shared/utils/xpath */ "./src/shared/utils/xpath.ts");
-/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./xpaths */ "./src/inject/app/services/formFields/workday/xpaths.ts");
-/* harmony import */ var _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../hooks/answerValueInit */ "./src/inject/app/hooks/answerValueInit.ts");
+/* harmony import */ var _utils_async__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../../utils/async */ "./src/utils/async.ts");
+/* harmony import */ var _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../utils/fieldFillerQueue */ "./src/utils/fieldFillerQueue.ts");
+/* harmony import */ var _utils_getElements__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../utils/getElements */ "./src/utils/getElements.ts");
+/* harmony import */ var _utils_scroll__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../../utils/scroll */ "./src/utils/scroll.ts");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils */ "./src/services/formFields/utils/index.ts");
+/* harmony import */ var _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./WorkdayBaseInput */ "./src/services/formFields/workday/WorkdayBaseInput.ts");
+/* harmony import */ var _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings */ "./src/components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings.tsx");
+/* harmony import */ var _utils_stringMatch__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../../../utils/stringMatch */ "./src/utils/stringMatch.ts");
+/* harmony import */ var _utils_xpath__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./../../../utils/xpath */ "./src/utils/xpath.ts");
+/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./xpaths */ "./src/services/formFields/workday/xpaths.ts");
+/* harmony import */ var _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./../../../hooks/answerValueInit */ "./src/hooks/answerValueInit.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -96864,17 +96913,17 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 class Dropdown extends _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_5__.WorkdayBaseInput {
     constructor() {
         super(...arguments);
-        this.fieldType = 'SimpleDropdown';
+        this.fieldType = "SimpleDropdown";
     }
     get answerValue() {
-        return Object.assign(Object.assign({}, super.answerValue), { displayComponent: _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_6__.AnswerValueBackupStrings, init: _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_10__.answerValueInitList, prepForSave: (values) => {
+        return Object.assign(Object.assign({}, super.answerValue), { displayComponent: _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_6__.AnswerValueBackupStrings, init: _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_10__.answerValueInitList, prepForSave: (values) => {
                 return values.map(([value, editable]) => value);
             }, prepForFill: (answers) => {
                 return super.answerValue.prepForFill(answers).flat();
             } });
     }
     get buttonElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, './/button[@aria-haspopup="listbox"]');
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, './/button[@aria-haspopup="listbox"]');
     }
     /** fires whenever the buttonElement's innerText changes */
     listenForChanges() {
@@ -96903,16 +96952,16 @@ class Dropdown extends _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_5__.WorkdayBas
         }
     }
     get dropdownIsOpen() {
-        return this.buttonElement.hasAttribute('aria-expanded');
+        return this.buttonElement.hasAttribute("aria-expanded");
     }
     get dropdownId() {
-        return this.buttonElement.getAttribute('aria-controls');
+        return this.buttonElement.getAttribute("aria-controls");
     }
     dropdownElement() {
         return __awaiter(this, void 0, void 0, function* () {
             if (this.dropdownIsOpen) {
-                const XPATH = ['.//body', `//ul[@id='${this.dropdownId}']`].join('');
-                return yield (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.waitForElement)(document, XPATH);
+                const XPATH = [".//body", `//ul[@id='${this.dropdownId}']`].join("");
+                return yield (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.waitForElement)(document, XPATH);
             }
         });
     }
@@ -96923,14 +96972,14 @@ class Dropdown extends _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_5__.WorkdayBas
     }
     isFilled(current, stored) {
         for (const answer of stored) {
-            if (_src_shared_utils_stringMatch__WEBPACK_IMPORTED_MODULE_7__["default"].contains(current, answer)) {
+            if (_utils_stringMatch__WEBPACK_IMPORTED_MODULE_7__["default"].contains(current, answer)) {
                 return true;
             }
         }
         return false;
     }
     answerElementXpath(answer) {
-        const XPATH = `.//div[${(0,_src_shared_utils_xpath__WEBPACK_IMPORTED_MODULE_8__.lowerText)()}="${answer.toLowerCase()}"]/parent::li`;
+        const XPATH = `.//div[${(0,_utils_xpath__WEBPACK_IMPORTED_MODULE_8__.lowerText)()}="${answer.toLowerCase()}"]/parent::li`;
         return XPATH;
     }
     /**
@@ -96943,19 +96992,19 @@ class Dropdown extends _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_5__.WorkdayBas
      */
     fill() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
+            yield _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
                 const answers = yield this.answer();
-                yield (0,_src_shared_utils_scroll__WEBPACK_IMPORTED_MODULE_3__.scrollBack)(() => __awaiter(this, void 0, void 0, function* () {
+                yield (0,_utils_scroll__WEBPACK_IMPORTED_MODULE_3__.scrollBack)(() => __awaiter(this, void 0, void 0, function* () {
                     for (const answer of answers) {
                         const answerList = answer.answer;
                         this.openDropdown();
-                        yield (0,_src_shared_utils_async__WEBPACK_IMPORTED_MODULE_0__.sleep)(50);
+                        yield (0,_utils_async__WEBPACK_IMPORTED_MODULE_0__.sleep)(50);
                         const dropdownElement = yield this.dropdownElement();
                         if (dropdownElement) {
                             while (answerList.length > 0) {
                                 const answer = answerList.shift();
                                 const XPATH = this.answerElementXpath(answer);
-                                const answerElement = (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(dropdownElement, XPATH);
+                                const answerElement = (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(dropdownElement, XPATH);
                                 if (answerElement) {
                                     (0,_utils__WEBPACK_IMPORTED_MODULE_4__.getReactProps)(answerElement).onClick({
                                         preventDefault: () => { },
@@ -96977,10 +97026,10 @@ Dropdown.XPATH = _xpaths__WEBPACK_IMPORTED_MODULE_9__.xpaths.SIMPLE_DROPDOWN;
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/workday/DropdownSearchable.ts":
-/*!**************************************************************************!*\
-  !*** ./src/inject/app/services/formFields/workday/DropdownSearchable.ts ***!
-  \**************************************************************************/
+/***/ "./src/services/formFields/workday/DropdownSearchable.ts":
+/*!***************************************************************!*\
+  !*** ./src/services/formFields/workday/DropdownSearchable.ts ***!
+  \***************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -96988,16 +97037,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   DropdownSearchable: () => (/* binding */ DropdownSearchable)
 /* harmony export */ });
-/* harmony import */ var _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings */ "./src/inject/app/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings.tsx");
-/* harmony import */ var _src_shared_utils_async__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @src/shared/utils/async */ "./src/shared/utils/async.ts");
-/* harmony import */ var _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @src/shared/utils/fieldFillerQueue */ "./src/shared/utils/fieldFillerQueue.ts");
-/* harmony import */ var _src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @src/shared/utils/getElements */ "./src/shared/utils/getElements.ts");
-/* harmony import */ var _src_shared_utils_scroll__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @src/shared/utils/scroll */ "./src/shared/utils/scroll.ts");
-/* harmony import */ var _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./WorkdayBaseInput */ "./src/inject/app/services/formFields/workday/WorkdayBaseInput.ts");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utils */ "./src/inject/app/services/formFields/utils/index.ts");
-/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./xpaths */ "./src/inject/app/services/formFields/workday/xpaths.ts");
-/* harmony import */ var _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../hooks/answerValueInit */ "./src/inject/app/hooks/answerValueInit.ts");
-/* harmony import */ var _hooks_useEditableAnswerState__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../hooks/useEditableAnswerState */ "./src/inject/app/hooks/useEditableAnswerState.ts");
+/* harmony import */ var _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings */ "./src/components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueBackupStrings.tsx");
+/* harmony import */ var _utils_async__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../utils/async */ "./src/utils/async.ts");
+/* harmony import */ var _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../utils/fieldFillerQueue */ "./src/utils/fieldFillerQueue.ts");
+/* harmony import */ var _utils_getElements__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../../utils/getElements */ "./src/utils/getElements.ts");
+/* harmony import */ var _utils_scroll__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../../utils/scroll */ "./src/utils/scroll.ts");
+/* harmony import */ var _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./WorkdayBaseInput */ "./src/services/formFields/workday/WorkdayBaseInput.ts");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utils */ "./src/services/formFields/utils/index.ts");
+/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./xpaths */ "./src/services/formFields/workday/xpaths.ts");
+/* harmony import */ var _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./../../../hooks/answerValueInit */ "./src/hooks/answerValueInit.ts");
+/* harmony import */ var _hooks_useEditableAnswerState__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../hooks/useEditableAnswerState */ "./src/hooks/useEditableAnswerState.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -97021,10 +97070,10 @@ class DropdownSearchable extends _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_5__.
     constructor() {
         super(...arguments);
         this.editableAnswerHook = _hooks_useEditableAnswerState__WEBPACK_IMPORTED_MODULE_9__.useEditableAnswerState;
-        this.fieldType = 'SimpleDropdown';
+        this.fieldType = "SimpleDropdown";
     }
     get answerValue() {
-        return Object.assign(Object.assign({}, super.answerValue), { displayComponent: _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__.AnswerValueBackupStrings, init: _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_8__.answerValueInitList, prepForSave: (values) => values.map(([value, editable]) => value), prepForFill: (answers) => {
+        return Object.assign(Object.assign({}, super.answerValue), { displayComponent: _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueBackupStrings__WEBPACK_IMPORTED_MODULE_0__.AnswerValueBackupStrings, init: _hooks_answerValueInit__WEBPACK_IMPORTED_MODULE_8__.answerValueInitList, prepForSave: (values) => values.map(([value, editable]) => value), prepForFill: (answers) => {
                 return super.answerValue.prepForFill(answers).flat();
             } });
     }
@@ -97034,7 +97083,7 @@ class DropdownSearchable extends _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_5__.
     listenForChanges() {
         const observer = new MutationObserver((mutations) => {
             const XPATH = `.//ul[@data-automation-id='selectedItemList']`;
-            if ((0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_3__.getElement)(mutations, XPATH)) {
+            if ((0,_utils_getElements__WEBPACK_IMPORTED_MODULE_3__.getElement)(mutations, XPATH)) {
                 this.triggerReactUpdate();
             }
         });
@@ -97045,11 +97094,11 @@ class DropdownSearchable extends _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_5__.
     }
     // CURRENT VALUE AND IS FILLED
     get selectedItemElementXpath() {
-        return [".//ul[@data-automation-id='selectedItemList']", '//li'].join('');
+        return [".//ul[@data-automation-id='selectedItemList']", "//li"].join("");
     }
     get selectedItemElement() {
         const XPATH = this.selectedItemElementXpath;
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_3__.getElement)(this.element, XPATH);
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_3__.getElement)(this.element, XPATH);
     }
     currentValue() {
         if (this.selectedItemElement) {
@@ -97069,22 +97118,22 @@ class DropdownSearchable extends _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_5__.
      * field.
      */
     get multiSelectContainerElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_3__.getElement)(this.element, ".//div[@data-automation-id='multiSelectContainer']");
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_3__.getElement)(this.element, ".//div[@data-automation-id='multiSelectContainer']");
     }
     get dropdownId() {
-        return this.multiSelectContainerElement.getAttribute('id');
+        return this.multiSelectContainerElement.getAttribute("id");
     }
     get dropdownElementXpath() {
         return [
-            './/body',
+            ".//body",
             "/div[@data-automation-widget='wd-popup']",
             `[//div[@data-associated-widget='${this.dropdownId}']]`,
-        ].join('');
+        ].join("");
     }
     dropdownElement() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield (0,_src_shared_utils_async__WEBPACK_IMPORTED_MODULE_1__.sleep)(100);
-            return yield (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_3__.waitForElement)(document, this.dropdownElementXpath, {
+            yield (0,_utils_async__WEBPACK_IMPORTED_MODULE_1__.sleep)(100);
+            return yield (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_3__.waitForElement)(document, this.dropdownElementXpath, {
                 timeout: 1000,
             });
         });
@@ -97109,7 +97158,7 @@ class DropdownSearchable extends _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_5__.
     }
     // FILL
     get inputElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_3__.getElement)(this.element, './/input');
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_3__.getElement)(this.element, ".//input");
     }
     isFilled(current, stored) {
         return stored.some((answer) => {
@@ -97133,33 +97182,33 @@ class DropdownSearchable extends _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_5__.
      */
     fill() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_2__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
-                yield (0,_src_shared_utils_scroll__WEBPACK_IMPORTED_MODULE_4__.scrollBack)(() => __awaiter(this, void 0, void 0, function* () {
+            yield _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_2__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
+                yield (0,_utils_scroll__WEBPACK_IMPORTED_MODULE_4__.scrollBack)(() => __awaiter(this, void 0, void 0, function* () {
                     const answers = yield this.answer();
                     const answerValues = answers
                         .map((answer) => answer.answer)
                         .flat();
                     if (answerValues.length > 0) {
                         const answerList = structuredClone(answerValues);
-                        yield (0,_src_shared_utils_async__WEBPACK_IMPORTED_MODULE_1__.sleep)(500);
+                        yield (0,_utils_async__WEBPACK_IMPORTED_MODULE_1__.sleep)(500);
                         while (answerList.length > 0) {
                             const answer = answerList.shift();
                             // search for answer
                             (0,_utils__WEBPACK_IMPORTED_MODULE_6__.getReactProps)(this.inputElement).onKeyDown({
-                                key: 'Tab',
+                                key: "Tab",
                                 target: { value: answer },
                             });
                             // break if the selected item matches our answer
-                            const el = yield (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_3__.waitForElement)(this.element, this.selectedItemElementXpath, { timeout: 500 });
+                            const el = yield (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_3__.waitForElement)(this.element, this.selectedItemElementXpath, { timeout: 500 });
                             if (el && this.isFilled(el.innerText, answerValues)) {
                                 break;
                             }
                             // if there are multiple matches, click the first one.
                             const dropdownElement = yield this.dropdownElement();
                             const firstChoice = dropdownElement &&
-                                (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_3__.getElement)(dropdownElement, ".//div[@data-automation-id='promptOption']");
+                                (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_3__.getElement)(dropdownElement, ".//div[@data-automation-id='promptOption']");
                             if (firstChoice) {
-                                console.log('firstChoice');
+                                console.log("firstChoice");
                                 firstChoice.click();
                                 break;
                             }
@@ -97176,10 +97225,10 @@ DropdownSearchable.XPATH = _xpaths__WEBPACK_IMPORTED_MODULE_7__.xpaths.SEARCHABL
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/workday/FileMulti.ts":
-/*!*****************************************************************!*\
-  !*** ./src/inject/app/services/formFields/workday/FileMulti.ts ***!
-  \*****************************************************************/
+/***/ "./src/services/formFields/workday/FileMulti.ts":
+/*!******************************************************!*\
+  !*** ./src/services/formFields/workday/FileMulti.ts ***!
+  \******************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -97187,17 +97236,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   FileMulti: () => (/* binding */ FileMulti)
 /* harmony export */ });
-/* harmony import */ var _src_shared_utils_async__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @src/shared/utils/async */ "./src/shared/utils/async.ts");
-/* harmony import */ var _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @src/shared/utils/fieldFillerQueue */ "./src/shared/utils/fieldFillerQueue.ts");
-/* harmony import */ var _src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @src/shared/utils/getElements */ "./src/shared/utils/getElements.ts");
-/* harmony import */ var _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./WorkdayBaseInput */ "./src/inject/app/services/formFields/workday/WorkdayBaseInput.ts");
-/* harmony import */ var _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueMultiFileUpload__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueMultiFileUpload */ "./src/inject/app/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueMultiFileUpload.tsx");
-/* harmony import */ var _src_shared_utils_file__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @src/shared/utils/file */ "./src/shared/utils/file.ts");
+/* harmony import */ var _utils_async__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../../utils/async */ "./src/utils/async.ts");
+/* harmony import */ var _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../utils/fieldFillerQueue */ "./src/utils/fieldFillerQueue.ts");
+/* harmony import */ var _utils_getElements__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../utils/getElements */ "./src/utils/getElements.ts");
+/* harmony import */ var _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./WorkdayBaseInput */ "./src/services/formFields/workday/WorkdayBaseInput.ts");
+/* harmony import */ var _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueMultiFileUpload__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueMultiFileUpload */ "./src/components/MoreInfoPopup/AnswerDisplay/AnswerValueDisplay/AnswerValueMultiFileUpload.tsx");
+/* harmony import */ var _utils_file__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../../utils/file */ "./src/utils/file.ts");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../utils */ "./src/inject/app/services/formFields/utils/index.ts");
-/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./xpaths */ "./src/inject/app/services/formFields/workday/xpaths.ts");
-/* harmony import */ var _hooks_saveButtonClickHandlers__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../hooks/saveButtonClickHandlers */ "./src/inject/app/hooks/saveButtonClickHandlers.ts");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../utils */ "./src/services/formFields/utils/index.ts");
+/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./xpaths */ "./src/services/formFields/workday/xpaths.ts");
+/* harmony import */ var _hooks_saveButtonClickHandlers__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../hooks/saveButtonClickHandlers */ "./src/hooks/saveButtonClickHandlers.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -97220,20 +97269,20 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 class FileMulti extends _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_3__.WorkdayBaseInput {
     constructor() {
         super(...arguments);
-        this.fieldType = 'MultiFileUpload';
+        this.fieldType = "MultiFileUpload";
         this.saveButtonClickHandler = _hooks_saveButtonClickHandlers__WEBPACK_IMPORTED_MODULE_9__.saveButtonClickHandlers.withNotice;
         this.fieldNotice = [
             `##### To save and autofill files, upload them in the 'Answers' section below.
     \n\n[See how](https://www.youtube.com/watch?v=JYMATq9siIY&t=134s)`,
-        ].join('');
+        ].join("");
     }
     get answerValue() {
-        return Object.assign(Object.assign({}, super.answerValue), { displayComponent: _MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueMultiFileUpload__WEBPACK_IMPORTED_MODULE_4__.AnswerValueMultiFileUpload });
+        return Object.assign(Object.assign({}, super.answerValue), { displayComponent: _components_MoreInfoPopup_AnswerDisplay_AnswerValueDisplay_AnswerValueMultiFileUpload__WEBPACK_IMPORTED_MODULE_4__.AnswerValueMultiFileUpload });
     }
     listenForChanges() {
         const observer = new MutationObserver((mutations) => {
-            const fileAdded = (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(mutations, `self::*[@data-automation-id= "file-upload-successful"]`, { only: 'addedNodes' });
-            const fileRemoved = (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(mutations, `self::*[@data-automation-id= "file-upload-item"]`, { only: 'removedNodes' });
+            const fileAdded = (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(mutations, `self::*[@data-automation-id= "file-upload-successful"]`, { only: "addedNodes" });
+            const fileRemoved = (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(mutations, `self::*[@data-automation-id= "file-upload-item"]`, { only: "removedNodes" });
             if (fileAdded || fileRemoved) {
                 this.triggerReactUpdate();
             }
@@ -97244,20 +97293,20 @@ class FileMulti extends _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_3__.WorkdayBa
         });
     }
     get dropZoneElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, ".//div[@data-automation-id='file-upload-drop-zone']");
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(this.element, ".//div[@data-automation-id='file-upload-drop-zone']");
     }
     get uploadedFileElements() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElements)(this.element, ".//div[@data-automation-id='file-upload-item']");
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElements)(this.element, ".//div[@data-automation-id='file-upload-item']");
     }
     get uploadedFileDeleteButtonElements() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElements)(this.element, ".//button[@data-automation-id='delete-file']");
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElements)(this.element, ".//button[@data-automation-id='delete-file']");
     }
     getUploadedFileName(uploadedFileElement) {
         var _a;
-        return (_a = (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(uploadedFileElement, ".//div[@data-automation-id='file-upload-item-name']")) === null || _a === void 0 ? void 0 : _a.innerText;
+        return (_a = (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_2__.getElement)(uploadedFileElement, ".//div[@data-automation-id='file-upload-item-name']")) === null || _a === void 0 ? void 0 : _a.innerText;
     }
     get fieldName() {
-        return this.dropZoneElement.parentElement.parentElement.getAttribute('data-automation-id');
+        return this.dropZoneElement.parentElement.parentElement.getAttribute("data-automation-id");
     }
     currentValue() {
         return this.uploadedFileElements.map(this.getUploadedFileName);
@@ -97268,15 +97317,15 @@ class FileMulti extends _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_3__.WorkdayBa
     }
     fill() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
+            yield _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_1__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
                 const answer = (yield this.answer()) || [];
                 if (answer.length > 0) {
                     const firstAnswer = answer[0];
-                    const files = firstAnswer.answer.map(_src_shared_utils_file__WEBPACK_IMPORTED_MODULE_5__.localStorageToFile);
+                    const files = firstAnswer.answer.map(_utils_file__WEBPACK_IMPORTED_MODULE_5__.localStorageToFile);
                     for (const button of this.uploadedFileDeleteButtonElements) {
                         button.click();
                     }
-                    yield (0,_src_shared_utils_async__WEBPACK_IMPORTED_MODULE_0__.sleep)(50);
+                    yield (0,_utils_async__WEBPACK_IMPORTED_MODULE_0__.sleep)(50);
                     for (const file of files) {
                         const fakeEvent = {
                             dataTransfer: { files: [file] },
@@ -97295,10 +97344,10 @@ FileMulti.XPATH = _xpaths__WEBPACK_IMPORTED_MODULE_8__.xpaths.MULTI_FILE_UPLOAD;
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/workday/Password.ts":
-/*!****************************************************************!*\
-  !*** ./src/inject/app/services/formFields/workday/Password.ts ***!
-  \****************************************************************/
+/***/ "./src/services/formFields/workday/Password.ts":
+/*!*****************************************************!*\
+  !*** ./src/services/formFields/workday/Password.ts ***!
+  \*****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -97306,10 +97355,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Password: () => (/* binding */ Password)
 /* harmony export */ });
-/* harmony import */ var _src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @src/shared/utils/getElements */ "./src/shared/utils/getElements.ts");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils */ "./src/inject/app/services/formFields/utils/index.ts");
-/* harmony import */ var _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./WorkdayBaseInput */ "./src/inject/app/services/formFields/workday/WorkdayBaseInput.ts");
-/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./xpaths */ "./src/inject/app/services/formFields/workday/xpaths.ts");
+/* harmony import */ var _utils_getElements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../../utils/getElements */ "./src/utils/getElements.ts");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils */ "./src/services/formFields/utils/index.ts");
+/* harmony import */ var _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./WorkdayBaseInput */ "./src/services/formFields/workday/WorkdayBaseInput.ts");
+/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./xpaths */ "./src/services/formFields/workday/xpaths.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -97329,7 +97378,7 @@ class Password extends _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_2__.WorkdayBas
         this.fieldType = 'PasswordInput';
     }
     get inputElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_0__.getElement)(this.element, './/input');
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_0__.getElement)(this.element, './/input');
     }
     currentValue() {
         return this.inputElement.value;
@@ -97356,10 +97405,10 @@ Password.XPATH = _xpaths__WEBPACK_IMPORTED_MODULE_3__.xpaths.PASSWORD_INPUT;
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/workday/TextArea.ts":
-/*!****************************************************************!*\
-  !*** ./src/inject/app/services/formFields/workday/TextArea.ts ***!
-  \****************************************************************/
+/***/ "./src/services/formFields/workday/TextArea.ts":
+/*!*****************************************************!*\
+  !*** ./src/services/formFields/workday/TextArea.ts ***!
+  \*****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -97367,11 +97416,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   TextArea: () => (/* binding */ TextArea)
 /* harmony export */ });
-/* harmony import */ var _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @src/shared/utils/fieldFillerQueue */ "./src/shared/utils/fieldFillerQueue.ts");
-/* harmony import */ var _src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @src/shared/utils/getElements */ "./src/shared/utils/getElements.ts");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils */ "./src/inject/app/services/formFields/utils/index.ts");
-/* harmony import */ var _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./WorkdayBaseInput */ "./src/inject/app/services/formFields/workday/WorkdayBaseInput.ts");
-/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./xpaths */ "./src/inject/app/services/formFields/workday/xpaths.ts");
+/* harmony import */ var _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../../utils/fieldFillerQueue */ "./src/utils/fieldFillerQueue.ts");
+/* harmony import */ var _utils_getElements__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../utils/getElements */ "./src/utils/getElements.ts");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils */ "./src/services/formFields/utils/index.ts");
+/* harmony import */ var _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./WorkdayBaseInput */ "./src/services/formFields/workday/WorkdayBaseInput.ts");
+/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./xpaths */ "./src/services/formFields/workday/xpaths.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -97389,14 +97438,14 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 class TextArea extends _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_3__.WorkdayBaseInput {
     constructor() {
         super(...arguments);
-        this.fieldType = 'TextInput';
+        this.fieldType = "TextInput";
     }
     get inputElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, './/textarea');
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, ".//textarea");
     }
     listenForChanges() {
-        this.element.addEventListener('input', () => this.triggerReactUpdate());
-        this.inputElement.addEventListener('blur', () => this.triggerReactUpdate());
+        this.element.addEventListener("input", () => this.triggerReactUpdate());
+        this.inputElement.addEventListener("blur", () => this.triggerReactUpdate());
     }
     currentValue() {
         return this.inputElement.value;
@@ -97406,11 +97455,11 @@ class TextArea extends _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_3__.WorkdayBas
     }
     fill() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_0__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
+            yield _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_0__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
                 const answer = yield this.answer();
                 if (answer.length > 0) {
                     (0,_utils__WEBPACK_IMPORTED_MODULE_2__.fillReactTextInput)(this.inputElement, answer[0].answer, {
-                        eventName: 'onBlur',
+                        eventName: "onBlur",
                     });
                 }
             }));
@@ -97422,10 +97471,10 @@ TextArea.XPATH = _xpaths__WEBPACK_IMPORTED_MODULE_4__.xpaths.TEXT_AREA;
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/workday/TextInput.ts":
-/*!*****************************************************************!*\
-  !*** ./src/inject/app/services/formFields/workday/TextInput.ts ***!
-  \*****************************************************************/
+/***/ "./src/services/formFields/workday/TextInput.ts":
+/*!******************************************************!*\
+  !*** ./src/services/formFields/workday/TextInput.ts ***!
+  \******************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -97433,11 +97482,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   TextInput: () => (/* binding */ TextInput)
 /* harmony export */ });
-/* harmony import */ var _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @src/shared/utils/fieldFillerQueue */ "./src/shared/utils/fieldFillerQueue.ts");
-/* harmony import */ var _src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @src/shared/utils/getElements */ "./src/shared/utils/getElements.ts");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils */ "./src/inject/app/services/formFields/utils/index.ts");
-/* harmony import */ var _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./WorkdayBaseInput */ "./src/inject/app/services/formFields/workday/WorkdayBaseInput.ts");
-/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./xpaths */ "./src/inject/app/services/formFields/workday/xpaths.ts");
+/* harmony import */ var _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../../utils/fieldFillerQueue */ "./src/utils/fieldFillerQueue.ts");
+/* harmony import */ var _utils_getElements__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../utils/getElements */ "./src/utils/getElements.ts");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils */ "./src/services/formFields/utils/index.ts");
+/* harmony import */ var _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./WorkdayBaseInput */ "./src/services/formFields/workday/WorkdayBaseInput.ts");
+/* harmony import */ var _xpaths__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./xpaths */ "./src/services/formFields/workday/xpaths.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -97455,14 +97504,14 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 class TextInput extends _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_3__.WorkdayBaseInput {
     constructor() {
         super(...arguments);
-        this.fieldType = 'TextInput';
+        this.fieldType = "TextInput";
     }
     listenForChanges() {
-        this.element.addEventListener('input', () => this.triggerReactUpdate());
-        this.inputElement.addEventListener('blur', () => this.triggerReactUpdate());
+        this.element.addEventListener("input", () => this.triggerReactUpdate());
+        this.inputElement.addEventListener("blur", () => this.triggerReactUpdate());
     }
     get inputElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, './/input');
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, ".//input");
     }
     currentValue() {
         return this.inputElement.value;
@@ -97483,7 +97532,7 @@ class TextInput extends _WorkdayBaseInput__WEBPACK_IMPORTED_MODULE_3__.WorkdayBa
      */
     fill() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield _src_shared_utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_0__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
+            yield _utils_fieldFillerQueue__WEBPACK_IMPORTED_MODULE_0__["default"].enqueue(() => __awaiter(this, void 0, void 0, function* () {
                 const answers = yield this.answer();
                 if (answers.length > 0 &&
                     !this.isFilled(this.currentValue(), answers.map((a) => a.answer))) {
@@ -97506,10 +97555,10 @@ TextInput.XPATH = _xpaths__WEBPACK_IMPORTED_MODULE_4__.xpaths.TEXT_INPUT;
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/workday/WorkdayBaseInput.ts":
-/*!************************************************************************!*\
-  !*** ./src/inject/app/services/formFields/workday/WorkdayBaseInput.ts ***!
-  \************************************************************************/
+/***/ "./src/services/formFields/workday/WorkdayBaseInput.ts":
+/*!*************************************************************!*\
+  !*** ./src/services/formFields/workday/WorkdayBaseInput.ts ***!
+  \*************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -97518,8 +97567,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   WorkdayBaseInput: () => (/* binding */ WorkdayBaseInput)
 /* harmony export */ });
 /* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js");
-/* harmony import */ var _src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @src/shared/utils/getElements */ "./src/shared/utils/getElements.ts");
-/* harmony import */ var _baseFormInput__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../baseFormInput */ "./src/inject/app/services/formFields/baseFormInput.tsx");
+/* harmony import */ var _utils_getElements__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../utils/getElements */ "./src/utils/getElements.ts");
+/* harmony import */ var _baseFormInput__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../baseFormInput */ "./src/services/formFields/baseFormInput.tsx");
 
 
 
@@ -97527,18 +97576,18 @@ class WorkdayBaseInput extends _baseFormInput__WEBPACK_IMPORTED_MODULE_2__.BaseF
     attachReactApp(app, inputContainer) {
         // cant just append the react app to the root element...
         // it makes the element disappear
-        const rootElement = document.createElement('div');
+        const rootElement = document.createElement("div");
         inputContainer.insertBefore(rootElement, inputContainer.lastChild);
         (0,react_dom_client__WEBPACK_IMPORTED_MODULE_0__.createRoot)(rootElement).render(app);
     }
     get sectionLabelXpath() {
         const primaryXpath = [
-            'ancestor::fieldset', // get the nearest ancestor fieldset element
-            '/parent::div', // get parent div element of above fieldset element
+            "ancestor::fieldset", // get the nearest ancestor fieldset element
+            "/parent::div", // get parent div element of above fieldset element
             `[.//div[@job-app-filler='${this.uuid}']]`, // the above div/fieldset element must contain this forminput's main element.
-            '[1]', // first (nearest) div/fieldset to match this criteria
-            '//h4', // get the h4 child of the above div/fieldset. 
-        ].join('');
+            "[1]", // first (nearest) div/fieldset to match this criteria
+            "//h4", // get the h4 child of the above div/fieldset.
+        ].join("");
         /**
          * different method found occasionally
          */
@@ -97546,27 +97595,27 @@ class WorkdayBaseInput extends _baseFormInput__WEBPACK_IMPORTED_MODULE_2__.BaseF
             'ancestor::div[@role="group"][1]', // nearest ancestor div roll group
             `[.//div[@job-app-filler='${this.uuid}']]`, // the above div/fieldset element must contain this forminput's main element.
             "[1]",
-            "//h4[@id]" // h4 needs an id attribute because repeating sections will reference that id, but non-repeating sections with h4s won't.
+            "//h4[@id]", // h4 needs an id attribute because repeating sections will reference that id, but non-repeating sections with h4s won't.
         ].join("");
         return `(${primaryXpath} | ${secondaryXpath})`;
     }
     get sectionLabelElement() {
-        return (0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, this.sectionLabelXpath);
+        return (0,_utils_getElements__WEBPACK_IMPORTED_MODULE_1__.getElement)(this.element, this.sectionLabelXpath);
     }
     get section() {
         var _a;
         // must always return a string, even a blank one.
-        return ((_a = this.sectionLabelElement) === null || _a === void 0 ? void 0 : _a.innerText) || '';
+        return ((_a = this.sectionLabelElement) === null || _a === void 0 ? void 0 : _a.innerText) || "";
     }
 }
 
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/workday/index.ts":
-/*!*************************************************************!*\
-  !*** ./src/inject/app/services/formFields/workday/index.ts ***!
-  \*************************************************************/
+/***/ "./src/services/formFields/workday/index.ts":
+/*!**************************************************!*\
+  !*** ./src/services/formFields/workday/index.ts ***!
+  \**************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -97574,17 +97623,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   RegisterInputs: () => (/* binding */ RegisterInputs)
 /* harmony export */ });
-/* harmony import */ var _src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @src/shared/utils/getElements */ "./src/shared/utils/getElements.ts");
-/* harmony import */ var _BooleanCheckbox__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BooleanCheckbox */ "./src/inject/app/services/formFields/workday/BooleanCheckbox.ts");
-/* harmony import */ var _BooleanRadio__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./BooleanRadio */ "./src/inject/app/services/formFields/workday/BooleanRadio.tsx");
-/* harmony import */ var _CheckboxesSingle__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./CheckboxesSingle */ "./src/inject/app/services/formFields/workday/CheckboxesSingle.ts");
-/* harmony import */ var _Dates__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Dates */ "./src/inject/app/services/formFields/workday/Dates/index.ts");
-/* harmony import */ var _Dropdown__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Dropdown */ "./src/inject/app/services/formFields/workday/Dropdown.ts");
-/* harmony import */ var _DropdownSearchable__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./DropdownSearchable */ "./src/inject/app/services/formFields/workday/DropdownSearchable.ts");
-/* harmony import */ var _FileMulti__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./FileMulti */ "./src/inject/app/services/formFields/workday/FileMulti.ts");
-/* harmony import */ var _Password__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Password */ "./src/inject/app/services/formFields/workday/Password.ts");
-/* harmony import */ var _TextArea__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./TextArea */ "./src/inject/app/services/formFields/workday/TextArea.ts");
-/* harmony import */ var _TextInput__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./TextInput */ "./src/inject/app/services/formFields/workday/TextInput.ts");
+/* harmony import */ var _utils_getElements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../../utils/getElements */ "./src/utils/getElements.ts");
+/* harmony import */ var _BooleanCheckbox__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BooleanCheckbox */ "./src/services/formFields/workday/BooleanCheckbox.ts");
+/* harmony import */ var _BooleanRadio__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./BooleanRadio */ "./src/services/formFields/workday/BooleanRadio.tsx");
+/* harmony import */ var _CheckboxesSingle__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./CheckboxesSingle */ "./src/services/formFields/workday/CheckboxesSingle.ts");
+/* harmony import */ var _Dates__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Dates */ "./src/services/formFields/workday/Dates/index.ts");
+/* harmony import */ var _Dropdown__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Dropdown */ "./src/services/formFields/workday/Dropdown.ts");
+/* harmony import */ var _DropdownSearchable__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./DropdownSearchable */ "./src/services/formFields/workday/DropdownSearchable.ts");
+/* harmony import */ var _FileMulti__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./FileMulti */ "./src/services/formFields/workday/FileMulti.ts");
+/* harmony import */ var _Password__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Password */ "./src/services/formFields/workday/Password.ts");
+/* harmony import */ var _TextArea__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./TextArea */ "./src/services/formFields/workday/TextArea.ts");
+/* harmony import */ var _TextInput__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./TextInput */ "./src/services/formFields/workday/TextInput.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -97621,7 +97670,7 @@ const inputs = [
 ];
 const RegisterInputs = (...args_1) => __awaiter(void 0, [...args_1], void 0, function* (node = document) {
     const searchPageXpath = ".//div[@data-automation-id='jobSearch']";
-    if ((0,_src_shared_utils_getElements__WEBPACK_IMPORTED_MODULE_0__.getElement)(document, searchPageXpath)) {
+    if ((0,_utils_getElements__WEBPACK_IMPORTED_MODULE_0__.getElement)(document, searchPageXpath)) {
         return;
     }
     Promise.all(inputs.map((i) => i.autoDiscover(node)));
@@ -97630,10 +97679,10 @@ const RegisterInputs = (...args_1) => __awaiter(void 0, [...args_1], void 0, fun
 
 /***/ }),
 
-/***/ "./src/inject/app/services/formFields/workday/xpaths.ts":
-/*!**************************************************************!*\
-  !*** ./src/inject/app/services/formFields/workday/xpaths.ts ***!
-  \**************************************************************/
+/***/ "./src/services/formFields/workday/xpaths.ts":
+/*!***************************************************!*\
+  !*** ./src/services/formFields/workday/xpaths.ts ***!
+  \***************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -97721,55 +97770,10 @@ const xpaths = {
 
 /***/ }),
 
-/***/ "./src/shared/components/Logo.tsx":
-/*!****************************************!*\
-  !*** ./src/shared/components/Logo.tsx ***!
-  \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Box/Box.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Paper/Paper.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Avatar/Avatar.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Typography/Typography.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _utils_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/react */ "./src/shared/utils/react.tsx");
-
-
-
-const variant = 'body2';
-const sizes = {
-    small: "1.25rem",
-    medium: "1.5rem",
-    large: "2.25rem"
-};
-const Logo = ({ size = "small" }) => {
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_2__["default"], null,
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], { elevation: 6, sx: { borderRadius: '50%' } },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], { sx: {
-                    fontSize: sizes[size],
-                    bgcolor: _utils_react__WEBPACK_IMPORTED_MODULE_1__.theme.palette.primary.main,
-                    width: '1.7em',
-                    height: '1.7em',
-                } },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { color: 'white', variant: variant, sx: { fontWeight: '100', fontSize: '.65em' } }, "j"),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { color: 'white', variant: variant, sx: { fontWeight: '500', fontSize: '.75em' } }, "a"),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { color: 'white', variant: variant, sx: { fontWeight: '900', fontSize: '.8em' } }, "f")))));
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Logo);
-
-
-/***/ }),
-
-/***/ "./src/shared/utils/async.ts":
-/*!***********************************!*\
-  !*** ./src/shared/utils/async.ts ***!
-  \***********************************/
+/***/ "./src/utils/async.ts":
+/*!****************************!*\
+  !*** ./src/utils/async.ts ***!
+  \****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -97787,10 +97791,10 @@ const sleep = (timeout) => {
 
 /***/ }),
 
-/***/ "./src/shared/utils/crossContextCommunication/client.ts":
-/*!**************************************************************!*\
-  !*** ./src/shared/utils/crossContextCommunication/client.ts ***!
-  \**************************************************************/
+/***/ "./src/utils/crossContextCommunication/client.ts":
+/*!*******************************************************!*\
+  !*** ./src/utils/crossContextCommunication/client.ts ***!
+  \*******************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -97835,10 +97839,10 @@ class Client {
 
 /***/ }),
 
-/***/ "./src/shared/utils/events.ts":
-/*!************************************!*\
-  !*** ./src/shared/utils/events.ts ***!
-  \************************************/
+/***/ "./src/utils/events.ts":
+/*!*****************************!*\
+  !*** ./src/utils/events.ts ***!
+  \*****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -97960,10 +97964,10 @@ const keyCodes = {
 
 /***/ }),
 
-/***/ "./src/shared/utils/fieldFillerQueue.ts":
-/*!**********************************************!*\
-  !*** ./src/shared/utils/fieldFillerQueue.ts ***!
-  \**********************************************/
+/***/ "./src/utils/fieldFillerQueue.ts":
+/*!***************************************!*\
+  !*** ./src/utils/fieldFillerQueue.ts ***!
+  \***************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -98032,10 +98036,10 @@ const fieldFillerQueue = AsyncQueue.getInstance();
 
 /***/ }),
 
-/***/ "./src/shared/utils/file.ts":
-/*!**********************************!*\
-  !*** ./src/shared/utils/file.ts ***!
-  \**********************************/
+/***/ "./src/utils/file.ts":
+/*!***************************!*\
+  !*** ./src/utils/file.ts ***!
+  \***************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -98095,10 +98099,10 @@ function downloadFile(file) {
 
 /***/ }),
 
-/***/ "./src/shared/utils/fileUploadHelpers.ts":
-/*!***********************************************!*\
-  !*** ./src/shared/utils/fileUploadHelpers.ts ***!
-  \***********************************************/
+/***/ "./src/utils/fileUploadHelpers.ts":
+/*!****************************************!*\
+  !*** ./src/utils/fileUploadHelpers.ts ***!
+  \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -98166,10 +98170,10 @@ const dispatchFileDragEvent = (type, element, files) => {
 
 /***/ }),
 
-/***/ "./src/shared/utils/getElements.ts":
-/*!*****************************************!*\
-  !*** ./src/shared/utils/getElements.ts ***!
-  \*****************************************/
+/***/ "./src/utils/getElements.ts":
+/*!**********************************!*\
+  !*** ./src/utils/getElements.ts ***!
+  \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -98255,10 +98259,10 @@ const waitForElement = (parent, xpath, { onlyNew = false, timeout = 3000 } = {})
 
 /***/ }),
 
-/***/ "./src/shared/utils/icons.tsx":
-/*!************************************!*\
-  !*** ./src/shared/utils/icons.tsx ***!
-  \************************************/
+/***/ "./src/utils/icons.tsx":
+/*!*****************************!*\
+  !*** ./src/utils/icons.tsx ***!
+  \*****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -98329,10 +98333,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/shared/utils/react.tsx":
-/*!************************************!*\
-  !*** ./src/shared/utils/react.tsx ***!
-  \************************************/
+/***/ "./src/utils/react.tsx":
+/*!*****************************!*\
+  !*** ./src/utils/react.tsx ***!
+  \*****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -98390,10 +98394,10 @@ const joinComponents = (componentArray, joiner) => {
 
 /***/ }),
 
-/***/ "./src/shared/utils/scroll.ts":
-/*!************************************!*\
-  !*** ./src/shared/utils/scroll.ts ***!
-  \************************************/
+/***/ "./src/utils/scroll.ts":
+/*!*****************************!*\
+  !*** ./src/utils/scroll.ts ***!
+  \*****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -98403,7 +98407,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   scrollBack: () => (/* binding */ scrollBack),
 /* harmony export */   waitForScrollIntoView: () => (/* binding */ waitForScrollIntoView)
 /* harmony export */ });
-/* harmony import */ var _async__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./async */ "./src/shared/utils/async.ts");
+/* harmony import */ var _async__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./async */ "./src/utils/async.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -98461,10 +98465,10 @@ function waitForScrollIntoView(element) {
 
 /***/ }),
 
-/***/ "./src/shared/utils/stringMatch.ts":
-/*!*****************************************!*\
-  !*** ./src/shared/utils/stringMatch.ts ***!
-  \*****************************************/
+/***/ "./src/utils/stringMatch.ts":
+/*!**********************************!*\
+  !*** ./src/utils/stringMatch.ts ***!
+  \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -98581,10 +98585,10 @@ const keywordCount = (str1, str2, config = {}) => {
 
 /***/ }),
 
-/***/ "./src/shared/utils/strings.ts":
-/*!*************************************!*\
-  !*** ./src/shared/utils/strings.ts ***!
-  \*************************************/
+/***/ "./src/utils/strings.ts":
+/*!******************************!*\
+  !*** ./src/utils/strings.ts ***!
+  \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -98602,10 +98606,10 @@ const sentenceCase = (str) => {
 
 /***/ }),
 
-/***/ "./src/shared/utils/xpath.ts":
-/*!***********************************!*\
-  !*** ./src/shared/utils/xpath.ts ***!
-  \***********************************/
+/***/ "./src/utils/xpath.ts":
+/*!****************************!*\
+  !*** ./src/utils/xpath.ts ***!
+  \****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -100387,9 +100391,9 @@ var __webpack_exports__ = {};
   !*** ./src/inject/inject.ts ***!
   \******************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _app_services_formFields_workday__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./app/services/formFields/workday */ "./src/inject/app/services/formFields/workday/index.ts");
-/* harmony import */ var _app_services_formFields_greenhouse__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app/services/formFields/greenhouse */ "./src/inject/app/services/formFields/greenhouse/index.ts");
-/* harmony import */ var _app_services_formFields_greenhouseReact__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app/services/formFields/greenhouseReact */ "./src/inject/app/services/formFields/greenhouseReact/index.ts");
+/* harmony import */ var _services_formFields_workday__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../services/formFields/workday */ "./src/services/formFields/workday/index.ts");
+/* harmony import */ var _services_formFields_greenhouse__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../services/formFields/greenhouse */ "./src/services/formFields/greenhouse/index.ts");
+/* harmony import */ var _services_formFields_greenhouseReact__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../services/formFields/greenhouseReact */ "./src/services/formFields/greenhouseReact/index.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -100403,11 +100407,11 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 
 
 const inputRegistrars = [
-    ["myworkdayjobs.com", _app_services_formFields_workday__WEBPACK_IMPORTED_MODULE_0__.RegisterInputs],
-    ["myworkdaysite.com", _app_services_formFields_workday__WEBPACK_IMPORTED_MODULE_0__.RegisterInputs],
-    ["job-boards.greenhouse.io", _app_services_formFields_greenhouseReact__WEBPACK_IMPORTED_MODULE_2__.RegisterInputs],
-    ["boards.greenhouse.io", _app_services_formFields_greenhouse__WEBPACK_IMPORTED_MODULE_1__.RegisterInputs],
-    ["boards.eu.greenhouse.io", _app_services_formFields_greenhouse__WEBPACK_IMPORTED_MODULE_1__.RegisterInputs],
+    ["myworkdayjobs.com", _services_formFields_workday__WEBPACK_IMPORTED_MODULE_0__.RegisterInputs],
+    ["myworkdaysite.com", _services_formFields_workday__WEBPACK_IMPORTED_MODULE_0__.RegisterInputs],
+    ["job-boards.greenhouse.io", _services_formFields_greenhouseReact__WEBPACK_IMPORTED_MODULE_2__.RegisterInputs],
+    ["boards.greenhouse.io", _services_formFields_greenhouse__WEBPACK_IMPORTED_MODULE_1__.RegisterInputs],
+    ["boards.eu.greenhouse.io", _services_formFields_greenhouse__WEBPACK_IMPORTED_MODULE_1__.RegisterInputs],
 ];
 const getRegisterInput = (domain) => {
     return inputRegistrars.find((site) => {

@@ -55115,6 +55115,85 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "./src/components/Logo.tsx":
+/*!*********************************!*\
+  !*** ./src/components/Logo.tsx ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Box/Box.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Paper/Paper.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Avatar/Avatar.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Typography/Typography.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _utils_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/react */ "./src/utils/react.tsx");
+
+
+
+const variant = "body2";
+const sizes = {
+    small: "1.25rem",
+    medium: "1.5rem",
+    large: "2.25rem",
+};
+const Logo = ({ size = "small" }) => {
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_2__["default"], null,
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], { elevation: 6, sx: { borderRadius: "50%" } },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], { sx: {
+                    fontSize: sizes[size],
+                    bgcolor: _utils_react__WEBPACK_IMPORTED_MODULE_1__.theme.palette.primary.main,
+                    width: "1.7em",
+                    height: "1.7em",
+                } },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { color: "white", variant: variant, sx: { fontWeight: "100", fontSize: ".65em" } }, "j"),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { color: "white", variant: variant, sx: { fontWeight: "500", fontSize: ".75em" } }, "a"),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { color: "white", variant: variant, sx: { fontWeight: "900", fontSize: ".8em" } }, "f")))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Logo);
+
+
+/***/ }),
+
+/***/ "./src/components/LogoTitleBar.tsx":
+/*!*****************************************!*\
+  !*** ./src/components/LogoTitleBar.tsx ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   LogoTitleBar: () => (/* binding */ LogoTitleBar)
+/* harmony export */ });
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/AppBar/AppBar.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Toolbar/Toolbar.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Box/Box.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Typography/Typography.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Logo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Logo */ "./src/components/Logo.tsx");
+/* harmony import */ var _mui_material_colors__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material/colors */ "./node_modules/@mui/material/colors/teal.js");
+
+
+
+
+const LogoTitleBar = ({ children }) => {
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_2__["default"], { color: "secondary", position: "static" },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], null,
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], { sx: { mr: 2 } },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Logo__WEBPACK_IMPORTED_MODULE_1__["default"], { size: "medium" })),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { color: _mui_material_colors__WEBPACK_IMPORTED_MODULE_6__["default"][900], variant: "h5", component: "div", sx: { flexGrow: 1 } }, children))));
+};
+
+
+/***/ }),
+
 /***/ "./src/contentScript/app/App.tsx":
 /*!***************************************!*\
   !*** ./src/contentScript/app/App.tsx ***!
@@ -55141,8 +55220,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js");
 /* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist/esm-browser/v4.js");
 /* harmony import */ var _Releases__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Releases */ "./src/contentScript/app/Releases.tsx");
-/* harmony import */ var _src_shared_components_LogoTitleBar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @src/shared/components/LogoTitleBar */ "./src/shared/components/LogoTitleBar.tsx");
-/* harmony import */ var _src_shared_utils_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @src/shared/utils/react */ "./src/shared/utils/react.tsx");
+/* harmony import */ var _components_LogoTitleBar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../components/LogoTitleBar */ "./src/components/LogoTitleBar.tsx");
+/* harmony import */ var _utils_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/react */ "./src/utils/react.tsx");
 /**
  * invisible app to show popups on the whole page.
  */
@@ -55179,19 +55258,19 @@ const ContentApp = () => {
             }
         }
     }, [open]);
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], { theme: _src_shared_utils_react__WEBPACK_IMPORTED_MODULE_4__.theme },
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material_Dialog__WEBPACK_IMPORTED_MODULE_7__["default"], { open: open, onClose: handleClose, scroll: 'paper', "aria-labelledby": "scroll-dialog-title", "aria-describedby": "scroll-dialog-description" },
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], { theme: _utils_react__WEBPACK_IMPORTED_MODULE_4__.theme },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material_Dialog__WEBPACK_IMPORTED_MODULE_7__["default"], { open: open, onClose: handleClose, scroll: "paper", "aria-labelledby": "scroll-dialog-title", "aria-describedby": "scroll-dialog-description" },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material_DialogTitle__WEBPACK_IMPORTED_MODULE_8__["default"], { id: "scroll-dialog-title", sx: { p: 1 } },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_src_shared_components_LogoTitleBar__WEBPACK_IMPORTED_MODULE_3__.LogoTitleBar, null, "What's New")),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_LogoTitleBar__WEBPACK_IMPORTED_MODULE_3__.LogoTitleBar, null, "What's New")),
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material_DialogContent__WEBPACK_IMPORTED_MODULE_9__["default"], null,
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material_DialogContentText__WEBPACK_IMPORTED_MODULE_10__["default"], { id: "scroll-dialog-description", ref: descriptionElementRef, tabIndex: -1, component: _mui_material__WEBPACK_IMPORTED_MODULE_11__["default"] }, (0,_src_shared_utils_react__WEBPACK_IMPORTED_MODULE_4__.joinComponents)(_Releases__WEBPACK_IMPORTED_MODULE_2__.releases.map((release, index) => {
-                    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Releases__WEBPACK_IMPORTED_MODULE_2__.ReleaseComponent, { key: index, release: release }));
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material_DialogContentText__WEBPACK_IMPORTED_MODULE_10__["default"], { id: "scroll-dialog-description", ref: descriptionElementRef, tabIndex: -1, component: _mui_material__WEBPACK_IMPORTED_MODULE_11__["default"] }, (0,_utils_react__WEBPACK_IMPORTED_MODULE_4__.joinComponents)(_Releases__WEBPACK_IMPORTED_MODULE_2__.releases.map((release, index) => {
+                    return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Releases__WEBPACK_IMPORTED_MODULE_2__.ReleaseComponent, { key: index, release: release });
                 }), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_12__["default"], { sx: { my: 1 } })))),
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material_DialogActions__WEBPACK_IMPORTED_MODULE_13__["default"], null,
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material_Button__WEBPACK_IMPORTED_MODULE_14__["default"], { onClick: handleClose }, "Close")))));
 };
 const loadApp = () => {
-    const rootel = document.createElement('div');
+    const rootel = document.createElement("div");
     document.body.appendChild(rootel);
     const root = (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(rootel);
     root.render(react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ContentApp, null));
@@ -55419,10 +55498,189 @@ const releases = [
 
 /***/ }),
 
-/***/ "./src/contentScript/utils/storage/Answers1010.ts":
-/*!********************************************************!*\
-  !*** ./src/contentScript/utils/storage/Answers1010.ts ***!
-  \********************************************************/
+/***/ "./src/utils/crossContextCommunication/server.ts":
+/*!*******************************************************!*\
+  !*** ./src/utils/crossContextCommunication/server.ts ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Server: () => (/* binding */ Server)
+/* harmony export */ });
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+class NotFoundError extends Error {
+}
+/** Util func. */
+const sendEvent = (eventName, detail) => {
+    const event = new CustomEvent(eventName, { detail });
+    document.dispatchEvent(event);
+};
+/**
+ * Communicate reliably between a contentScript and a script injected
+ * into the webpage (web_accessible_resources).
+ *
+ * Create a server in a content script and a client in a web accessible
+ * resource script or vice versa.
+ *
+ * Define 'routes' on the server to handle requests sent by the client.
+ *
+ * ### Example
+ * Create a server and client with the same url.
+ * Then send requests from the client to the server and recieve responses.
+ * ```
+ * // urls.js
+ * export const CONTENT_SCRIPT_URL = "your_choice_of_url"
+ *
+ * // contentScript.js
+ * const server = new Server(CONTENT_SCRIPT_URL)
+ * server.register("do_something", (params) => {
+ *  return "hello from do_something in the contentScript"
+ * })
+ *
+ * // inject.js (web_accessible_resource)
+ * const client = new Client(CONTENT_SCRIPT_URL)
+ * const response = await client.send("do_something")
+ * console.log(response.ok)
+ * > true
+ * console.log(response.data)
+ * > "hello from do_something in the contentScript"
+ * ```
+ */
+class Server {
+    constructor(url) {
+        this.methods = {};
+        this.url = url;
+        this.methods = {};
+        document.addEventListener(this.url, (e) => __awaiter(this, void 0, void 0, function* () { return yield this.handleRequest(e); }));
+    }
+    handleRequest(e) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { requestId, methodName, data } = e.detail;
+            let result, ok = true;
+            try {
+                result = yield this.dispatch(methodName, data);
+            }
+            catch (err) {
+                if (err instanceof NotFoundError) {
+                    result = { message: `method '${methodName}' not found` };
+                    ok = false;
+                }
+                else {
+                    const { message, stack } = err;
+                    result = { message, stack };
+                    ok = false;
+                }
+            }
+            this.sendResponse(requestId, ok, result);
+        });
+    }
+    /**
+     * obtain the method by name and call it with data.
+     */
+    dispatch(methodName, data) {
+        if (!(methodName in this.methods)) {
+            throw new NotFoundError();
+        }
+        return this.methods[methodName](data);
+    }
+    sendResponse(requestId, ok, data) {
+        sendEvent(requestId, { ok, data });
+    }
+    /**
+     * Usage:
+     * ```
+     * server.register("getResource", async (optional, params) => {
+     *  // any view logic
+     *  return await getSomeResource(optional, params)
+     * })
+     * ```
+     */
+    register(methodName, callback) {
+        if (methodName in this.methods) {
+            throw new Error(`A method named ${methodName} already exists.`);
+        }
+        this.methods[methodName] = callback;
+    }
+}
+
+
+/***/ }),
+
+/***/ "./src/utils/react.tsx":
+/*!*****************************!*\
+  !*** ./src/utils/react.tsx ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   joinComponents: () => (/* binding */ joinComponents),
+/* harmony export */   theme: () => (/* binding */ theme)
+/* harmony export */ });
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/styles/createTheme.js");
+/* harmony import */ var _mui_material_colors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material/colors */ "./node_modules/@mui/material/colors/teal.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+
+const styleOverrides = {
+    root: {
+        class: "JAF-CUSTOM"
+    }
+};
+const baseTheme = (0,_mui_material__WEBPACK_IMPORTED_MODULE_1__["default"])({});
+const theme = (0,_mui_material__WEBPACK_IMPORTED_MODULE_1__["default"])(baseTheme, {
+    components: {
+        MuiButtonBase: { styleOverrides },
+        MuiButtonGroup: { styleOverrides },
+        MuiContainer: { styleOverrides },
+        MuiGrid: { styleOverrides },
+        MuiGrid2: { styleOverrides },
+        MuiPaper: { styleOverrides },
+        MuiTypography: { styleOverrides },
+        MuiAvatar: { styleOverrides },
+    },
+    typography: {
+        allVariants: {
+            color: _mui_material_colors__WEBPACK_IMPORTED_MODULE_2__["default"][800],
+        },
+    },
+    palette: {
+        primary: {
+            main: _mui_material_colors__WEBPACK_IMPORTED_MODULE_2__["default"][600],
+        },
+        secondary: { main: _mui_material_colors__WEBPACK_IMPORTED_MODULE_2__["default"][50] },
+    },
+});
+const joinComponents = (componentArray, joiner) => {
+    return componentArray.reduce((acc, curr, index) => {
+        if (index > 0) {
+            acc.push((0,react__WEBPACK_IMPORTED_MODULE_0__.cloneElement)(joiner, { key: `separator-${index}` }));
+        }
+        acc.push(curr);
+        return acc;
+    }, []);
+};
+
+
+/***/ }),
+
+/***/ "./src/utils/storage/Answers1010.ts":
+/*!******************************************!*\
+  !*** ./src/utils/storage/Answers1010.ts ***!
+  \******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -55431,8 +55689,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   answers1010: () => (/* binding */ answers1010),
 /* harmony export */   migrate1010: () => (/* binding */ migrate1010)
 /* harmony export */ });
-/* harmony import */ var _DataStore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DataStore */ "./src/contentScript/utils/storage/DataStore.ts");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils */ "./src/contentScript/utils/storage/utils.ts");
+/* harmony import */ var _DataStore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DataStore */ "./src/utils/storage/DataStore.ts");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils */ "./src/utils/storage/utils.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -55464,10 +55722,10 @@ const answers1010 = new _DataStore__WEBPACK_IMPORTED_MODULE_0__.DataStore(ANSWER
 
 /***/ }),
 
-/***/ "./src/contentScript/utils/storage/DataStore.ts":
-/*!******************************************************!*\
-  !*** ./src/contentScript/utils/storage/DataStore.ts ***!
-  \******************************************************/
+/***/ "./src/utils/storage/DataStore.ts":
+/*!****************************************!*\
+  !*** ./src/utils/storage/DataStore.ts ***!
+  \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -55671,10 +55929,10 @@ class DataStore {
 
 /***/ }),
 
-/***/ "./src/contentScript/utils/storage/migrateEducationSectionNames.ts":
-/*!*************************************************************************!*\
-  !*** ./src/contentScript/utils/storage/migrateEducationSectionNames.ts ***!
-  \*************************************************************************/
+/***/ "./src/utils/storage/migrateEducationSectionNames.ts":
+/*!***********************************************************!*\
+  !*** ./src/utils/storage/migrateEducationSectionNames.ts ***!
+  \***********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -55735,10 +55993,10 @@ const migrateEducation = () => __awaiter(void 0, void 0, void 0, function* () {
 
 /***/ }),
 
-/***/ "./src/contentScript/utils/storage/utils.ts":
-/*!**************************************************!*\
-  !*** ./src/contentScript/utils/storage/utils.ts ***!
-  \**************************************************/
+/***/ "./src/utils/storage/utils.ts":
+/*!************************************!*\
+  !*** ./src/utils/storage/utils.ts ***!
+  \************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -55748,266 +56006,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 const parseKey = (key) => {
     // there can be colons in the fieldName.
-    const [page, section, fieldType, ...fieldName] = key.split(':');
-    return { page, section, fieldType, fieldName: fieldName.join(':') };
-};
-
-
-/***/ }),
-
-/***/ "./src/shared/components/Logo.tsx":
-/*!****************************************!*\
-  !*** ./src/shared/components/Logo.tsx ***!
-  \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Box/Box.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Paper/Paper.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Avatar/Avatar.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Typography/Typography.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _utils_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/react */ "./src/shared/utils/react.tsx");
-
-
-
-const variant = 'body2';
-const sizes = {
-    small: "1.25rem",
-    medium: "1.5rem",
-    large: "2.25rem"
-};
-const Logo = ({ size = "small" }) => {
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_2__["default"], null,
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], { elevation: 6, sx: { borderRadius: '50%' } },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], { sx: {
-                    fontSize: sizes[size],
-                    bgcolor: _utils_react__WEBPACK_IMPORTED_MODULE_1__.theme.palette.primary.main,
-                    width: '1.7em',
-                    height: '1.7em',
-                } },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { color: 'white', variant: variant, sx: { fontWeight: '100', fontSize: '.65em' } }, "j"),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { color: 'white', variant: variant, sx: { fontWeight: '500', fontSize: '.75em' } }, "a"),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { color: 'white', variant: variant, sx: { fontWeight: '900', fontSize: '.8em' } }, "f")))));
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Logo);
-
-
-/***/ }),
-
-/***/ "./src/shared/components/LogoTitleBar.tsx":
-/*!************************************************!*\
-  !*** ./src/shared/components/LogoTitleBar.tsx ***!
-  \************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   LogoTitleBar: () => (/* binding */ LogoTitleBar)
-/* harmony export */ });
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/AppBar/AppBar.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Toolbar/Toolbar.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Box/Box.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Typography/Typography.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Logo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Logo */ "./src/shared/components/Logo.tsx");
-/* harmony import */ var _mui_material_colors__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material/colors */ "./node_modules/@mui/material/colors/teal.js");
-
-
-
-
-const LogoTitleBar = ({ children }) => {
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_2__["default"], { color: "secondary", position: "static" },
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], null,
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], { sx: { mr: 2 } },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Logo__WEBPACK_IMPORTED_MODULE_1__["default"], { size: "medium" })),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], { color: _mui_material_colors__WEBPACK_IMPORTED_MODULE_6__["default"][900], variant: "h5", component: "div", sx: { flexGrow: 1 } }, children))));
-};
-
-
-/***/ }),
-
-/***/ "./src/shared/utils/crossContextCommunication/server.ts":
-/*!**************************************************************!*\
-  !*** ./src/shared/utils/crossContextCommunication/server.ts ***!
-  \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Server: () => (/* binding */ Server)
-/* harmony export */ });
-var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-class NotFoundError extends Error {
-}
-/** Util func. */
-const sendEvent = (eventName, detail) => {
-    const event = new CustomEvent(eventName, { detail });
-    document.dispatchEvent(event);
-};
-/**
- * Communicate reliably between a contentScript and a script injected
- * into the webpage (web_accessible_resources).
- *
- * Create a server in a content script and a client in a web accessible
- * resource script or vice versa.
- *
- * Define 'routes' on the server to handle requests sent by the client.
- *
- * ### Example
- * Create a server and client with the same url.
- * Then send requests from the client to the server and recieve responses.
- * ```
- * // urls.js
- * export const CONTENT_SCRIPT_URL = "your_choice_of_url"
- *
- * // contentScript.js
- * const server = new Server(CONTENT_SCRIPT_URL)
- * server.register("do_something", (params) => {
- *  return "hello from do_something in the contentScript"
- * })
- *
- * // inject.js (web_accessible_resource)
- * const client = new Client(CONTENT_SCRIPT_URL)
- * const response = await client.send("do_something")
- * console.log(response.ok)
- * > true
- * console.log(response.data)
- * > "hello from do_something in the contentScript"
- * ```
- */
-class Server {
-    constructor(url) {
-        this.methods = {};
-        this.url = url;
-        this.methods = {};
-        document.addEventListener(this.url, (e) => __awaiter(this, void 0, void 0, function* () { return yield this.handleRequest(e); }));
-    }
-    handleRequest(e) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const { requestId, methodName, data } = e.detail;
-            let result, ok = true;
-            try {
-                result = yield this.dispatch(methodName, data);
-            }
-            catch (err) {
-                if (err instanceof NotFoundError) {
-                    result = { message: `method '${methodName}' not found` };
-                    ok = false;
-                }
-                else {
-                    const { message, stack } = err;
-                    result = { message, stack };
-                    ok = false;
-                }
-            }
-            this.sendResponse(requestId, ok, result);
-        });
-    }
-    /**
-     * obtain the method by name and call it with data.
-     */
-    dispatch(methodName, data) {
-        if (!(methodName in this.methods)) {
-            throw new NotFoundError();
-        }
-        return this.methods[methodName](data);
-    }
-    sendResponse(requestId, ok, data) {
-        sendEvent(requestId, { ok, data });
-    }
-    /**
-     * Usage:
-     * ```
-     * server.register("getResource", async (optional, params) => {
-     *  // any view logic
-     *  return await getSomeResource(optional, params)
-     * })
-     * ```
-     */
-    register(methodName, callback) {
-        if (methodName in this.methods) {
-            throw new Error(`A method named ${methodName} already exists.`);
-        }
-        this.methods[methodName] = callback;
-    }
-}
-
-
-/***/ }),
-
-/***/ "./src/shared/utils/react.tsx":
-/*!************************************!*\
-  !*** ./src/shared/utils/react.tsx ***!
-  \************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   joinComponents: () => (/* binding */ joinComponents),
-/* harmony export */   theme: () => (/* binding */ theme)
-/* harmony export */ });
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/styles/createTheme.js");
-/* harmony import */ var _mui_material_colors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material/colors */ "./node_modules/@mui/material/colors/teal.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-
-
-
-const styleOverrides = {
-    root: {
-        class: "JAF-CUSTOM"
-    }
-};
-const baseTheme = (0,_mui_material__WEBPACK_IMPORTED_MODULE_1__["default"])({});
-const theme = (0,_mui_material__WEBPACK_IMPORTED_MODULE_1__["default"])(baseTheme, {
-    components: {
-        MuiButtonBase: { styleOverrides },
-        MuiButtonGroup: { styleOverrides },
-        MuiContainer: { styleOverrides },
-        MuiGrid: { styleOverrides },
-        MuiGrid2: { styleOverrides },
-        MuiPaper: { styleOverrides },
-        MuiTypography: { styleOverrides },
-        MuiAvatar: { styleOverrides },
-    },
-    typography: {
-        allVariants: {
-            color: _mui_material_colors__WEBPACK_IMPORTED_MODULE_2__["default"][800],
-        },
-    },
-    palette: {
-        primary: {
-            main: _mui_material_colors__WEBPACK_IMPORTED_MODULE_2__["default"][600],
-        },
-        secondary: { main: _mui_material_colors__WEBPACK_IMPORTED_MODULE_2__["default"][50] },
-    },
-});
-const joinComponents = (componentArray, joiner) => {
-    return componentArray.reduce((acc, curr, index) => {
-        if (index > 0) {
-            acc.push((0,react__WEBPACK_IMPORTED_MODULE_0__.cloneElement)(joiner, { key: `separator-${index}` }));
-        }
-        acc.push(curr);
-        return acc;
-    }, []);
+    const [page, section, fieldType, ...fieldName] = key.split(":");
+    return { page, section, fieldType, fieldName: fieldName.join(":") };
 };
 
 
@@ -57505,11 +57505,11 @@ var __webpack_exports__ = {};
   !*** ./src/contentScript/contentScript.ts ***!
   \********************************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _src_shared_utils_crossContextCommunication_server__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @src/shared/utils/crossContextCommunication/server */ "./src/shared/utils/crossContextCommunication/server.ts");
+/* harmony import */ var _utils_crossContextCommunication_server__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/crossContextCommunication/server */ "./src/utils/crossContextCommunication/server.ts");
 /* harmony import */ var _app_App__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app/App */ "./src/contentScript/app/App.tsx");
-/* harmony import */ var _utils_storage_Answers1010__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./utils/storage/Answers1010 */ "./src/contentScript/utils/storage/Answers1010.ts");
-/* harmony import */ var _utils_storage_DataStore__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./utils/storage/DataStore */ "./src/contentScript/utils/storage/DataStore.ts");
-/* harmony import */ var _utils_storage_migrateEducationSectionNames__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./utils/storage/migrateEducationSectionNames */ "./src/contentScript/utils/storage/migrateEducationSectionNames.ts");
+/* harmony import */ var _utils_storage_Answers1010__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/storage/Answers1010 */ "./src/utils/storage/Answers1010.ts");
+/* harmony import */ var _utils_storage_DataStore__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/storage/DataStore */ "./src/utils/storage/DataStore.ts");
+/* harmony import */ var _utils_storage_migrateEducationSectionNames__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils/storage/migrateEducationSectionNames */ "./src/utils/storage/migrateEducationSectionNames.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -57525,34 +57525,36 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 
 
 // Regiser server and methods accessible to injected script.
-const server = new _src_shared_utils_crossContextCommunication_server__WEBPACK_IMPORTED_MODULE_0__.Server("943cff42-1bb1-4d5e-8741-7a0cf734adbf");
-server.register('addAnswer', (newAnswer) => __awaiter(void 0, void 0, void 0, function* () {
+const server = new _utils_crossContextCommunication_server__WEBPACK_IMPORTED_MODULE_0__.Server("a52302e6-a6e4-4b8a-98a2-7224ed54a6b7");
+server.register("addAnswer", (newAnswer) => __awaiter(void 0, void 0, void 0, function* () {
     const answer1010 = _utils_storage_Answers1010__WEBPACK_IMPORTED_MODULE_2__.answers1010.add((0,_utils_storage_DataStore__WEBPACK_IMPORTED_MODULE_3__.convert106To1010)(newAnswer));
     return (0,_utils_storage_DataStore__WEBPACK_IMPORTED_MODULE_3__.convert1010To106)(answer1010);
 }));
-server.register('updateAnswer', (newAnswer) => __awaiter(void 0, void 0, void 0, function* () {
+server.register("updateAnswer", (newAnswer) => __awaiter(void 0, void 0, void 0, function* () {
     const answer1010 = _utils_storage_Answers1010__WEBPACK_IMPORTED_MODULE_2__.answers1010.update((0,_utils_storage_DataStore__WEBPACK_IMPORTED_MODULE_3__.convert106To1010)(newAnswer));
     return (0,_utils_storage_DataStore__WEBPACK_IMPORTED_MODULE_3__.convert1010To106)(answer1010);
 }));
-server.register('getAnswer', (fieldPath) => __awaiter(void 0, void 0, void 0, function* () {
-    return _utils_storage_Answers1010__WEBPACK_IMPORTED_MODULE_2__.answers1010.search(fieldPath).map((record) => (0,_utils_storage_DataStore__WEBPACK_IMPORTED_MODULE_3__.convert1010To106)(record));
+server.register("getAnswer", (fieldPath) => __awaiter(void 0, void 0, void 0, function* () {
+    return _utils_storage_Answers1010__WEBPACK_IMPORTED_MODULE_2__.answers1010
+        .search(fieldPath)
+        .map((record) => (0,_utils_storage_DataStore__WEBPACK_IMPORTED_MODULE_3__.convert1010To106)(record));
 }));
-server.register('deleteAnswer', (id) => __awaiter(void 0, void 0, void 0, function* () {
+server.register("deleteAnswer", (id) => __awaiter(void 0, void 0, void 0, function* () {
     return _utils_storage_Answers1010__WEBPACK_IMPORTED_MODULE_2__.answers1010.delete(id);
 }));
 // inject script
 function injectScript(filePath) {
-    const script = document.createElement('script');
+    const script = document.createElement("script");
     script.src = chrome.runtime.getURL(filePath);
-    script.setAttribute('async', 'true');
-    script.type = 'module';
+    script.setAttribute("async", "true");
+    script.type = "module";
     script.onload = function () {
         script.remove();
     };
     (document.head || document.documentElement).appendChild(script);
 }
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    if (message.type === 'SHOW_WHATS_NEW') {
+    if (message.type === "SHOW_WHATS_NEW") {
         document.dispatchEvent(new CustomEvent(_app_App__WEBPACK_IMPORTED_MODULE_1__.EVENT_LISTENER_ID));
     }
 });
@@ -57560,7 +57562,7 @@ const run = () => __awaiter(void 0, void 0, void 0, function* () {
     yield _utils_storage_Answers1010__WEBPACK_IMPORTED_MODULE_2__.answers1010.load();
     yield (0,_utils_storage_Answers1010__WEBPACK_IMPORTED_MODULE_2__.migrate1010)();
     yield (0,_utils_storage_migrateEducationSectionNames__WEBPACK_IMPORTED_MODULE_4__.migrateEducation)();
-    injectScript('inject.js');
+    injectScript("inject.js");
     (0,_app_App__WEBPACK_IMPORTED_MODULE_1__.loadApp)();
 });
 run();
