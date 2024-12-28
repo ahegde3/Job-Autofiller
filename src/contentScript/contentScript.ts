@@ -23,13 +23,13 @@ server.register("updateAnswer", async (newAnswer: Answer) => {
 });
 
 server.register("getAnswer", async (fieldPath: FieldPath) => {
-  console.log("getAnswer", fieldPath);
+  // console.log("getAnswer", fieldPath);
   const answer = userData.getFieldValue(fieldPath.fieldName);
 
-  const data = answers1010
+  return answers1010
     .search(fieldPath)
     .map((record) => convert1010To106(record));
-  console.log("getAnswer2", data);
+  // console.log("getAnswer2", data);
   return [{ answer, id: 0, matchType: "exact", path: fieldPath }];
 });
 
