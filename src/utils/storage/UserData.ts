@@ -1,19 +1,4 @@
 class UserData {
-  public data: { [key: string]: string } = {
-    "First Name *": "John",
-    "Last Name *": "Doe",
-    "Email *": "xyz@gmail.com",
-    "Phone *": "1234567890",
-    //     Preferred Name:
-
-    // "How did you hear about us? *\n\n\n":,
-    // "Resume/CV *" :,   //"SingleFileUpload"
-    // "Cover Letter":,   //"SingleFileUpload".
-    // Location (City) *:,  //SimpleDropdown
-    // Are you legally authorized to work in the United States?  :  //"SimpleDropdown"
-    // "Will you now or in the future require sponsorship for employment visa status? *":,  //SimpleDropdown
-  };
-
   private profileData = [
     [
       0,
@@ -120,10 +105,6 @@ class UserData {
   public getUserProfileData = (): any => {
     return this.profileData;
   };
-  public getFieldValue(fieldName: string): string {
-    //find match if fieldName is not the key
-    return this.data[fieldName] || "XYZ";
-  }
 }
 
 export { UserData };
